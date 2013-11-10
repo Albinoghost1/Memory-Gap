@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -17,7 +18,7 @@ public class Options_Panel extends JPanel {
    	JLabel Option2 = new JLabel("Sex");
    	JLabel Option3 = new JLabel("Option 3 (incomplete)");
    	
-
+   	JLabel title = new JLabel("Options"); //text for title
     
     private JRadioButton Human;
     private JRadioButton Ostrich;
@@ -33,6 +34,9 @@ public class Options_Panel extends JPanel {
  		
 		setBackground(Color.white);
        	setLayout(null);
+       	
+       	title.setBounds(260, 50, 400, 100);
+		title.setFont(new Font("Serif", Font.BOLD, 45));
        	
        	bOk= new JButton("Ok");
        	
@@ -52,15 +56,19 @@ public class Options_Panel extends JPanel {
         Sex.add(Male);
         Sex.add(Female);
      
-       	bOk.setBounds(300, 400,150,50);
-       	Option1.setBounds(300,200,150,50); 
-       	Option2.setBounds(300,250,150,50); 
-       	Option3.setBounds(300,300,150,50);
-       	Human.setBounds(350,200,100,50);
-       	Ostrich.setBounds(450,200,100,50);
-       	Potato.setBounds(550,200,100,50);
-       	Male.setBounds(350,250,100,50);
-       	Female.setBounds(450,250,100,50);
+       
+       	Option1.setBounds(150,300,100,50);
+       	Option2.setBounds(150,350,100,50);
+       	Option3.setBounds(150,400,150,50);
+       	
+       Human.setBounds(200,300,75,50);
+       Ostrich.setBounds(280,300,75,50);
+       Potato.setBounds(355,300,75,50);
+       	
+       Male.setBounds(200,350,100,50);
+       Female.setBounds(280,350,100,50);
+       	
+    	bOk.setBounds(217,500,150,50);
        	
        	Human.setOpaque(false);
        	Human.setContentAreaFilled(false);
@@ -91,6 +99,7 @@ public class Options_Panel extends JPanel {
        	add(Option2);
        	add(Option3);
       	add(bOk);
+      	add(title);
       	
   	} // end constructor
  	

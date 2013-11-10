@@ -9,7 +9,7 @@ public class Back_Panel extends JPanel {
 	Welcome_Panel wp;//declare a variable for welcome panel
     Options_Panel op;//declare a variable for option panel
     Instructions_Panel ip;//declare a variable for Instructions panel
-    Game_Panel gp; //decalre a variable for Game Panel
+    Game_Panel gp; //declare a variable for Game Panel
 	// CONSTRUCTOR
 	public Back_Panel() {
 		super();	
@@ -25,7 +25,7 @@ public class Back_Panel extends JPanel {
 	     wp.bGame.addActionListener(new Button_GameListener());
 	     wp.bInstruction.addActionListener(new Button_InstructionListener());
 	     wp.bExit.addActionListener(new Button_ExitListener());
-	     
+	     ip.bOk.addActionListener(new ButtonOkListener());
 	     op.bOk.addActionListener(new ButtonOkListener());
 
 	}// end constructor
@@ -45,7 +45,7 @@ public class Back_Panel extends JPanel {
 	private class Button_GameListener implements ActionListener {
 		   public void actionPerformed(ActionEvent event) {
 	        remove(wp);
-	       // add(gp);
+	        //add(paintingChild);
 	        validate();
 	        repaint();
 
@@ -54,7 +54,7 @@ public class Back_Panel extends JPanel {
 	private class Button_InstructionListener implements ActionListener {
 		   public void actionPerformed(ActionEvent event) {
 	        remove(wp);
-	        //add(ip);
+	        add(ip);
 	        validate();
 	        repaint();
 
@@ -69,7 +69,7 @@ public class Back_Panel extends JPanel {
 	private class ButtonOkListener implements ActionListener {
 		   public void actionPerformed(ActionEvent event) {
 	        remove(op);
-	       // remove(ip);
+	        remove(ip);
 	       // remove(gp);
 	        add(wp);
 	        validate();

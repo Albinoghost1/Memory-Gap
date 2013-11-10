@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 
 public class Welcome_Panel extends JPanel {
+	
 	JButton bOption;
 	JButton bInstruction;
 	JButton bGame;
@@ -15,24 +16,24 @@ public class Welcome_Panel extends JPanel {
   	public Welcome_Panel() {
 		super();
 		setLayout(null);
-		title.setBounds(200, 100, 400, 100);
+		title.setBounds(260, 50, 400, 100);
 		title.setFont(new Font("Serif", Font.BOLD, 45));
 		
-		bOption = new JButton("Options");	    //create button
-		bInstruction = new JButton("Instructions");	    //create button
-		bGame = new JButton("Game");	    //create button
-		bExit = new JButton("Exit");	    //create button
+		bOption = new JButton("Options");	
+		bInstruction = new JButton("Instructions");
+		bGame = new JButton("Play-Doesnt Work");
+		bExit = new JButton("Exit");
 
-		bGame.setBounds(500, 200, 150, 50);   //define position
-		bInstruction.setBounds(500, 250, 150, 50);   //define position
-		bOption.setBounds(500, 300, 150, 50);   //define position
-		bExit.setBounds(500, 350, 150, 50);   //define position
+		bGame.setBounds(600, 350, 150, 50);
+		bInstruction.setBounds(600, 400, 150, 50);
+		bOption.setBounds(600, 450, 150, 50);
+		bExit.setBounds(600, 500, 150, 50);
 		
 		
-		add(title);						// add title to panel
+		add(title);
 		add(bGame);
 		add(bInstruction);
-		add(bOption);				    // add button to panel
+		add(bOption);
 		add(bExit);
 		
   	} // end constructor

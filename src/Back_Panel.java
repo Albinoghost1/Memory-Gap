@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Back_Panel extends JPanel {
@@ -27,6 +29,9 @@ public class Back_Panel extends JPanel {
 	     wp.bExit.addActionListener(new Button_ExitListener()); //main menu exit button
 	     ip.bOk.addActionListener(new ButtonOkListener()); // instruction ok button
 	     op.bOk.addActionListener(new ButtonOkListener()); // options ok button
+	     op.bHuman.addActionListener(new HumanListener());
+	     op.bOstrich.addActionListener(new OstrichListener());
+	     op.bPotato.addActionListener(new PotatoListener());
 
 	}
 
@@ -71,6 +76,24 @@ public class Back_Panel extends JPanel {
 	        add(wp);
 	        validate();
 	        repaint();
+
+	  	}
+	}
+	private class HumanListener implements ActionListener {
+		   public void actionPerformed(ActionEvent event) {
+			   JOptionPane.showMessageDialog(null, "Human\n *Can jump higher than the Potato\n ");
+
+	  	}
+	}
+	private class OstrichListener implements ActionListener {
+		   public void actionPerformed(ActionEvent event) {
+			   JOptionPane.showMessageDialog(null, "Ostrich\n *Has more feathers than a Human\n *Immune to Smallpox");
+
+	  	}
+	}
+	private class PotatoListener implements ActionListener {
+		   public void actionPerformed(ActionEvent event) {
+			   JOptionPane.showMessageDialog(null, "Potato\n If this was a Who Can Be the best Potato Championship this is the one to pick\n *Flame resistant up to 375 degrees\n *Likes long walks on the beach");
 
 	  	}
 	}

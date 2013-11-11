@@ -13,6 +13,11 @@ import javax.swing.JRadioButton;
 public class Options_Panel extends JPanel {
 
 	JButton bOk;
+	
+	JButton bHuman;
+	JButton bOstrich;
+	JButton bPotato;
+	
    	JLabel Option1 = new JLabel("Race");
    	JLabel Option2 = new JLabel("Sex");
    	JLabel Option3 = new JLabel("Difficulty");
@@ -42,6 +47,10 @@ public class Options_Panel extends JPanel {
        	
        	bOk= new JButton("Ok");
        	
+       	bHuman = new JButton("?");
+       	bOstrich = new JButton("?");
+       	bPotato = new JButton("?");
+       	
         Human = new JRadioButton("Human", true);
         Ostrich = new JRadioButton("Ostrich", false);
         Potato = new JRadioButton("Potato", false);
@@ -67,22 +76,25 @@ public class Options_Panel extends JPanel {
         Difficulty.add(Normal);
         Difficulty.add(Expert);
         
-       	Option1.setBounds(150,300,100,50);
-       	Option2.setBounds(150,350,100,50);
-       	Option3.setBounds(150,400,150,50);
+       	Option1.setBounds(150,300,100,20);
+       	Option2.setBounds(150,375,100,20);
+       	Option3.setBounds(150,450,150,20);
        	
-       	Human.setBounds(200,300,70,50);
-       	Ostrich.setBounds(280,300,70,50);
-       	Potato.setBounds(355,300,70,50);
+       	Human.setBounds(200,300,70,20);
+       	Ostrich.setBounds(280,300,70,20);
+       	Potato.setBounds(355,300,70,20);
        	
-       	Male.setBounds(200,350,70,50);
-       	Female.setBounds(280,350,70,50);
+       	Male.setBounds(200,375,70,20);
+       	Female.setBounds(280,375,70,20);
        	
-       	Easy.setBounds(200,400,70,50);
-       	Normal.setBounds(280,400,70,50);
-       	Expert.setBounds(355,400,70,50);
+       	Easy.setBounds(200,450,70,20);
+       	Normal.setBounds(280,450,70,20);
+       	Expert.setBounds(355,450,70,20);
        	
     	bOk.setBounds(217,500,150,50);
+    	bHuman.setBounds(200,325,50,20);
+    	bOstrich.setBounds(280,325,50,20);
+    	bPotato.setBounds(355,325,50,20);
        	
        	Human.setOpaque(false);
        	Human.setContentAreaFilled(false);
@@ -128,6 +140,9 @@ public class Options_Panel extends JPanel {
        	add(Option2);
        	add(Option3);
       	add(bOk);
+      	add(bHuman);
+      	add(bOstrich);
+      	add(bPotato);
       	add(otitle);
       	
   	}

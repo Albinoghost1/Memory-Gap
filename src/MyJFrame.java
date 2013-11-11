@@ -2,11 +2,8 @@ import javax.swing.JFrame;
 
 
 public class MyJFrame extends JFrame {
-
-
-
-		public MyJFrame()
-			{
+		public MyJFrame(){
+			
 				super();//title goes here if we want it
 				Back_Panel bp = new Back_Panel();
 				add(bp, "Center");

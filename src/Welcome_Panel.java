@@ -4,24 +4,23 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class Welcome_Panel extends JPanel {
 	
 	JButton bOption;
 	JButton bInstruction;
 	JButton bGame;
 	JButton bExit;
-	JLabel title = new JLabel("Memory Gap"); //text for title
+	JLabel wtitle = new JLabel("Memory Gap"); //text for title
 	
   	public Welcome_Panel() {
 		super();
 		setLayout(null);
-		title.setBounds(260, 50, 400, 100);
-		title.setFont(new Font("Serif", Font.BOLD, 45));
+		wtitle.setBounds(260, 50, 400, 100);
+		wtitle.setFont(new Font("Serif", Font.BOLD, 45));
 		
 		bOption = new JButton("Options");	
 		bInstruction = new JButton("Instructions");
-		bGame = new JButton("Play-Doesnt Work");
+		bGame = new JButton("Play");
 		bExit = new JButton("Exit");
 
 		bGame.setBounds(600, 350, 150, 50);
@@ -30,13 +29,13 @@ public class Welcome_Panel extends JPanel {
 		bExit.setBounds(600, 500, 150, 50);
 		
 		
-		add(title);
+		add(wtitle);
 		add(bGame);
 		add(bInstruction);
 		add(bOption);
 		add(bExit);
 		
-  	} // end constructor
+  	}
 
 
 	

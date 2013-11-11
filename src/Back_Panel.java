@@ -5,12 +5,11 @@ import javax.swing.JPanel;
 
 public class Back_Panel extends JPanel {
 	
-	// ATTRIBUTES
-	Welcome_Panel wp;//declare a variable for welcome panel
-    Options_Panel op;//declare a variable for option panel
-    Instructions_Panel ip;//declare a variable for Instructions panel
-    Game_Panel gp; //declare a variable for Game Panel
-	// CONSTRUCTOR
+	Welcome_Panel wp;
+    Options_Panel op;
+    Instructions_Panel ip;
+    Game_Panel gp;
+
 	public Back_Panel() {
 		super();	
 		setLayout(new BorderLayout());
@@ -21,18 +20,16 @@ public class Back_Panel extends JPanel {
 		
 		add(wp);
 		
-	     wp.bOption.addActionListener(new Button_OptionListener());
-	     wp.bGame.addActionListener(new Button_GameListener());
-	     wp.bInstruction.addActionListener(new Button_InstructionListener());
-	     wp.bExit.addActionListener(new Button_ExitListener());
-	     ip.bOk.addActionListener(new ButtonOkListener());
-	     op.bOk.addActionListener(new ButtonOkListener());
+	     wp.bOption.addActionListener(new Button_OptionListener()); //main menu option button
+	     wp.bGame.addActionListener(new Button_GameListener()); // main menu game button
+	     wp.bInstruction.addActionListener(new Button_InstructionListener()); // main menu instructions button
+	     gp.bMenu.addActionListener(new ButtonOkListener()); // game menu button which goes back to main menu
+	     wp.bExit.addActionListener(new Button_ExitListener()); //main menu exit button
+	     ip.bOk.addActionListener(new ButtonOkListener()); // instruction ok button
+	     op.bOk.addActionListener(new ButtonOkListener()); // options ok button
 
-	}// end constructor
+	}
 
-	// METHODS
-	
-	//Inner Classes
 	private class Button_OptionListener implements ActionListener {
 		   public void actionPerformed(ActionEvent event) {
 	        remove(wp);
@@ -45,7 +42,7 @@ public class Back_Panel extends JPanel {
 	private class Button_GameListener implements ActionListener {
 		   public void actionPerformed(ActionEvent event) {
 	        remove(wp);
-	        //add(paintingChild);
+	        add(gp);
 	        validate();
 	        repaint();
 
@@ -70,7 +67,7 @@ public class Back_Panel extends JPanel {
 		   public void actionPerformed(ActionEvent event) {
 	        remove(op);
 	        remove(ip);
-	       // remove(gp);
+	        remove(gp);
 	        add(wp);
 	        validate();
 	        repaint();
@@ -78,7 +75,7 @@ public class Back_Panel extends JPanel {
 	  	}
 	}
 
-}// end class
+}
 
 
 

@@ -16,12 +16,11 @@ public class Back_Panel extends JPanel {
     Options_Panel op;
     Instructions_Panel ip;
     Game_Panel gp;
-    int level = 1;
-    Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.png");
-    
+  
 	public Back_Panel() {
 		super();	
 		setLayout(new BorderLayout());
+		
 		wp = new Welcome_Panel();
 		op = new Options_Panel();
 		ip = new Instructions_Panel();
@@ -29,16 +28,18 @@ public class Back_Panel extends JPanel {
 		
 		add(wp);
 		
-	     wp.bOption.addActionListener(new Button_OptionListener()); //main menu option button
 	     wp.bGame.addActionListener(new Button_GameListener()); // main menu game button
 	     wp.bInstruction.addActionListener(new Button_InstructionListener()); // main menu instructions button
-	     gp.bMenu.addActionListener(new ButtonOkListener()); // game menu button which goes back to main menu
+	     wp.bOption.addActionListener(new Button_OptionListener()); //main menu option button
 	     wp.bExit.addActionListener(new Button_ExitListener()); //main menu exit button
+	     
+	     gp.bMenu.addActionListener(new ButtonOkListener()); // game menu button which goes back to main menu
 	     ip.bOk.addActionListener(new ButtonOkListener()); // instruction ok button
 	     op.bOk.addActionListener(new ButtonOkListener()); // options ok button
-	     op.bHuman.addActionListener(new HumanListener()); //? button under human
-	     op.bOstrich.addActionListener(new OstrichListener()); //? button under Ostrich
-	     op.bPotato.addActionListener(new PotatoListener()); //? button under Potato
+	     
+	     op.bHuman.addActionListener(new HumanListener()); //? button over human
+	     op.bOstrich.addActionListener(new OstrichListener()); //? button over Ostrich
+	     op.bPotato.addActionListener(new PotatoListener()); //? button over Potato
 
 	}
 

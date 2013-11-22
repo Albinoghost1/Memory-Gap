@@ -1,95 +1,81 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
+import javax.swing.JApplet;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Game_Panel extends JPanel {
+public class Game_Panel extends JPanel { //entire class by JD
 	
-	JButton bMenu; //menu button
-	JButton blvl1; // level 1 button
-	JButton blvl2; // level 1 button
-	JButton blvl3; // level 1 button
-	JButton blvl4; // level 1 button
-	JButton blvl5; // level 1 button
-	JLabel gtitle = new JLabel("Memory Gap"); //text for title need a variable here for each lvl
+	JButton bmenu; //menu button
+	JButton bnewGame; // new game button
+	JButton bcontinue; // continue button
 
-	//Options_Panel options = new Options_Panel();
-	//not sure how to do this part
-	//it pulls the info right when the game starts and doesnt update with changes
+	JLabel gtitle = new JLabel("Memory Gap"); //text for title need a variable here for each lvl
 	
-	//String Race = options.getRace();
-	//String Sex = options.getSex();
-	//String Difficulty = options.getDifficulty();
+	String buttontile = Back_Panel.getButtonTile();
+	String fontStyle = Back_Panel.getFontStyle();
 	
-	
+	static String[] ComboboxStrings = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10"  };
+
+	static JComboBox cblevelList = new JComboBox(ComboboxStrings);
 	
   	public Game_Panel() { //Constructer
   		
   		super();
 		setLayout(null);
-		//gtitle.setForeground(Color.LIGHT_GRAY); //sets color of title
-       	gtitle.setBounds(260, 50, 400, 100); //sets location of title
-		gtitle.setFont(new Font("Serif", Font.BOLD, 45)); //sets font of title
+
+       	gtitle.setBounds(245, 70, 400, 100); //sets location of title
+		gtitle.setFont(new Font(fontStyle, Font.BOLD, 50)); //sets font of title
 		
-		bMenu = new JButton("Main Menu");
-		blvl1 = new JButton("Start Level 1");
-		blvl2 = new JButton("Start Level 2");
-		blvl3 = new JButton("Start Level 3");
-		blvl4 = new JButton("Start Level 4");
-		blvl5 = new JButton("Start Level 5");
+		bmenu = new JButton("Main Menu");
+		bnewGame = new JButton("New Game");
+		bcontinue = new JButton("Continue");
+
 		
 		
-		bMenu.setBounds(600,300,150,50); //sets location of menu button
-		blvl1.setBounds(600, 350, 150, 50); //sets location of lvl 1 button
-		blvl2.setBounds(600, 400, 150, 50); //sets location of lvl 2 button
-		blvl3.setBounds(600, 450, 150, 50); //sets location of lvl 3 button
-		blvl4.setBounds(600, 500, 150, 50); //sets location of lvl 4 button
-		blvl5.setBounds(600, 550, 150, 50); //sets location of lvl 5 button
+		bmenu.setBounds(200,350,150,50); //sets location of menu button
+		bnewGame.setBounds(200, 400, 150, 50); //sets location of new game button
+		cblevelList.setBounds(130, 450, 70, 50); //sets location of levellist combobox
+		bcontinue.setBounds(200, 450, 150, 50); //sets location of continue button
 		
-		
-		bMenu.setIcon(new ImageIcon("images/buttontile.png"));
-		bMenu.setHorizontalTextPosition(AbstractButton.CENTER);
+		bmenu.setFont(new Font(fontStyle, Font.BOLD,20));
+		bmenu.setForeground(Color.white);
+		bmenu.setIcon(new ImageIcon(buttontile));
+		bmenu.setHorizontalTextPosition(AbstractButton.CENTER);
     	
-		blvl1.setIcon(new ImageIcon("images/buttontile.png"));
-		blvl1.setHorizontalTextPosition(AbstractButton.CENTER);
+		bnewGame.setFont(new Font(fontStyle, Font.BOLD,20));
+		bnewGame.setForeground(Color.white);
+		bnewGame.setIcon(new ImageIcon(buttontile));
+		bnewGame.setHorizontalTextPosition(AbstractButton.CENTER);
     	
-		blvl2.setIcon(new ImageIcon("images/buttontile.png"));
-		blvl2.setHorizontalTextPosition(AbstractButton.CENTER);
-    	
-		blvl3.setIcon(new ImageIcon("images/buttontile.png"));
-		blvl3.setHorizontalTextPosition(AbstractButton.CENTER);
-    	
-		blvl4.setIcon(new ImageIcon("images/buttontile.png"));
-		blvl4.setHorizontalTextPosition(AbstractButton.CENTER);
-    	
-		blvl5.setIcon(new ImageIcon("images/buttontile.png"));
-		blvl5.setHorizontalTextPosition(AbstractButton.CENTER);
+		bcontinue.setFont(new Font(fontStyle, Font.BOLD,20));
+		bcontinue.setForeground(Color.white);
+		bcontinue.setIcon(new ImageIcon(buttontile));
+		bcontinue.setHorizontalTextPosition(AbstractButton.CENTER);
 		
        	add(gtitle); //adds title
-		add(bMenu); //adds menu button
-		add(blvl1); //adds lvl1 button
-		add(blvl2); //adds lvl2 button
-		add(blvl3); //adds lvl3 button
-		add(blvl4); //adds lvl4 button
-		add(blvl5); //adds lvl5 button
+		add(bmenu); //adds menu button
+		add(bnewGame); //adds new game button
+		add(cblevelList);//adds combobox
+		add(bcontinue); //adds continue button
+
 		
 		}
 
-
-  	
 	public void paintComponent (Graphics g) //method to set background 
 	 {
 	    super.paintComponent(g);
-	    Image myImage = Toolkit.getDefaultToolkit().getImage("images/backgrounddim.png");
+	    Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");
 	    g.drawImage(myImage, 0, 0, this);
-        validate();
-        repaint();
 
 	 }
-
 }
 

@@ -12,47 +12,50 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class Options_Panel extends JPanel {
+public class Options_Panel extends JPanel { //entire class by JD
 
-	JButton bOk; //makes ok button
+	JButton bSave; //makes Save button
 	
 	JButton bHuman; //makes Human ? button
 	JButton bOstrich; //makes Ostrich ? button
 	JButton bPotato; //makes Potato ? button
 	
-   	JLabel Option1 = new JLabel("Race"); //makes jlabel for option 1 Race
-   	JLabel Option2 = new JLabel("Sex"); //makes jlabel for option 2 Sex
-   	JLabel Option3 = new JLabel("Difficulty"); //makes jlabel for option 3 Difficulty
+   	JLabel Race = new JLabel("Race"); //makes jlabel for option 1 Race
+   	JLabel Sex = new JLabel("Sex"); //makes jlabel for option 2 Sex
+   	JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for option 3 Difficulty
    	
    	JLabel otitle = new JLabel("Options"); //text for title
     
     private JRadioButton Human; //jradio Human button
     private JRadioButton Ostrich; //jradio Ostrich button
     private JRadioButton Potato; //jradio Potato button
-    private ButtonGroup gRace; //jradio Race buttongroup
+    private ButtonGroup bgRace; //jradio Race buttongroup
     
     private JRadioButton Male; //jradio Male button
     private JRadioButton Female; //jradio Female button
-    private ButtonGroup gSex; //jradio Sex buttongroup
+    private ButtonGroup bgSex; //jradio Sex buttongroup
     
     private JRadioButton Easy; //jradio Easy button
     private JRadioButton Normal; //jradio Normal button
     private JRadioButton Expert; //jradio Expert button
-    private ButtonGroup gDifficulty; //jradio Difficulty buttongroup
+    private ButtonGroup bgDifficulty; //jradio Difficulty buttongroup
+    
+	String buttontile = Back_Panel.getButtonTile();
+	String fontStyle = Back_Panel.getFontStyle();
     
  	public Options_Panel() { //Constructor
  		
        	setLayout(null);
        	
        otitle.setBounds(260, 50, 400, 100);
-       otitle.setFont(new Font("Serif", Font.BOLD, 45));
-       //otitle.setForeground(Color.LIGHT_GRAY); //sets color of title
+       otitle.setFont(new Font(fontStyle, Font.ITALIC, 50));
+
        
-       	bOk= new JButton("Ok");
+       	bSave= new JButton("Save");
        	
-       	bHuman = new JButton("?");
-       	bOstrich = new JButton("?");
-       	bPotato = new JButton("?");
+       	bHuman = new JButton("Human");
+       	bOstrich = new JButton("Ostrich");
+       	bPotato = new JButton("Potato");
        	
         Human = new JRadioButton("Human", true);
         Ostrich = new JRadioButton("Ostrich", false);
@@ -65,44 +68,48 @@ public class Options_Panel extends JPanel {
         Normal = new JRadioButton("Normal", true);
         Expert = new JRadioButton("Expert", false);
 
-        gRace = new ButtonGroup();
-        gRace.add(Human);
-        gRace.add(Ostrich);
-        gRace.add(Potato);
+        bgRace = new ButtonGroup();
+        bgRace.add(Human);
+        bgRace.add(Ostrich);
+        bgRace.add(Potato);
         
-        gSex = new ButtonGroup();
-        gSex.add(Male);
-        gSex.add(Female);
+        bgSex = new ButtonGroup();
+        bgSex.add(Male);
+        bgSex.add(Female);
         
-        gDifficulty = new ButtonGroup();
-        gDifficulty.add(Easy);
-        gDifficulty.add(Normal);
-        gDifficulty.add(Expert);
+        bgDifficulty = new ButtonGroup();
+        bgDifficulty.add(Easy);
+        bgDifficulty.add(Normal);
+        bgDifficulty.add(Expert);
         
-       	Option1.setBounds(200,175,100,20);
-       	Option2.setBounds(200,200,100,20);
-       	Option3.setBounds(200,225,150,20);
+       	Race.setBounds(200,175,100,20);
        	
-       	Human.setBounds(280,175,70,20);
+      	Human.setBounds(280,175,70,20);
+      	bHuman.setBounds(280,150,80,20);
        	Ostrich.setBounds(360,175,70,20);
+     	bOstrich.setBounds(360,150,80,20);
        	Potato.setBounds(440,175,70,20);
+    	bPotato.setBounds(440,150,80,20);
+       	
+       	Sex.setBounds(200,200,100,20);
        	
        	Male.setBounds(280,200,70,20);
        	Female.setBounds(360,200,70,20);
+       	
+       	Difficulty.setBounds(200,225,150,20);
        	
        	Easy.setBounds(280,225,70,20);
        	Normal.setBounds(360,225,70,20);
        	Expert.setBounds(440,225,70,20);
        	
-    	bOk.setBounds(300,300,150,50);
-    	bOk.setIcon(new ImageIcon("images/buttontile.png"));
-    	bOk.setHorizontalTextPosition(AbstractButton.CENTER);
+       	bSave.setFont(new Font(fontStyle, Font.BOLD,35));
+       	bSave.setForeground(Color.white);
+       	bSave.setBounds(300,300,150,50);
+       	bSave.setIcon(new ImageIcon(buttontile));
+       	bSave.setHorizontalTextPosition(AbstractButton.CENTER);
 		
-    	bHuman.setBounds(280,150,50,20);
-    	bOstrich.setBounds(360,150,50,20);
-    	bPotato.setBounds(440,150,50,20);
-       	
-       	Human.setOpaque(false);
+  
+       	Human.setOpaque(false); //these make the background of the buttons invisible
        	Human.setContentAreaFilled(false);
        	Human.setBorderPainted(false);
        	
@@ -142,10 +149,10 @@ public class Options_Panel extends JPanel {
         add(Easy);
         add(Normal);
         add(Expert);
-       	add(Option1); 
-       	add(Option2);
-       	add(Option3);
-      	add(bOk);
+       	add(Race); 
+       	add(Sex);
+       	add(Difficulty);
+      	add(bSave);
       	add(bHuman);
       	add(bOstrich);
       	add(bPotato);
@@ -203,8 +210,7 @@ public class Options_Panel extends JPanel {
 	    super.paintComponent(g);
 	    Image myImage = Toolkit.getDefaultToolkit().getImage("images/background3.png");
 	    g.drawImage(myImage, 0, 0, this);
-        validate();
-        repaint();
+
 	    
 	 }
 

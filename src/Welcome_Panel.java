@@ -6,40 +6,51 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Welcome_Panel extends JPanel {
+public class Welcome_Panel extends JPanel { //entire class by JD
 	
 	JButton bOption;
 	JButton bInstruction;
 	JButton bGame;
 	JButton bExit;
 	JLabel wtitle = new JLabel("Memory Gap"); //text for title
-
-  	public Welcome_Panel() {
+	
+	String buttontile = Back_Panel.getButtonTile();
+	String fontStyle = Back_Panel.getFontStyle();	
+  	public Welcome_Panel(){//constructer
 		super();
 		setLayout(null);
-		wtitle.setBounds(260, 50, 400, 100);
-		wtitle.setFont(new Font("Serif", Font.BOLD, 45));
-		//wtitle.setForeground(Color.LIGHT_GRAY); //sets color of title
+		
+		wtitle.setBounds(245, 70, 400, 100);
+		wtitle.setFont(new Font(fontStyle, Font.BOLD, 50));
+		
 		
 		bOption = new JButton("Options");	
 		bInstruction = new JButton("Instructions");
 		bGame = new JButton("Play");
 		bExit = new JButton("Exit");
 		
+		bGame.setFont(new Font(fontStyle, Font.BOLD,35));
+		bGame.setForeground(Color.white);
 		bGame.setBounds(600, 350, 150, 50);
-		bGame.setIcon(new ImageIcon("images/buttontile.png"));
+		bGame.setIcon(new ImageIcon(buttontile));
 		bGame.setHorizontalTextPosition(AbstractButton.CENTER);
 		
+		bInstruction.setFont(new Font(fontStyle, Font.BOLD,25));
+		bInstruction.setForeground(Color.white);
 		bInstruction.setBounds(600, 400, 150, 50);
-		bInstruction.setIcon(new ImageIcon("images/buttontile.png"));
+		bInstruction.setIcon(new ImageIcon(buttontile));
 		bInstruction.setHorizontalTextPosition(AbstractButton.CENTER);
 		
+		bOption.setFont(new Font(fontStyle, Font.BOLD,35));
+		bOption.setForeground(Color.white);
 		bOption.setBounds(600, 450, 150, 50);
-		bOption.setIcon(new ImageIcon("images/buttontile.png"));
+		bOption.setIcon(new ImageIcon(buttontile));
 		bOption.setHorizontalTextPosition(AbstractButton.CENTER);
 		
+		bExit.setFont(new Font(fontStyle, Font.BOLD,35));
+		bExit.setForeground(Color.white);
 		bExit.setBounds(600, 500, 150, 50);
-		bExit.setIcon(new ImageIcon("images/buttontile.png"));
+		bExit.setIcon(new ImageIcon(buttontile));
 		bExit.setHorizontalTextPosition(AbstractButton.CENTER);
 		
 		
@@ -49,16 +60,11 @@ public class Welcome_Panel extends JPanel {
 		add(bOption);
 		add(bExit);
 		
-  	}
-
-
-	
-	
-	
+  	}	
 	public void paintComponent (Graphics g)
 	 {
 	    super.paintComponent(g);
-	    Image myImage = Toolkit.getDefaultToolkit().getImage("images/backgrounddim.png");
+	    Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");
 	    g.drawImage(myImage, 0, 0, this);
         validate();
         repaint();

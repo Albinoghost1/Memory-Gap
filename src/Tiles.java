@@ -8,13 +8,13 @@ public class Tiles extends JButton { //entire class by DN
 	int height = 100;
 	int xPos;
 	int yPos;
-	
-	
+
+
 	public Tiles()
 	{
 		super();
 
-		
+
 		// call if's to link to methods to assign tile pictures
 		/*if (Level.level == 1)
 			tile1();
@@ -34,13 +34,13 @@ public class Tiles extends JButton { //entire class by DN
 			tile8();
 		else if (Level.level == 9)
 			tile9();
-		*/
-		
+		 */
+
 	}
-	
+
 	public void setXPos()
 	{
-		
+
 	}
 
 	public String SetImage() {

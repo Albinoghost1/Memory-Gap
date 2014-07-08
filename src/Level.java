@@ -2,8 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+=======
+>>>>>>> origin/master
 
 public class Level extends JPanel{//JD
 
@@ -25,8 +28,11 @@ public class Level extends JPanel{//JD
 
 	String buttontile = Back_Panel.getButtonTile();
 	String fontStyle = Back_Panel.getFontStyle();
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> origin/master
 
 	public Level() {//JD
 		super();
@@ -643,7 +649,148 @@ public class Level extends JPanel{//JD
 		int charx = cr.getBounds().x;
 		int chary = cr.getBounds().y;
 
+<<<<<<< HEAD
 		int chartile=findChar(charx,chary);
+=======
+		int chartile = 0;
+
+		//these convert player tile coordinates to a tile number//JD
+		switch (charx){
+		case 100:
+			switch (chary){
+			case 100:
+				chartile = 0;
+				break;
+			case 200:
+				chartile = 1;
+				break;
+			case 300:
+				chartile = 2;
+				break;
+			case 400:
+				chartile = 3;
+				break;
+			case 500:
+				chartile = 4;
+				break;
+			}
+			break;
+		case 200:
+			switch (chary){
+			case 100:
+				chartile = 5;
+				break;
+			case 200:
+				chartile = 6;
+				break;
+			case 300:
+				chartile = 7;
+				break;
+			case 400:
+				chartile = 8;
+				break;
+			case 500:
+				chartile = 9;
+				break;
+			}
+			break;
+		case 300:
+			switch (chary){
+			case 100:
+				chartile = 10;
+				break;
+			case 200:
+				chartile = 11;
+				break;
+			case 300:
+				chartile = 12;
+				break;
+			case 400:
+				chartile = 13;
+				break;
+			case 500:
+				chartile = 14;
+				break;
+			}
+			break;
+		case 400:
+			switch (chary){
+			case 100:
+				chartile = 15;
+				break;
+			case 200:
+				chartile = 16;
+				break;
+			case 300:
+				chartile = 17;
+				break;
+			case 400:
+				chartile = 18;
+				break;
+			case 500:
+				chartile = 19;
+				break;
+			}
+			break;
+		case 500:
+			switch (chary){
+			case 100:
+				chartile = 20;
+				break;
+			case 200:
+				chartile = 21;
+				break;
+			case 300:
+				chartile = 22;
+				break;
+			case 400:
+				chartile = 23;
+				break;
+			case 500:
+				chartile = 24;
+				break;
+			}
+			break;
+		case 600:
+			switch (chary){
+			case 100:
+				chartile = 25;
+				break;
+			case 200:
+				chartile = 26;
+				break;
+			case 300:
+				chartile = 27;
+				break;
+			case 400:
+				chartile = 28;
+				break;
+			case 500:
+				chartile = 29;
+				break;
+			}
+			break;
+		case 700:
+			switch (chary){
+			case 100:
+				chartile = 30;
+				break;
+			case 200:
+				chartile = 31;
+				break;
+			case 300:
+				chartile = 32;
+				break;
+			case 400:
+				chartile = 33;
+				break;
+			case 500:
+				chartile = 34;
+				break;
+			}
+			break;
+		}
+>>>>>>> origin/master
 
 
 		if (chartile-1== tile || chartile+1 == tile || chartile+5 == tile || chartile-5 ==tile || tile == 99 || tile == 98 ){
@@ -1109,6 +1256,7 @@ public class Level extends JPanel{//JD
 			else if (level == 6){
 				Door.setBounds(600,100,100,100);//AC
 				grid[25].setVisible(false);//door tile number for each level
+<<<<<<< HEAD
 			}
 
 			else if (level == 7){
@@ -1132,6 +1280,31 @@ public class Level extends JPanel{//JD
 				grid[5].setVisible(false);//door tile number for each level
 			}
 
+=======
+			}
+
+			else if (level == 7){
+				Door.setBounds(600,400,100,100);//AC
+				grid[28].setVisible(false); //door tile number for each level
+			}
+
+			else if (level == 8){
+				Door.setBounds(100,200,100,100);//AC
+				grid[1].setVisible(false);//door tile number for each level
+			}
+
+			else if (level == 9){
+				Door.setBounds(500,200,100,100);//AC
+				grid[21].setVisible(false);//door tile number for each level
+			}
+
+
+			else {
+				Door.setBounds(200,100,100,100);//AC
+				grid[5].setVisible(false);//door tile number for each level
+			}
+
+>>>>>>> origin/master
 		}
 		//this if statement happens when you step on door and you have key JD
 		else if (tile1 == 98 && gotKey == true){
@@ -1229,6 +1402,7 @@ public class Level extends JPanel{//JD
 
 
 	public void badMove(int tile){//JD
+<<<<<<< HEAD
 
 
 		sl.removeLife();
@@ -1272,6 +1446,51 @@ public class Level extends JPanel{//JD
 	}
 
 
+=======
+
+
+		sl.removeLife();
+		if (tile <35){
+			if (level == 1 || level ==2 || level ==3){
+				grid[tile].setIcon(new ImageIcon("images/floortile1-3x.png"));
+			}
+			else if (level == 4 || level ==5 || level ==6){
+				grid[tile].setIcon(new ImageIcon("images/floortile4-6x.png"));
+			}
+			else if (level == 7 || level ==8 || level ==9 || level == 10){
+				grid[tile].setIcon(new ImageIcon("images/floortile7-9x.png"));
+			}
+		}
+		validate();
+		repaint();
+	}
+
+
+	public void createCharacter()
+	{
+		cr = new Character(sex, race,level); //add character DN 11-19
+		setLayout(null);
+		cr.setBounds(500,500,100,100);
+
+	}
+
+
+	///************ accessors
+	public void setSex(int s)//JD
+	{
+		sex = s;
+	}
+	public void setRace(int r)//JD
+	{
+		race= r;
+	}
+	public void setDifficulty(int d)// to be used for difficulty DN
+	{
+		difficulty=d;
+	}
+
+
+>>>>>>> origin/master
 
 
 
@@ -1291,6 +1510,7 @@ public class Level extends JPanel{//JD
 			move(98);
 		}
 	}
+<<<<<<< HEAD
 	
 
 	
@@ -1439,6 +1659,9 @@ public class Level extends JPanel{//JD
 		}
 		return chartile;
 	}
+=======
+
+>>>>>>> origin/master
 
 	public void paintComponent (Graphics g)//JD
 	{

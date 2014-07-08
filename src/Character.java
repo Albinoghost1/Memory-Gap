@@ -13,6 +13,7 @@ public class Character extends JButton{ //entire class by DN
 	int race;
 	int gender;
 	int direction;
+	int level;
 	int xPos;
 	int yPos;
 	int width = 100;
@@ -20,45 +21,76 @@ public class Character extends JButton{ //entire class by DN
 	int movement = 100;
 	int charImage;
 	private AudioClip deathSound;
-	
+
 	// character constructor DN
-	public Character(int r, int g, int w, int h )
+	public Character(int s, int r, int l)
 	{
-		// may remove completely and initialize to human above
 		race = r;
-		gender = g;
-		width = w;
-		height = h;
-		
-		// call method for character DN
-			setAvatar();
-	
+		gender = s;
+		level = l;
+
+
+		// call method to set character attributes DN
+		setAvatar();
+		setBorder(null); 
+		setContentAreaFilled(false);
 	}
-	
-	// Methods ***********************************
-	// Method to set avatar and death sound DN
+
+	// Accessors & Mutators DN ********
+	public void setChar(int s,int r)// accessor to set gender and race separately if needed DN
+	{
+		gender = s;
+		race = r;
+
+		setAvatar();
+	}
+	//accessor to change level every 3 levels. DN
+	public void setLevel(int l){
+		level = l;
+	}
+
+
+
+	// Methods *********************
+	// Method to set avatar and death sound, updated for all levels DN
 	public void setAvatar()
 	{
-		ImageIcon sprite = null;
-		
-		// set image and sound for each race DN
+		//sets a default image if none is chosen and overwrites.
+		ImageIcon image = new ImageIcon("images/humanM1-3.png");
+
+		//set image and sound for each race DN
 		if (race == 1)
 		{
 			if (gender == 1) // male
 			{
-				sprite = new ImageIcon("images/humanM.jpg"); //set human male sprite DN
-				
+				if (level == 1 || level ==2 || level == 3){
+					image = new ImageIcon("images/humanM1-3.png"); //set human male sprite DN
+				}
+				else if (level == 4 || level == 5 || level == 6){
+					image = new ImageIcon("images/humanM4-6.png");
+				}
+				else if (level == 7 || level == 8 || level == 9){
+					image = new ImageIcon("images/humanM7-9.png");
+				}
 				try {
 					URL sound = new URL("file:sound/humanM.wav"); // Set Male sound
 					deathSound = Applet.newAudioClip(sound);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
+
 			}
 			else if (gender == 2)
 			{
-				sprite = new ImageIcon("images/humanF.jpg");// Set Female human sprite
-				
+				if (level == 1 || level ==2 || level == 3){
+					image= new ImageIcon("images/humanF1-3.png");// Set Female human sprite
+				}
+				else if (level == 4 || level == 5 || level == 6){
+					image = new ImageIcon("images/humanF4-6.png");
+				}
+				else if (level == 7 || level == 8 || level == 9){
+					image = new ImageIcon("images/humanF7-9.png");
+				}
 				try {
 					URL sound = new URL("file:sound/humanF.wav"); // Set Female sound
 					deathSound = Applet.newAudioClip(sound);
@@ -71,8 +103,15 @@ public class Character extends JButton{ //entire class by DN
 		{
 			if (gender == 1) // male
 			{
-				sprite = new ImageIcon("images/ostrichM"); //set male sprite DN
-				
+				if (level == 1 || level ==2 || level == 3){
+					image = new ImageIcon("images/ostrichM1-3.png"); //set male sprite DN
+				}
+				else if (level == 4 || level == 5 || level == 6){
+					image =  new ImageIcon("images/ostrichM4-6.png");
+				}
+				else if (level == 7 || level == 8 || level == 9){
+					image = new ImageIcon("images/ostrichM7-9.png");
+				}
 				try {
 					URL sound = new URL("file:sound/ostrichM.wav"); // Set Male sound
 					deathSound = Applet.newAudioClip(sound);
@@ -82,8 +121,15 @@ public class Character extends JButton{ //entire class by DN
 			}
 			else if (gender == 2)
 			{
-				sprite = new ImageIcon("images/ostrichF.jpg");// Set Female sprite
-				
+				if (level == 1 || level ==2 || level == 3){
+					image = new ImageIcon("images/ostrichF1-3.png");// Set Female sprite
+				}
+				else if (level == 4 || level == 5 || level == 6){
+					image = new ImageIcon("images/ostrichF4-6.png");
+				}
+				else if (level == 7 || level == 8 || level == 9){
+					image = new ImageIcon("images/ostrichF7-9.png");
+				}
 				try {
 					URL sound = new URL("file:sound/ostrichF.wav"); // Set Female sound
 					deathSound = Applet.newAudioClip(sound);
@@ -96,10 +142,17 @@ public class Character extends JButton{ //entire class by DN
 		{
 			if (gender == 1) // male
 			{
-				sprite = new ImageIcon("images/potatoM"); //set male sprite DN
-				
+				if (level == 1 || level ==2 || level == 3){
+					image = new ImageIcon("images/potatoM1-3.png"); //set male sprite DN
+				}
+				else if (level == 4 || level == 5 || level == 6){
+					image = new ImageIcon("images/potatoM4-6.png");
+				}
+				else if (level == 7 || level == 8 || level == 9){
+					image = new ImageIcon("images/potatoM7-9.png");
+				}
 				try {
-					URL sound = new URL("file:sound/potatoM.wav"); // Set Male sound
+					URL sound = new URL("file:sound/potatom.wav"); // Set Male sound
 					deathSound = Applet.newAudioClip(sound);
 				} catch(Exception e) {
 					e.printStackTrace();
@@ -107,53 +160,32 @@ public class Character extends JButton{ //entire class by DN
 			}
 			else if (gender == 2)
 			{
-				sprite = new ImageIcon("images/potatoF.jpg");// Set Female sprite
-				
+				if (level == 1 || level ==2 || level == 3){
+					image = new ImageIcon("images/potatoF1-3.png");// Set Female sprite
+				}
+				else if (level == 4 || level == 5 || level == 6){
+					image = new ImageIcon("images/potatoF4-6.png");
+				}
+				else if (level == 7 || level == 8 || level == 9){
+					image = new ImageIcon("images/potatoF7-9.png");
+				}
 				try {
-					URL sound = new URL("file:sound/potatoF.wav"); // Set Female sound
+					URL sound = new URL("file:sound/potatof.wav"); // Set Female sound
 					deathSound = Applet.newAudioClip(sound);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
+
+		setIcon(image);// commit the image change
+		validate();
+		repaint();
 	}
-	
-	// Possible method used by level to set sprite start position DN
-	public void setStartPosition(int x, int y)
-	{
-		xPos = x;
-		yPos = y;
+
+
+	// method to play the death sound of character DN
+	public void dsound(){
+		deathSound.play();
 	}
-	
-	// methods to listen and change sprites direction DN
-	public void turnLeft()
-	{
-		/* image Icons etc. This may be difficult as it will 
-		 constantly  need to listen and update. 
-		 */
-	}
-	
-	/* Methods to move character across screen DN
-	  This is set to move in 100 pixel intervals, can be changed later*/
-	public void moveUp(){
-		yPos = yPos - movement; 
-	    	setLocation(xPos, yPos);
-	}
-	public void moveDown(){
-		yPos = yPos + movement;
-			setLocation(xPos, yPos);
-	}
-	public void moveLeft(){
-		xPos = xPos - movement;
-			setLocation(xPos, yPos);
-	}
-	public void moveRight(){
-		xPos = xPos + movement;
-			setLocation(xPos, yPos);
-	}
-	
-	
-	
-	
 }

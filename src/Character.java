@@ -7,9 +7,9 @@ import java.net.URL;
 
 
 
-public class Character extends JButton{ //entire class by DN
+public class Character extends JButton{ //entire class by 
 
-	// create attributes for gender and race DN
+	// create attributes for gender and race 
 	int race;
 	int gender;
 	int direction;
@@ -22,7 +22,7 @@ public class Character extends JButton{ //entire class by DN
 	int charImage;
 	private AudioClip deathSound;
 
-	// character constructor DN
+	// character constructor 
 	public Character(int s, int r, int l)
 	{
 		race = r;
@@ -30,21 +30,21 @@ public class Character extends JButton{ //entire class by DN
 		level = l;
 
 
-		// call method to set character attributes DN
+		// call method to set character attributes 
 		setAvatar();
 		setBorder(null); 
 		setContentAreaFilled(false);
 	}
 
-	// Accessors & Mutators DN ********
-	public void setChar(int s,int r)// accessor to set gender and race separately if needed DN
+	// Accessors & Mutators  ********
+	public void setChar(int s,int r)// accessor to set gender and race separately if needed 
 	{
 		gender = s;
 		race = r;
 
 		setAvatar();
 	}
-	//accessor to change level every 3 levels. DN
+	//accessor to change level every 3 levels. 
 	public void setLevel(int l){
 		level = l;
 	}
@@ -52,19 +52,19 @@ public class Character extends JButton{ //entire class by DN
 
 
 	// Methods *********************
-	// Method to set avatar and death sound, updated for all levels DN
+	// Method to set avatar and death sound, updated for all levels 
 	public void setAvatar()
 	{
 		//sets a default image if none is chosen and overwrites.
 		ImageIcon image = new ImageIcon("images/humanM1-3.png");
 
-		//set image and sound for each race DN
+		//set image and sound for each race 
 		if (race == 1)
 		{
 			if (gender == 1) // male
 			{
 				if (level == 1 || level ==2 || level == 3){
-					image = new ImageIcon("images/humanM1-3.png"); //set human male sprite DN
+					image = new ImageIcon("images/humanM1-3.png"); //set human male sprite 
 				}
 				else if (level == 4 || level == 5 || level == 6){
 					image = new ImageIcon("images/humanM4-6.png");
@@ -104,7 +104,7 @@ public class Character extends JButton{ //entire class by DN
 			if (gender == 1) // male
 			{
 				if (level == 1 || level ==2 || level == 3){
-					image = new ImageIcon("images/ostrichM1-3.png"); //set male sprite DN
+					image = new ImageIcon("images/ostrichM1-3.png"); //set male sprite 
 				}
 				else if (level == 4 || level == 5 || level == 6){
 					image =  new ImageIcon("images/ostrichM4-6.png");
@@ -143,7 +143,7 @@ public class Character extends JButton{ //entire class by DN
 			if (gender == 1) // male
 			{
 				if (level == 1 || level ==2 || level == 3){
-					image = new ImageIcon("images/potatoM1-3.png"); //set male sprite DN
+					image = new ImageIcon("images/potatoM1-3.png"); //set male sprite 
 				}
 				else if (level == 4 || level == 5 || level == 6){
 					image = new ImageIcon("images/potatoM4-6.png");
@@ -184,7 +184,7 @@ public class Character extends JButton{ //entire class by DN
 	}
 
 
-	// method to play the death sound of character DN
+	// method to play the death sound of character 
 	public void dsound(){
 		deathSound.play();
 	}

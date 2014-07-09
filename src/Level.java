@@ -2,13 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-=======
->>>>>>> origin/master
 
-public class Level extends JPanel{//JD
+public class Level extends JPanel{
 
 	int level = 1;
 	int sex;
@@ -28,24 +25,21 @@ public class Level extends JPanel{//JD
 
 	String buttontile = Back_Panel.getButtonTile();
 	String fontStyle = Back_Panel.getFontStyle();
-<<<<<<< HEAD
 	
 
-=======
->>>>>>> origin/master
 
-	public Level() {//JD
+	public Level() {
 		super();
 		setLayout(null);
 		setBackground(Color.black);
 
-		for (int i = 0;i<36;i++){//JD
+		for (int i = 0;i<36;i++){
 			grid[i] = new JButton();
 			grid[i].addActionListener(new grid_Listener());
 			grid[i].setName(String.valueOf(i));
 		}
 
-		for (int i=0;i<75;i++){//JD
+		for (int i=0;i<75;i++){
 			tile[i] = new JButton();
 		}
 
@@ -62,7 +56,7 @@ public class Level extends JPanel{//JD
 	}
 
 
-	public void level1()//JD
+	public void level1()
 	{
 
 		clearLevel();
@@ -107,7 +101,7 @@ public class Level extends JPanel{//JD
 
 
 	}
-	public void level2()//JD
+	public void level2()
 	{
 		clearLevel();
 		level = 2;
@@ -145,7 +139,7 @@ public class Level extends JPanel{//JD
 		repaint();
 
 	}
-	public void level3()//JD
+	public void level3()
 	{
 		clearLevel();
 		level = 3;
@@ -184,7 +178,7 @@ public class Level extends JPanel{//JD
 		repaint();
 
 	}
-	public void level4()//JD
+	public void level4()
 	{
 		clearLevel();
 		level = 4;
@@ -224,7 +218,7 @@ public class Level extends JPanel{//JD
 		repaint();
 
 	}
-	public void level5() //Andrew Chambliss
+	public void level5() 
 	{
 
 		clearLevel();
@@ -268,7 +262,7 @@ public class Level extends JPanel{//JD
 
 	}
 
-	public void level6()	//Andrew Chambliss
+	public void level6()
 	{
 
 		clearLevel();
@@ -313,7 +307,7 @@ public class Level extends JPanel{//JD
 		validate();
 		repaint();
 	}
-	public void level7()	//Andrew Chambliss
+	public void level7()	
 	{
 
 		clearLevel();
@@ -356,7 +350,7 @@ public class Level extends JPanel{//JD
 		validate();
 		repaint();
 	}
-	public void level8()	//Andrew Chambliss
+	public void level8()
 	{
 
 		clearLevel();
@@ -402,8 +396,7 @@ public class Level extends JPanel{//JD
 		repaint();
 
 	}
-	public void level9()	//Andrew Chambliss
-	{
+	public void level9(){	
 
 		clearLevel();
 		level = 9;
@@ -451,7 +444,7 @@ public class Level extends JPanel{//JD
 		validate();
 		repaint();
 	}
-	public void level10()	//Andrew Chambliss
+	public void level10()	
 	{
 
 		clearLevel();
@@ -504,17 +497,17 @@ public class Level extends JPanel{//JD
 		repaint();
 	}
 
-	public int getLevel(){//JD
+	public int getLevel(){
 		return level;
 
 	}
-	public void setLevel(int inplevel){//JD
+	public void setLevel(int inplevel){
 		level = inplevel;
 	}
 	public void clearLevel(){//sets all tiles,door,key and char to visible and bounds to 0,0,0,0 JD
 
 
-		for(int i=0;i<75;i++){//JD
+		for(int i=0;i<75;i++){
 			tile[i].setBounds(0,0,0,0);
 			tile[i].setVisible(true);
 		}
@@ -539,7 +532,7 @@ public class Level extends JPanel{//JD
 		repaint();
 	}	
 
-	public void setLevelGrid(){ //makes level grid***//JD
+	public void setLevelGrid(){ //makes level grid***
 
 		int x = 1;
 		int y = 1;
@@ -586,49 +579,49 @@ public class Level extends JPanel{//JD
 			Key.setBounds(300,100,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==3){	//AChambliss
+		else if (level==3){	
 			grid[7].setVisible(false);//key
 			grid[30].setVisible(true);//door
 			Key.setBounds(200,300,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==4){	//AChambliss
+		else if (level==4){	
 			grid[27].setVisible(false);//key
 			grid[4].setVisible(true);//door
 			Key.setBounds(600,300,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==5){	//AChambliss
+		else if (level==5){	
 			grid[22].setVisible(false);//key
 			grid[2].setVisible(true);//door
 			Key.setBounds(500,300,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==6){	//AChambliss
+		else if (level==6){	
 			grid[0].setVisible(false);//key
 			grid[25].setVisible(true);//door
 			Key.setBounds(100,100,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==7){	//AChambliss
+		else if (level==7){	
 			grid[9].setVisible(false);//key
 			grid[28].setVisible(true);//door
 			Key.setBounds(200,500,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==8){	//AChambliss
+		else if (level==8){	
 			grid[25].setVisible(false);//key
 			grid[1].setVisible(true);//door
 			Key.setBounds(600,100,100,100);
 			Door.setVisible(false);
 		}
-		else if (level==9){	//AChambliss
+		else if (level==9){	
 			grid[10].setVisible(false);//key
 			grid[21].setVisible(true);//door
 			Key.setBounds(300,100,100,100);
 			Door.setVisible(false);	
 		}
-		else if (level==10){	//AChambliss	
+		else if (level==10){		
 			grid[30].setVisible(false);//key
 			grid[5].setVisible(true);//door
 			Key.setBounds(700,100,100,100);
@@ -644,153 +637,12 @@ public class Level extends JPanel{//JD
 	}
 
 
-	public void move(int tile){//Move method checks if move is good or not and sends to either goodmove or badmove method//JD
+	public void move(int tile){//Move method checks if move is good or not and sends to either goodmove or badmove method
 
 		int charx = cr.getBounds().x;
 		int chary = cr.getBounds().y;
 
-<<<<<<< HEAD
 		int chartile=findChar(charx,chary);
-=======
-		int chartile = 0;
-
-		//these convert player tile coordinates to a tile number//JD
-		switch (charx){
-		case 100:
-			switch (chary){
-			case 100:
-				chartile = 0;
-				break;
-			case 200:
-				chartile = 1;
-				break;
-			case 300:
-				chartile = 2;
-				break;
-			case 400:
-				chartile = 3;
-				break;
-			case 500:
-				chartile = 4;
-				break;
-			}
-			break;
-		case 200:
-			switch (chary){
-			case 100:
-				chartile = 5;
-				break;
-			case 200:
-				chartile = 6;
-				break;
-			case 300:
-				chartile = 7;
-				break;
-			case 400:
-				chartile = 8;
-				break;
-			case 500:
-				chartile = 9;
-				break;
-			}
-			break;
-		case 300:
-			switch (chary){
-			case 100:
-				chartile = 10;
-				break;
-			case 200:
-				chartile = 11;
-				break;
-			case 300:
-				chartile = 12;
-				break;
-			case 400:
-				chartile = 13;
-				break;
-			case 500:
-				chartile = 14;
-				break;
-			}
-			break;
-		case 400:
-			switch (chary){
-			case 100:
-				chartile = 15;
-				break;
-			case 200:
-				chartile = 16;
-				break;
-			case 300:
-				chartile = 17;
-				break;
-			case 400:
-				chartile = 18;
-				break;
-			case 500:
-				chartile = 19;
-				break;
-			}
-			break;
-		case 500:
-			switch (chary){
-			case 100:
-				chartile = 20;
-				break;
-			case 200:
-				chartile = 21;
-				break;
-			case 300:
-				chartile = 22;
-				break;
-			case 400:
-				chartile = 23;
-				break;
-			case 500:
-				chartile = 24;
-				break;
-			}
-			break;
-		case 600:
-			switch (chary){
-			case 100:
-				chartile = 25;
-				break;
-			case 200:
-				chartile = 26;
-				break;
-			case 300:
-				chartile = 27;
-				break;
-			case 400:
-				chartile = 28;
-				break;
-			case 500:
-				chartile = 29;
-				break;
-			}
-			break;
-		case 700:
-			switch (chary){
-			case 100:
-				chartile = 30;
-				break;
-			case 200:
-				chartile = 31;
-				break;
-			case 300:
-				chartile = 32;
-				break;
-			case 400:
-				chartile = 33;
-				break;
-			case 500:
-				chartile = 34;
-				break;
-			}
-			break;
-		}
->>>>>>> origin/master
 
 
 		if (chartile-1== tile || chartile+1 == tile || chartile+5 == tile || chartile-5 ==tile || tile == 99 || tile == 98 ){
@@ -810,8 +662,8 @@ public class Level extends JPanel{//JD
 					chartile==30 && tile==29){
 				badMove(tile);
 			}
-			switch (level){//JD
-			case 1: //lvl 1 done//JD
+			switch (level){
+			case 1: //lvl 1 
 				switch (tile){
 				case 24:
 				case 23:
@@ -819,32 +671,41 @@ public class Level extends JPanel{//JD
 				case 21:
 				case 16:
 				case 11:
-				case 6:
 				case 26:
+				case 6:
+					goodMove(tile,charx,chary,0);
+					break;
+					
+				case 5:
+					if (chartile == 6){
+					goodMove(tile,charx,chary,1);
+					}
+					else{
+						badMove(tile);
+					}
+				break;
+				
 				case 25:
-					goodMove(tile,charx,chary,chartile);
-					break;
-				case 98:
-					switch (chartile){
-					case 26:
-						goodMove(tile,charx,chary,chartile);
-						break;
+					if (chartile == 26){
+					goodMove(tile,charx,chary,2);
 					}
-					break;
-				case 99:
-					switch (chartile){
-					case 6:
-						goodMove(tile,charx,chary,chartile);
-						break;
+					else{
+						badMove(tile);
 					}
-					break;
+				break;
 				default:
-					badMove(tile);
-					break;
+				badMove(tile);
+				break;
 				}
 				break;
 
-			case 2: //lvl 2 done//JD
+				
+				
+				
+				
+				
+				
+			case 2: //lvl 2 done
 				switch (tile){
 				case 5:
 				case 6:
@@ -855,19 +716,19 @@ public class Level extends JPanel{//JD
 				case 23:
 				case 24:
 				case 28:
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 28://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,1);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 5://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,2);
 						break;
 					}
 					break;
@@ -877,7 +738,7 @@ public class Level extends JPanel{//JD
 				}
 				break;
 
-			case 3: //lvl 3 done//JD
+			case 3: //lvl 3 done
 				switch (tile){
 				case 8:
 				case 13:
@@ -890,19 +751,19 @@ public class Level extends JPanel{//JD
 				case 33:
 				case 32:
 				case 31:
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 31://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,2);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 8://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,1);
 						break;
 					}
 					break;
@@ -912,7 +773,7 @@ public class Level extends JPanel{//JD
 				}
 				break;
 
-			case 4: //lvl 4//JD
+			case 4: //lvl 4
 				switch (tile){
 				case 3:
 				case 6:
@@ -925,19 +786,19 @@ public class Level extends JPanel{//JD
 				case 19:
 				case 22:
 				case 24:
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 3://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,2);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 22://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,1);
 						break;
 					}
 					break;
@@ -947,7 +808,7 @@ public class Level extends JPanel{//JD
 				}
 				break;
 
-				//Andrew Chambliss
+			
 			case 5:
 				switch (tile){
 				case 6:
@@ -962,19 +823,19 @@ public class Level extends JPanel{//JD
 				case 27:
 				case 28:
 				case 29:
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 7://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,2);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 27://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,1);
 						break;
 					}
 					break;
@@ -983,7 +844,7 @@ public class Level extends JPanel{//JD
 					break;
 				}
 				break;
-				//Andrew Chambliss
+				
 			case 6: 
 				switch (tile){
 				case 5:
@@ -1003,19 +864,19 @@ public class Level extends JPanel{//JD
 				case 31:
 				case 33:
 
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 26://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,2);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 5: //key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,1);
 						break;
 					}
 					break;
@@ -1024,7 +885,7 @@ public class Level extends JPanel{//JD
 					break;
 				}
 				break;
-				//Andrew Chambliss
+				
 			case 7:
 				switch (tile){
 				case 2:
@@ -1042,19 +903,20 @@ public class Level extends JPanel{//JD
 				case 27:
 
 
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 23://door
-					case 27://door	goodMove(tile,charx,chary,chartile);
+					case 27://door	
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 4://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
@@ -1063,7 +925,7 @@ public class Level extends JPanel{//JD
 					break;
 				}
 				break;
-				//Andrew Chambliss
+				
 			case 8:
 				switch (tile){
 				case 6:
@@ -1080,19 +942,19 @@ public class Level extends JPanel{//JD
 				case 28:
 				case 29:
 
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 6://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
 				case 99:
 					switch (chartile){
 					case 20://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
@@ -1102,7 +964,7 @@ public class Level extends JPanel{//JD
 				}
 				break;
 
-				//Andrew Chambliss
+				
 			case 9:
 				switch (tile){
 				case 1:
@@ -1122,12 +984,12 @@ public class Level extends JPanel{//JD
 				case 28:
 				case 29:
 
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
 				case 98:
 					switch (chartile){
 					case 26://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
@@ -1135,7 +997,7 @@ public class Level extends JPanel{//JD
 					switch (chartile){
 
 					case 5://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
@@ -1145,7 +1007,7 @@ public class Level extends JPanel{//JD
 				}
 				break;
 
-				//Andrew Chambliss
+				
 			case 10:
 				switch (tile){
 				case 0:
@@ -1170,22 +1032,28 @@ public class Level extends JPanel{//JD
 				case 29:
 
 
-					goodMove(tile,charx,chary,chartile);
+					goodMove(tile,charx,chary,0);
 					break;
+					
+					
 				case 98:
 					switch (chartile){
 					case 0://door
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
+					
+					
 				case 99:
 					switch (chartile){
 					case 25://key
-						goodMove(tile,charx,chary,chartile);
+						goodMove(tile,charx,chary,0);
 						break;
 					}
 					break;
+					
+					
 				default:
 					badMove(tile);
 					break;
@@ -1196,14 +1064,14 @@ public class Level extends JPanel{//JD
 	}
 
 
-	public void goodMove(int tile1, int charx,int chary,int chartile) {//JD
+	public void goodMove(int tile1, int charx,int chary,int keydoor) { //keydoor =0 nothing =1 key =2 door
 
 		int swapx = 0;
 		int swapy = 0;
 		int tilex;
 		int tiley;
 
-		for (int i = 0;i<35;i++){ //JD
+		for (int i = 0;i<35;i++){ 
 			grid[i].setBorder(null);
 			if ((level == 1 && (i == 5 || i == 25))||
 					(level == 2 && (i == 10 || i == 27))||
@@ -1221,7 +1089,7 @@ public class Level extends JPanel{//JD
 			}
 		}
 		//this if statement happens when you step on key JD
-		if (tile1 == 99){
+		if (keydoor==1){
 			tilex = Key.getBounds().x;
 			tiley = Key.getBounds().y;
 			Key.setVisible(false);
@@ -1229,90 +1097,72 @@ public class Level extends JPanel{//JD
 			Door.setVisible(true);
 
 			if (level == 1){
-				Door.setBounds(600,100,100,100);//AC
+				Door.setBounds(600,100,100,100);
 				grid[25].setVisible(false); //door tile number for each level
 			}
 
 			else if (level == 2){
-				Door.setBounds(600,300,100,100);//AC
+				Door.setBounds(600,300,100,100);
 				grid[27].setVisible(false);//door tile number for each level
 			}
 
 			else if (level == 3){
-				Door.setBounds(700,100,100,100);//AC
+				Door.setBounds(700,100,100,100);
 				grid[30].setVisible(false);//door tile number for each level    
 			}
 
 			else if (level == 4){
-				Door.setBounds(100,500,100,100);//AC
+				Door.setBounds(100,500,100,100);
 				grid[4].setVisible(false); //door tile number for each level
 			}
 
 			else if (level == 5){
-				Door.setBounds(100,300,100,100);//AC
+				Door.setBounds(100,300,100,100);
 				grid[2].setVisible(false);//door tile number for each level
 			}
 
 			else if (level == 6){
-				Door.setBounds(600,100,100,100);//AC
+				Door.setBounds(600,100,100,100);
 				grid[25].setVisible(false);//door tile number for each level
-<<<<<<< HEAD
 			}
 
 			else if (level == 7){
-				Door.setBounds(600,400,100,100);//AC
+				Door.setBounds(600,400,100,100);
 				grid[28].setVisible(false); //door tile number for each level
 			}
 
 			else if (level == 8){
-				Door.setBounds(100,200,100,100);//AC
+				Door.setBounds(100,200,100,100);
 				grid[1].setVisible(false);//door tile number for each level
 			}
 
 			else if (level == 9){
-				Door.setBounds(500,200,100,100);//AC
+				Door.setBounds(500,200,100,100);
 				grid[21].setVisible(false);//door tile number for each level
 			}
 
 
 			else {
-				Door.setBounds(200,100,100,100);//AC
+				Door.setBounds(200,100,100,100);
 				grid[5].setVisible(false);//door tile number for each level
 			}
 
-=======
-			}
-
-			else if (level == 7){
-				Door.setBounds(600,400,100,100);//AC
-				grid[28].setVisible(false); //door tile number for each level
-			}
-
-			else if (level == 8){
-				Door.setBounds(100,200,100,100);//AC
-				grid[1].setVisible(false);//door tile number for each level
-			}
-
-			else if (level == 9){
-				Door.setBounds(500,200,100,100);//AC
-				grid[21].setVisible(false);//door tile number for each level
-			}
-
-
-			else {
-				Door.setBounds(200,100,100,100);//AC
-				grid[5].setVisible(false);//door tile number for each level
-			}
-
->>>>>>> origin/master
 		}
 		//this if statement happens when you step on door and you have key JD
-		else if (tile1 == 98 && gotKey == true){
+		else if (keydoor==2 && gotKey == true){
 			tilex = Door.getBounds().x;
 			tiley = Door.getBounds().y;
 			Door.setVisible(false);
 			sl.addNextLevel();
 		}
+		
+		//this if statement happens when you step on door and you have key JD
+		else if (keydoor==2 && gotKey == false){
+			tilex = Door.getBounds().x;
+			tiley = Door.getBounds().y;
+			Door.setVisible(false);
+		}
+		
 		//just the standard move method JD
 		else{
 
@@ -1321,51 +1171,45 @@ public class Level extends JPanel{//JD
 			grid[tile1].setVisible(false);
 
 			if (gotKey == true){
-				if (level == 1){//AC
-					grid[5].setVisible(true); //key location
-				}
-
-				else if (level == 2){//AC
+				switch(level){
+				
+				case 1: 
+					grid[5].setVisible(true); //key location 
+				break;
+				case 2:
 					grid[10].setVisible(true); //key location
-				}
-
-				else if (level == 3){//AC
+				break;
+				case 3:
 					grid[7].setVisible(true); //key location
-				}
-
-				else if (level == 4){//AC
+				break;
+				case 4:
 					grid[27].setVisible(true); //key location
-				}
-
-				else if (level == 5){//AC
+				break;
+				case 5:
 					grid[22].setVisible(true); //key location
-				}
-
-				else if (level == 6){//AC
+				break;
+				case 6:
 					grid[7].setVisible(true); //key location
-				}
-
-				else if (level == 7){//AC
+				break;
+				case 7:
 					grid[9].setVisible(true); //key location
-				}
-
-				else if (level == 8){//AC
+				break;
+				case 8:
 					grid[25].setVisible(true); //key location
-				}
-
-				else if (level == 9){//AC
+				break;
+				case 9:
 					grid[10].setVisible(true); //key location
-				}
-
-				else {//AC
+				break;
+				case 10:
 					grid[30].setVisible(true); //key location
+				break;
 				}
-
 				Door.setVisible(true);
+				
 			}
 
 		}
-
+		
 		if (tile1-1 > 0 && tile1-1 < 35){
 			grid[tile1-1].setBorder(BorderFactory.createCompoundBorder(
 					BorderFactory.createRaisedBevelBorder(),BorderFactory.createLoweredBevelBorder()));
@@ -1401,8 +1245,7 @@ public class Level extends JPanel{//JD
 
 
 
-	public void badMove(int tile){//JD
-<<<<<<< HEAD
+	public void badMove(int tile){
 
 
 		sl.removeLife();
@@ -1424,7 +1267,7 @@ public class Level extends JPanel{//JD
 
 	public void createCharacter()
 	{
-		cr = new Character(sex, race,level); //add character DN 11-19
+		cr = new Character(sex, race,level); //add character  11-19
 		setLayout(null);
 		cr.setBounds(500,500,100,100);
 
@@ -1432,90 +1275,51 @@ public class Level extends JPanel{//JD
 
 
 	///************ accessors
-	public void setSex(int s)//JD
+	public void setSex(int s)
 	{
 		sex = s;
 	}
-	public void setRace(int r)//JD
+	public void setRace(int r)
 	{
 		race= r;
 	}
-	public void setDifficulty(int d)// to be used for difficulty DN
+	public void setDifficulty(int d)// to be used for difficulty 
 	{
 		difficulty=d;
 	}
 
 
-=======
-
-
-		sl.removeLife();
-		if (tile <35){
-			if (level == 1 || level ==2 || level ==3){
-				grid[tile].setIcon(new ImageIcon("images/floortile1-3x.png"));
-			}
-			else if (level == 4 || level ==5 || level ==6){
-				grid[tile].setIcon(new ImageIcon("images/floortile4-6x.png"));
-			}
-			else if (level == 7 || level ==8 || level ==9 || level == 10){
-				grid[tile].setIcon(new ImageIcon("images/floortile7-9x.png"));
-			}
-		}
-		validate();
-		repaint();
-	}
-
-
-	public void createCharacter()
-	{
-		cr = new Character(sex, race,level); //add character DN 11-19
-		setLayout(null);
-		cr.setBounds(500,500,100,100);
-
-	}
-
-
-	///************ accessors
-	public void setSex(int s)//JD
-	{
-		sex = s;
-	}
-	public void setRace(int r)//JD
-	{
-		race= r;
-	}
-	public void setDifficulty(int d)// to be used for difficulty DN
-	{
-		difficulty=d;
-	}
-
-
->>>>>>> origin/master
 
 
 
 
-	private class grid_Listener implements ActionListener {//JD
+	private class grid_Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			move(Integer.parseInt((((JComponent) event.getSource()).getName())));
 		}
 	}
-	private class key_Listener implements ActionListener {//JD
+	private class key_Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			move(99);
 		}
 	}
-	private class door_Listener implements ActionListener {//JD
+	private class door_Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			move(98);
 		}
 	}
-<<<<<<< HEAD
 	
-
+	public boolean beatLvl(){
+		boolean win=false;
+		if(cr.getBounds().x==Door.getBounds().x && cr.getBounds().y==Door.getBounds().y){
+			win=true;
+		}
+		return win;
+		
+	}
 	
 	public int findChar(int charx , int chary){
-		//these convert player tile coordinates to a tile number//JD
+		//these convert player tile coordinates to a tile number
 		
 		int chartile = 0;
 		
@@ -1659,11 +1463,8 @@ public class Level extends JPanel{//JD
 		}
 		return chartile;
 	}
-=======
 
->>>>>>> origin/master
-
-	public void paintComponent (Graphics g)//JD
+	public void paintComponent (Graphics g)
 	{
 		super.paintComponent(g);
 		Image myImage = null;

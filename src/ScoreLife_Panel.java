@@ -2,15 +2,9 @@ import javax.swing.*;
 
 import java.awt.*;
 
-<<<<<<< HEAD
 public class ScoreLife_Panel extends JPanel { //Panel created to display life and score 
 
 	// attributes 
-=======
-public class ScoreLife_Panel extends JPanel { //Panel created to display life and score DN
-
-	// attributes DN
->>>>>>> origin/master
 
 	JLabel life1;
 	JLabel life2;
@@ -32,21 +26,13 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	String buttontile = Back_Panel.getButtonTile();
 	String fontStyle = Back_Panel.getFontStyle();
 
-<<<<<<< HEAD
 	public ScoreLife_Panel() { //Changed this to accept values 
-=======
-	public ScoreLife_Panel() { //Changed this to accept values DN
->>>>>>> origin/master
 		super();
 		setLayout(null);
 
 
 
-<<<<<<< HEAD
 		//constructor objects, Could possibly have if's to affect lifes 
-=======
-		//constructor objects, Could possibly have if's to affect lifes DN
->>>>>>> origin/master
 
 
 		life1 = new JLabel();
@@ -97,27 +83,16 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	}
 	//accessors and mutators
 
-<<<<<<< HEAD
 	public void setDiff(int d){ //accessor to set difficulty for timer//
-=======
-	public void setDiff(int d){ //accessor to set difficulty for timer//DN
->>>>>>> origin/master
 
 		difficulty = d;
 
 	}
 
-<<<<<<< HEAD
 	public void setRace(int r){//
 		race = r;
 	}
 	public void setLives(){//
-=======
-	public void setRace(int r){//DN
-		race = r;
-	}
-	public void setLives(){//DN
->>>>>>> origin/master
 
 		if (difficulty ==3){
 			lives=1;
@@ -132,11 +107,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	}
 
 
-<<<<<<< HEAD
 	// Other Methods 
-=======
-	// Other Methods DN
->>>>>>> origin/master
 
 	public void addLives(){//JD
 
@@ -161,21 +132,21 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 
 	}
-<<<<<<< HEAD
 	public void removeLife() //
-=======
-	public void removeLife() //DN
->>>>>>> origin/master
 	{
 		if (lives < 1 && race != 3){
-			JOptionPane.showMessageDialog(null,"Game Over");
-			//Back_Panel bpreset = new Back_Panel();
-			//bpreset.ResetGame();
 			System.exit(0);
 		}
 
 		if (lives == 1 && race != 3) {
-			remove(life1);
+			  int reply = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
+		        if (reply == JOptionPane.YES_OPTION) {
+		        	
+		        }
+		        else {
+		        	System.exit(0);
+		          
+		        }
 		}  
 		if (lives == 2 && race != 3) {
 			remove(life2);

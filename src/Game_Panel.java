@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Game_Panel extends JPanel {
-	//added to display picks DN
+	//added to display picks 
 	int race= 1;
 	int difficulty;
 	int sex;
@@ -21,7 +21,7 @@ public class Game_Panel extends JPanel {
 
 	JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
 
-	// JLabels to display race and difficulty//DN
+	// JLabels to display race and difficulty//
 	JLabel grace = new JLabel("Race: ");
 
 	JLabel gdiff = new JLabel("Difficulty: ");
@@ -82,7 +82,7 @@ public class Game_Panel extends JPanel {
 		add(bcontinue); //adds continue button JD
 
 	}
-	// Method created to handle display of race and diff DN
+	// Method created to handle display of race and diff 
 	/*public void displayRaceDif(int r, int s, int d,String loc){
 		race = r;
 		difficulty = d;

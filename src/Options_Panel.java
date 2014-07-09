@@ -12,44 +12,44 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class Options_Panel extends JPanel { //JD
+public class Options_Panel extends JPanel { //
 
-	JButton bSave; //makes Save button JD
+	JButton bSave; //makes Save button 
 
-	JButton bHuman; //makes Human ? button JD
-	JButton bOstrich; //makes Ostrich ? button JD
-	JButton bPotato; //makes Potato ? button JD
+	JButton bHuman; //makes Human ? button 
+	JButton bOstrich; //makes Ostrich ? button 
+	JButton bPotato; //makes Potato ? button 
 
-	JLabel Race = new JLabel("Race"); //makes jlabel for option 1 Race JD
-	JLabel Sex = new JLabel("Sex"); //makes jlabel for option 2 Sex JD
-	JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for option 3 Difficulty JD
-	JLabel Bgmusic =new JLabel("BG Music");//makes jlabel for Background music DN
+	JLabel Race = new JLabel("Race"); //makes jlabel for option 1 Race 
+	JLabel Sex = new JLabel("Sex"); //makes jlabel for option 2 Sex 
+	JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for option 3 Difficulty 
+	JLabel Bgmusic =new JLabel("BG Music");//makes jlabel for Background music 
 
-	JLabel otitle = new JLabel("Options"); //text for title JD
+	JLabel otitle = new JLabel("Options"); //text for title 
 
-	private JRadioButton Human; //jradio Human button JD
-	private JRadioButton Ostrich; //jradio Ostrich button JD
-	private JRadioButton Potato; //jradio Potato button JD
-	private ButtonGroup bgRace; //jradio Race buttongroup JD
+	private JRadioButton Human; //jradio Human button 
+	private JRadioButton Ostrich; //jradio Ostrich button 
+	private JRadioButton Potato; //jradio Potato button 
+	private ButtonGroup bgRace; //jradio Race buttongroup 
 
-	private JRadioButton Male; //jradio Male button JD
-	private JRadioButton Female; //jradio Female button JD
-	private ButtonGroup bgSex; //jradio Sex buttongroup JD
+	private JRadioButton Male; //jradio Male button 
+	private JRadioButton Female; //jradio Female button 
+	private ButtonGroup bgSex; //jradio Sex buttongroup 
 
-	private JRadioButton Easy; //jradio Easy button JD
-	private JRadioButton Normal; //jradio Normal button JD
-	private JRadioButton Expert; //jradio Expert button JD
-	private ButtonGroup bgDifficulty; //jradio Difficulty buttongroup JD
+	private JRadioButton Easy; //jradio Easy button 
+	private JRadioButton Normal; //jradio Normal button 
+	private JRadioButton Expert; //jradio Expert button 
+	private ButtonGroup bgDifficulty; //jradio Difficulty buttongroup 
 
-	private JRadioButton bgm1; // jradion bg1 DN
-	private JRadioButton bgm2; // jradio bg2 DN
-	private JRadioButton bgm3; // jradio bg2 DN
-	private ButtonGroup bgMusic;// bg for bgm DN
+	private JRadioButton bgm1; // jradion bg1 
+	private JRadioButton bgm2; // jradio bg2 
+	private JRadioButton bgm3; // jradio bg2 
+	private ButtonGroup bgMusic;// bg for bgm 
 
-	String buttontile = Back_Panel.getButtonTile();//JD
-	String fontStyle = Back_Panel.getFontStyle();//JD
+	String buttontile = Back_Panel.getButtonTile();//
+	String fontStyle = Back_Panel.getFontStyle();//
 
-	public Options_Panel() { //Constructor//JD
+	public Options_Panel() { //Constructor//
 
 		setLayout(null);
 
@@ -92,7 +92,7 @@ public class Options_Panel extends JPanel { //JD
 		bgDifficulty.add(Normal);
 		bgDifficulty.add(Expert);
 
-		// group for background music DN
+		// group for background music 
 		bgMusic = new ButtonGroup();
 		bgMusic.add(bgm1);
 		bgMusic.add(bgm2);
@@ -118,7 +118,7 @@ public class Options_Panel extends JPanel { //JD
 		Normal.setBounds(360,225,70,20);
 		Expert.setBounds(440,225,70,20);
 
-		//added option for bg music DN
+		//added option for bg music 
 		Bgmusic.setBounds(200, 250, 150, 20);
 		bgm1.setBounds(280, 250, 70, 20);
 		bgm2.setBounds(360,250,70,20);
@@ -131,7 +131,7 @@ public class Options_Panel extends JPanel { //JD
 		bSave.setHorizontalTextPosition(AbstractButton.CENTER);
 
 
-		Human.setOpaque(false); //these make the background of the buttons invisible JD
+		Human.setOpaque(false); //these make the background of the buttons invisible 
 		Human.setContentAreaFilled(false); 
 		Human.setBorderPainted(false);
 
@@ -198,7 +198,7 @@ public class Options_Panel extends JPanel { //JD
 
 	}
 
-	public int getRace()/// edit DN 11/19
+	public int getRace()/// edit  11/19
 	{
 		int race;
 		if(Potato.isSelected()){
@@ -214,7 +214,7 @@ public class Options_Panel extends JPanel { //JD
 		return race;
 
 	}
-	public int getSex() /// edit DN 11/19
+	public int getSex() /// edit  11/19
 	{
 		int sex;
 		if(Male.isSelected()){
@@ -226,7 +226,7 @@ public class Options_Panel extends JPanel { //JD
 		return sex;
 
 	}
-	public int getDifficulty()//JD
+	public int getDifficulty()//
 	{
 		int difficulty = 0;
 		
@@ -246,7 +246,7 @@ public class Options_Panel extends JPanel { //JD
 
 
 
-	//added bgm method to return bgm option DN
+	//added bgm method to return bgm option 
 	public int getBGMusic(){
 		int bgm;
 		if(bgm1.isSelected()){
@@ -261,7 +261,7 @@ public class Options_Panel extends JPanel { //JD
 		return bgm;
 	}
 
-	public void paintComponent (Graphics g)//JD
+	public void paintComponent (Graphics g)//
 	{
 		super.paintComponent(g);
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background3.png");

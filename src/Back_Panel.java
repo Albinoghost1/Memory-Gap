@@ -45,28 +45,28 @@ public class Back_Panel extends JPanel {//
 		add(wp);
 
 		
-		
 		addKeyListener( new KeyboardInput());
 		setFocusable(true);
 		requestFocusInWindow();
 		requestFocus();
 		
 		//adds button listeners to JButtons throughout the classes 
-		wp.bGame.addActionListener(new Button_Listener()); //Welcome Panel Buttons 
-		wp.bInstruction.addActionListener(new Button_Listener());
-		wp.bOption.addActionListener(new Button_Listener());
-		wp.bExit.addActionListener(new Button_Listener());
+		 buttonListener(wp.bGame);
+		 buttonListener(wp.bInstruction);
+		 buttonListener(wp.bOption);
+		 buttonListener(wp.bExit);
 
-		gp.bmenu.addActionListener(new Button_Listener()); //Game Panel Buttons 
-		gp.bnewGame.addActionListener(new Button_Listener());
-		gp.bcontinue.addActionListener(new Button_Listener());
+		 buttonListener(gp.bmenu);
+		 buttonListener(gp.bnewGame);
+		 buttonListener(gp.bcontinue);
 
-		lp.sl.bnextLevel.addActionListener(new Button_Listener());//Level buttons 
-		lp.sl.bmenu.addActionListener(new Button_Listener());
+		 buttonListener(lp.sl.bnextLevel);
+		 buttonListener(lp.sl.bmenu);
 		
-		ip.bOk.addActionListener(new Button_Listener()); //Instruction Panel Buttons 
+		 buttonListener(ip.bOk);
 
-		op.bSave.addActionListener(new Button_Listener()); //Option Panel Buttons 
+		buttonListener(op.bSave);
+		
 		op.bHuman.addActionListener(new HumanListener());
 		op.bOstrich.addActionListener(new OstrichListener());
 		op.bPotato.addActionListener(new PotatoListener());
@@ -80,14 +80,18 @@ public class Back_Panel extends JPanel {//
 		}
 
 	}
-
+	//add generic button listener to jbutton
+	public void buttonListener(JButton buttonName){
+		buttonName.addActionListener(new Button_Listener());
+	}
+	
 	//Method to handle bgm 
 	public void bgMusic(){
 
 
 		if (op.getBGMusic() == 1){
 			try {
-				URL sound = new URL("file:sound/bgm3.wav");
+				URL sound = new URL("file:sound/bgm3.wav"); 
 				bgm = Applet.newAudioClip(sound);
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -107,16 +111,16 @@ public class Back_Panel extends JPanel {//
 
 	}
 	//main private class button listener for all buttons 
-	//it checks how each button is labeled and does things accordingly 
+
 	private class Button_Listener implements ActionListener {//
 		public void actionPerformed(ActionEvent event) {
-			String eve =event.getActionCommand();
+			requestFocusInWindow();
 			requestFocus();
-			menuMove(eve);
+			menuMove(event.getActionCommand());
 			}
 	}
 		
-		
+	//it checks how each button is labeled and does things accordingly 
 		public void menuMove(String buttonName) {
 			switch(buttonName){
 			
@@ -136,6 +140,7 @@ public class Back_Panel extends JPanel {//
 				remove(wp);
 				add(gp);
 				lp.sl.setLives();
+				gp.displayRaceDif(op.getRace(), op.getSex(), op.getDifficulty(), "op");
 				break;	   
 
 				//if button is named Instructions this case happens 

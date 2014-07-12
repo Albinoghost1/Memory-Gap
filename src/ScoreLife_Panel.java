@@ -26,7 +26,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	String buttontile = Back_Panel.getButtonTile();
 	String fontStyle = Back_Panel.getFontStyle();
 
-	public ScoreLife_Panel() { //Changed this to accept values 
+	public ScoreLife_Panel() { 
 		super();
 		setLayout(null);
 
@@ -81,6 +81,9 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		add(bstartLevel[level]);
 		add(bmenu);
 	}
+	
+	
+	
 	//accessors and mutators
 
 	public void setDiff(int d){ //accessor to set difficulty for timer//
@@ -141,11 +144,10 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		if (lives == 1 && race != 3) {
 			  int reply = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
 		        if (reply == JOptionPane.YES_OPTION) {
-		        	
+		        	bmenu.doClick();
 		        }
 		        else {
 		        	System.exit(0);
-		          
 		        }
 		}  
 		if (lives == 2 && race != 3) {

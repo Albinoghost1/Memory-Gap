@@ -26,13 +26,13 @@ public class Game_Panel extends JPanel {
 
 	JLabel gdiff = new JLabel("Difficulty: ");
 	
-	JLabel selecteddiff = null;
-	JButton selectedRace;
+	JLabel selecteddiff = new JLabel("");
+	JButton selectedRace = new JButton("");
 
 	String buttontile = Back_Panel.getButtonTile(); //gets button background from Back Panel JD
 	String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
 
-	static String[] ComboboxStrings = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6"};
+	static String[] ComboboxStrings = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10"};
 
 	static JComboBox cblevelList = new JComboBox(ComboboxStrings);
 
@@ -82,8 +82,8 @@ public class Game_Panel extends JPanel {
 		add(bcontinue); //adds continue button JD
 
 	}
-	// Method created to handle display of race and diff 
-	/*public void displayRaceDif(int r, int s, int d,String loc){
+	 //Method created to handle display of race and diff 
+	 public void displayRaceDif(int r, int s, int d,String loc){
 		race = r;
 		difficulty = d;
 		sex=s;
@@ -113,11 +113,11 @@ public class Game_Panel extends JPanel {
 
 
 		if(race == 3)
-			selecteddiff = new JLabel("Infinite Lifes");
+			selecteddiff.setText("Infinite Lifes");
 		else if (d>1)
-			selecteddiff = new JLabel(d+" Lives");
+			selecteddiff.setText(d+" Lives");
 		else if(d<1)
-			selecteddiff = new JLabel(d+" Life");
+			selecteddiff.setText(d+" Life");
 
 
 		switch(loc){
@@ -148,7 +148,7 @@ public class Game_Panel extends JPanel {
 		repaint();
 
 	}
-	*/
+
 	public void paintComponent (Graphics g) //method to set background //JD
 	{
 		super.paintComponent(g);

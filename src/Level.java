@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Level extends JPanel {
@@ -64,13 +65,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 1;
 
-		setTile10(6,11,16,21,26,22,23,99,99,99,1);
-
-		Key.setBounds(200, 100, 100, 100);
-		Door.setBounds(600, 100, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
-
-
+		setTile10(6,11,16,21,26,22,23,99,99,99,1,200,100,600,100);
 
 	}
 
@@ -78,12 +73,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 2;
 
-		setTile10(6,17,7,12,28,18,23,5,99,99,1);
-
-		Key.setBounds(300, 100, 100, 100);
-		Door.setBounds(600, 300, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
-
+		setTile10(6,17,7,12,28,18,23,5,99,99,1,300,100,600,300);
 
 	}
 
@@ -91,12 +81,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 3;
 
-		setTile10(8,13,14,19,29,28,33,32,31,99,1);
-
-		Key.setBounds(200, 300, 100, 100);
-		Door.setBounds(700, 100, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
-
+		setTile10(8,13,14,19,29,28,33,32,31,99,1,200,300,700,100);
 
 
 	}
@@ -105,13 +90,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 4;
 
-		setTile10(3,6,7,8,11,16,17,18,19,22,2);
-
-
-		Key.setBounds(600, 300, 100, 100);
-		Door.setBounds(100, 500, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
-
+		setTile10(3,6,7,8,11,16,17,18,19,22,2,600,300,100,500);
 
 	}
 
@@ -120,14 +99,8 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 5;
 
-		setTile20(6,7,11,15,16,20,25,26,27,28,29,99,99,99,99,99,99,99,99,99,2);
+		setTile20(6,7,11,15,16,20,25,26,27,28,29,99,99,99,99,99,99,99,99,99,2,500,300,100,300);
 		
-		Key.setBounds(500, 300, 100, 100);// 22
-		Door.setBounds(100, 300, 100, 100);// 2
-		cr.setBounds(500, 500, 100, 100);// 24
-
-
-
 	}
 
 	public void level6() {
@@ -135,12 +108,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 6;
 
-		setTile20(5,6,7,8,12,13,14,18,22,23,26,27,28,31,33,99,99,99,99,99,2);
-
-		Key.setBounds(100, 100, 100, 100);// 0
-		Door.setBounds(600, 100, 100, 100);// 25
-		cr.setBounds(500, 500, 100, 100);
-
+		setTile20(5,6,7,8,12,13,14,18,22,23,26,27,28,31,33,99,99,99,99,99,2,100,100,600,100);
 
 	}
 
@@ -149,24 +117,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 7;
 
-		tile[0].setBounds(100, 300, 100, 100);// 2
-		tile[1].setBounds(100, 400, 100, 100);// 3
-		tile[2].setBounds(100, 500, 100, 100);// 4
-		tile[3].setBounds(200, 300, 100, 100);// 7
-		tile[4].setBounds(300, 300, 100, 100);// 12
-		tile[5].setBounds(400, 200, 100, 100);// 16
-		tile[6].setBounds(400, 300, 100, 100);// 17
-		tile[7].setBounds(400, 400, 100, 100);// 18
-		tile[8].setBounds(500, 200, 100, 100);// 21
-		tile[9].setBounds(500, 400, 100, 100);// 23
-		tile[10].setBounds(600, 200, 100, 100);// 26
-		tile[11].setBounds(600, 300, 100, 100);// 27
-
-		Key.setBounds(200, 500, 100, 100);
-		Door.setBounds(500, 400, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
-
-
+		setTile20(2,3,4,7,12,16,17,18,21,23,26,27,99,99,99,99,99,99,99,99,3,200,500,600,400);
 	}
 
 	public void level8() {
@@ -174,26 +125,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 8;
 
-		tile[0].setBounds(200, 200, 100, 100); // 6
-		tile[1].setBounds(300, 200, 100, 100);// 11
-		tile[2].setBounds(300, 300, 100, 100);// 12
-		tile[3].setBounds(300, 400, 100, 100);// 13
-		tile[4].setBounds(400, 400, 100, 100);// 18
-		tile[5].setBounds(400, 500, 100, 100);// 19
-		tile[6].setBounds(500, 100, 100, 100);// 20
-		tile[7].setBounds(500, 200, 100, 100);// 21
-		tile[8].setBounds(500, 300, 100, 100);// 22
-		tile[9].setBounds(600, 300, 100, 100);// 27
-		tile[10].setBounds(600, 400, 100, 100);// 28
-		tile[11].setBounds(600, 500, 100, 100);// 29
-		tile[12].setBounds(700,500,100,100);//34
-		tile[13].setBounds(600,500,100,100);//29
-
-		Key.setBounds(600, 100, 100, 100);
-		Door.setBounds(100, 200, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
-
-
+		setTile20(6,11,12,13,18,19,20,21,22,27,28,29,34,99,99,99,99,99,99,99,3,600,100,100,200);
 
 	}
 
@@ -202,26 +134,7 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 9;
 
-		tile[0].setBounds(100, 200, 100, 100); // 1
-		tile[1].setBounds(100, 300, 100, 100);// 2
-		tile[2].setBounds(100, 400, 100, 100);// 3
-		tile[3].setBounds(200, 100, 100, 100);// 5
-		tile[4].setBounds(200, 200, 100, 100);// 6
-		tile[5].setBounds(200, 400, 100, 100);// 8
-		tile[6].setBounds(300, 300, 100, 100);// 12
-		tile[7].setBounds(300, 400, 100, 100);// 13
-		tile[8].setBounds(300, 500, 100, 100);// 14
-		tile[9].setBounds(400, 100, 100, 100);// 15
-		tile[10].setBounds(400, 400, 100, 100);// 18
-		tile[11].setBounds(400, 500, 100, 100);// 19
-		tile[12].setBounds(600, 200, 100, 100);// 26
-		tile[13].setBounds(600, 300, 100, 100);// 27
-		tile[14].setBounds(600, 400, 100, 100);// 28
-		tile[15].setBounds(600, 500, 100, 100);// 29
-
-		Key.setBounds(300, 100, 100, 100);
-		Door.setBounds(500, 200, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
+		setTile20(1,2,3,5,6,8,12,13,14,15,18,19,26,27,28,29,99,99,99,99,3,300,100,500,200);
 
 	}
 
@@ -230,29 +143,8 @@ public class Level extends JPanel {
 		clearLevel();
 		level = 10;
 
-		tile[0].setBounds(100, 100, 100, 100);// 0
-		tile[1].setBounds(100, 200, 100, 100); // 1
-		tile[2].setBounds(100, 300, 100, 100);// 2
-		tile[3].setBounds(100, 400, 100, 100);// 3
-		tile[4].setBounds(100, 500, 100, 100);// 4
-		tile[5].setBounds(200, 400, 100, 100);// 8
-		tile[6].setBounds(200, 500, 100, 100);// 9
-		tile[7].setBounds(300, 400, 100, 100);// 13
-		tile[8].setBounds(400, 100, 100, 100);// 15
-		tile[9].setBounds(400, 200, 100, 100);// 16
-		tile[10].setBounds(400, 400, 100, 100);// 18
-		tile[11].setBounds(400, 500, 100, 100);// 19
-		tile[12].setBounds(500, 100, 100, 100);// 20
-		tile[13].setBounds(500, 200, 100, 100);// 21
-		tile[14].setBounds(500, 300, 100, 100);// 22
-		tile[15].setBounds(500, 100, 100, 100);// 25
-		tile[16].setBounds(500, 300, 100, 100);// 27
-		tile[17].setBounds(600, 100, 100, 100);// 28
-		tile[18].setBounds(600, 300, 100, 100);// 29
+		setTile20(0,1,2,3,4,8,9,13,15,16,18,19,20,21,22,25,27,28,29,99,3,700,100,200,100);
 
-		Key.setBounds(700, 100, 100, 100);
-		Door.setBounds(200, 100, 100, 100);
-		cr.setBounds(500, 500, 100, 100);
 	}
 
 	public int getLevel() {
@@ -294,7 +186,7 @@ public class Level extends JPanel {
 
 	//sets tiles for lvls
 	
-	public void setTile10(int tile1,int tile2,int tile3,int tile4,int tile5,int tile6,int tile7,int tile8, int tile9, int tile10,int tilelvl){
+	public void setTile10(int tile1,int tile2,int tile3,int tile4,int tile5,int tile6,int tile7,int tile8, int tile9, int tile10,int tilelvl,int keyx,int keyy,int doorx, int doory){
 		int tile11 = 99;
 		int tile12 = 99;
 		int tile13 = 99;
@@ -305,10 +197,10 @@ public class Level extends JPanel {
 		int tile18 = 99;
 		int tile19 = 99;
 		int tile20 = 99;
-		setTile20(tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20,tilelvl);
+		setTile20(tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20,tilelvl,keyx,keyy,doorx,doory);
 	}
 	
-	public void setTile20(int tile1,int tile2,int tile3,int tile4,int tile5,int tile6,int tile7,int tile8, int tile9, int tile10,int tile11,int tile12,int tile13,int tile14,int tile15,int tile16,int tile17,int tile18,int tile19,int tile20,int tilelvl) {
+	public void setTile20(int tile1,int tile2,int tile3,int tile4,int tile5,int tile6,int tile7,int tile8, int tile9, int tile10,int tile11,int tile12,int tile13,int tile14,int tile15,int tile16,int tile17,int tile18,int tile19,int tile20,int tilelvl,int keyx,int keyy,int doorx, int doory) {
 		
 		
 		int [] locations ={tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20};
@@ -316,6 +208,11 @@ public class Level extends JPanel {
 		Key.setBorder(null);
 		Door.setBorder(null);
 		cr.setBorder(null);
+		cr.setBounds(500, 500, 100, 100);
+		
+		Key.setBounds(keyx,keyy, 100, 100);
+		Door.setBounds(doorx,doory,100,100);
+		
 		
 		add(Key);
 		add(Door);
@@ -956,8 +853,7 @@ public class Level extends JPanel {
 																			// nothing
 																			// =1
 																			// key
-																			// =2
-																			// door
+																			// =2															// door
 
 		int swapx = 0;
 		int swapy = 0;
@@ -1093,6 +989,9 @@ public class Level extends JPanel {
 					break;
 				case 10:
 					grid[30].setVisible(true); // key location
+					break;
+				case 0:
+					JOptionPane.showMessageDialog(null, "Error");
 					break;
 				}
 				Door.setVisible(true);

@@ -32,7 +32,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 
 
-		//constructor objects, Could possibly have if's to affect lifes 
+		//constructor objects, have if's to affect lifes 
 
 
 		life1 = new JLabel();

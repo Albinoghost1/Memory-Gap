@@ -1,57 +1,91 @@
 import java.awt.*;
 import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
-public class Welcome_Panel extends JPanel {//JD
+public class Welcome_Panel extends JPanel {
 
 	JButton bOption;
 	JButton bInstruction;
 	JButton bGame;
 	JButton bExit;
 	
-	JLabel wtitle = new JLabel("Memory Gap"); //text for title JD
+	JComboBox cbThemeChooser;
+	
+	JLabel wtitle = new JLabel("Memory Gap"); //text for title 
+	
+	
 
-	String buttontile = Back_Panel.getButtonTile();//JD
-	String fontStyle = Back_Panel.getFontStyle();//JD
+	String buttontile = Back_Panel.getButtonTile();
+	String fontStyle = Back_Panel.getFontStyle();
+	
+	Changelog_Panel cl;
 
-	public Welcome_Panel(){//constructor//JD
+	public Welcome_Panel(){//constructor
 		super();
 		setLayout(null);
 
-		wtitle.setBounds(245, 70, 400, 100);
-		wtitle.setFont(new Font(fontStyle, Font.BOLD, 50));
+		wtitle.setBounds(220, 80, 470, 100);
+		wtitle.setFont(new Font("Textile", Font.PLAIN, 80 ));
+		wtitle.setForeground(Color.GREEN.darker().darker().darker());
+		//wtitle.setBorder(BorderFactory.createLineBorder(Color.black));
+		wtitle.setBackground(Color.black);
+		
+		
+		cl = new Changelog_Panel();
+		cl.setBounds(500,200,200,300);
+		cl.setOpaque(false);
+		add(cl);
 		
 		add(wtitle);
+		
 		
 		
 		bOption = new JButton("Options");	
 		bInstruction = new JButton("Instructions");
 		bGame = new JButton("Play");
 		bExit = new JButton("Exit");
+		String[] ThemesArray = { "Indiana Jones","Rabbit Fields","Mouse","Medieval"};
+		cbThemeChooser = new JComboBox(ThemesArray);
 
-		SetItem(bGame,"Play",350,35);
-		SetItem(bInstruction,"Instructions",400,25);
-		SetItem(bOption,"Options",450,35);
-		SetItem(bExit,"Exit",500,35);
+
+		SetButton(bGame,500,0,"images/playButton.png");
+		bGame.setToolTipText("Play");
+		
+		SetButton(bInstruction,550,0,"images/InstructionsButton.png");
+		bInstruction.setToolTipText("Instructions");
+		SetButton(bOption,600,0,"images/OptionButton.png");
+		bOption.setToolTipText("Options");
+		SetButton(bExit,650,0,"images/ExitButton.png");
+		bExit.setToolTipText("Exit");
 		
 
 
 	}	
 	
-	public void SetItem(JButton buttonName ,String name, int x,int size){
 
-		buttonName.setFont(new Font(fontStyle, Font.BOLD,size));
+	
+	
+	public void SetButton(JButton buttonName , int xCoord,int size, String buttonImage){
+
+		buttonName.setFont(new Font("Impact", Font.PLAIN,size));
 		buttonName.setForeground(Color.white);
-		buttonName.setBounds(600, x, 150, 50);
-		buttonName.setIcon(new ImageIcon(buttontile));
+		buttonName.setBounds(xCoord, 600, 50, 50);
+		buttonName.setIcon(new ImageIcon(buttonImage));
 		buttonName.setHorizontalTextPosition(AbstractButton.CENTER);
+		buttonName.setFocusPainted(false);
+		buttonName.setContentAreaFilled(false);
+		buttonName.setBorderPainted(false);
+		buttonName.setOpaque(false);
 		add(buttonName);
 	}
 	
-	public void paintComponent (Graphics g)//JD
+	public void paintComponent (Graphics g)
 	{
 		super.paintComponent(g);
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");

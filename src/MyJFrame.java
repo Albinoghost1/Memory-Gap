@@ -8,7 +8,7 @@ public class MyJFrame extends JFrame {//JD
 		Back_Panel bp = new Back_Panel();
 		add(bp, "Center");
 		setSize(870, 700);
-		setTitle("Memory Gap");
+		setTitle("Title");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);	

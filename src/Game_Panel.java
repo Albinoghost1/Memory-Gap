@@ -44,12 +44,12 @@ public class Game_Panel extends JPanel {
 		gtitle.setBounds(245, 70, 400, 100); //sets location of title JD
 		gtitle.setFont(new Font(fontStyle, Font.BOLD, 50)); //sets font of title JD
 
-		grace.setBounds(560, 300, 300, 70);
+		grace.setBounds(330, 600, 50, 50);
 		grace.setFont(new Font(fontStyle, Font.BOLD, 30));
 
-		gdiff.setBounds(560, 380, 300, 70);
+		gdiff.setBounds(560, 380, 50, 50);
 		gdiff.setFont(new Font(fontStyle, Font.BOLD, 30));
-
+		gdiff.setForeground(Color.WHITE);
 
 		bmenu = new JButton("Main Menu");
 		bnewGame = new JButton("New Game");
@@ -57,31 +57,48 @@ public class Game_Panel extends JPanel {
 
 		bmenu.setBounds(200,350,150,50); //sets location of menu button JD
 		bnewGame.setBounds(200, 400, 150, 50); //sets location of new game button JD
-		cblevelList.setBounds(130, 450, 70, 50); //sets location of levellist combobox JD
 		bcontinue.setBounds(200, 450, 150, 50); //sets location of continue button JD
-
-		bmenu.setFont(new Font(fontStyle, Font.BOLD,20)); //sets fontstyle on menu button JD
-		bmenu.setForeground(Color.white); //sets text color of menu button JD
-		bmenu.setIcon(new ImageIcon(buttontile)); //sets button background of menu button JD
-		bmenu.setHorizontalTextPosition(AbstractButton.CENTER); //centers text of menu button JD
-
-		bnewGame.setFont(new Font(fontStyle, Font.BOLD,20));
-		bnewGame.setForeground(Color.white);
-		bnewGame.setIcon(new ImageIcon(buttontile));
-		bnewGame.setHorizontalTextPosition(AbstractButton.CENTER);
-
-		bcontinue.setFont(new Font(fontStyle, Font.BOLD,20));
-		bcontinue.setForeground(Color.white);
-		bcontinue.setIcon(new ImageIcon(buttontile));
-		bcontinue.setHorizontalTextPosition(AbstractButton.CENTER);
-
-		add(gtitle); //adds title JD
+		
+		//add(gtitle); //adds title JD
 		add(bmenu); //adds menu button JD
 		add(bnewGame); //adds new game button JD
-		add(cblevelList);//adds combobox JD
 		add(bcontinue); //adds continue button JD
 
+
+		
+		cblevelList.setBounds(220, 615, 100, 25); //sets location of levellist combobox JD
+		add(cblevelList);//adds combobox JD
+		
+		
+
+
+
+		bmenu.setToolTipText("Return To Main Menu");
+		bnewGame.setToolTipText("New Game");
+		bcontinue.setToolTipText("Continue");
+		
+		
+		SetButton(bmenu,650,0,"images/ReturnButton.png");
+		SetButton(bnewGame,170,0,"images/PlayButton.png");
+		SetButton(bcontinue,320,0,"images/NextLevelButton.png");
+	
 	}
+	
+	public void SetButton(JButton buttonName , int xCoord,int size, String buttonImage){
+
+		buttonName.setFont(new Font("Impact", Font.PLAIN,size));
+		buttonName.setForeground(Color.white);
+		buttonName.setBounds(xCoord, 600, 50, 50);
+		buttonName.setIcon(new ImageIcon(buttonImage));
+		buttonName.setHorizontalTextPosition(AbstractButton.CENTER);
+		buttonName.setFocusPainted(false);
+		buttonName.setContentAreaFilled(false);
+		buttonName.setBorderPainted(false);
+		buttonName.setOpaque(false);
+
+		add(buttonName);
+	}
+	
 	 //Method created to handle display of race and diff 
 	 public void displayRaceDif(int r, int s, int d,String loc){
 		race = r;
@@ -90,25 +107,28 @@ public class Game_Panel extends JPanel {
 
 
 		if (race==1 && s ==1){
-			selectedRace.setIcon(new ImageIcon("images/humanm1-3.png"));
+			selectedRace.setIcon(new ImageIcon("images/humanm1-3_opt.png"));
 		}
 		if (race==1 && s ==2){
-			selectedRace.setIcon(new ImageIcon("images/humanf1-3.png"));
+			selectedRace.setIcon(new ImageIcon("images/humanf1-3_opt.png"));
 		}
 		else if (race == 2 && s ==1){
-			selectedRace.setIcon(new ImageIcon("images/ostrichm1-3.png"));
+			selectedRace.setIcon(new ImageIcon("images/ostrichm1-3_opt.png"));
 		}
 		else if (race == 2 && s ==2){
-			selectedRace.setIcon(new ImageIcon("images/ostrichf1-3.png"));
+			selectedRace.setIcon(new ImageIcon("images/ostrichf1-3_opt.png"));
 		}
 		else if (race == 3 && s ==1){
-			selectedRace.setIcon(new ImageIcon("images/potatom1-3.png"));
+			selectedRace.setIcon(new ImageIcon("images/potatom1-3_opt.png"));
 		}
 		else if (race == 3 && s ==2){
-			selectedRace.setIcon(new ImageIcon("images/potatof1-3.png"));
+			selectedRace.setIcon(new ImageIcon("images/potatof1-3_opt.png"));
 		}
-		selectedRace.setBounds(445,490,100,100);
+		selectedRace.setBounds(400,600,50,50);
 		selectedRace.setVisible(true);
+		selectedRace.setFocusPainted(false);
+		selectedRace.setContentAreaFilled(false);
+		selectedRace.setBorderPainted(false);
 		add(selectedRace);
 
 
@@ -122,26 +142,18 @@ public class Game_Panel extends JPanel {
 
 		switch(loc){
 		case "ip":
-			selecteddiff.setBounds(555,525,200,100);
-			break;
-			
 		case "gp":
-			selecteddiff.setBounds(700,525,200,100);
-			break;
-			
 		case "wp":
-			selecteddiff.setBounds(555,525,200,100);
-			break;
-			
 		case "op":
-			selecteddiff.setBounds(555,525,200,100);
+			selecteddiff.setBounds(470,600,250,50);
 			break;
 			
 		}
 
 
 		selecteddiff.setVisible(true);
-		selecteddiff.setFont(new Font(fontStyle, Font.BOLD, 30));
+		selecteddiff.setFont(new Font("Impact", Font.BOLD, 30));
+		selecteddiff.setForeground(Color.WHITE);
 		add(selecteddiff);
 
 		validate();

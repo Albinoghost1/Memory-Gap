@@ -4,16 +4,15 @@ import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Game_Panel extends JPanel {
 	//added to display picks 
-	int race= 1;
+	String race= "Human";
 	int difficulty;
-	int sex;
+	String sex;
 
 	JButton bmenu; //menu button JD
 	JButton bnewGame; // new game button JD
@@ -32,11 +31,12 @@ public class Game_Panel extends JPanel {
 	String buttontile = Back_Panel.getButtonTile(); //gets button background from Back Panel JD
 	String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
 
-	static String[] ComboboxStrings = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10"};
+	static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-	static JComboBox cblevelList = new JComboBox(ComboboxStrings);
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	JComboBox cblevelList = new JComboBox(ComboboxStrings);
 
-	public Game_Panel() { //Constructor//JD
+	public Game_Panel() { //Constructor
 
 		super();
 		setLayout(null);
@@ -64,14 +64,9 @@ public class Game_Panel extends JPanel {
 		add(bnewGame); //adds new game button JD
 		add(bcontinue); //adds continue button JD
 
-
-		
 		cblevelList.setBounds(220, 615, 100, 25); //sets location of levellist combobox JD
+		cblevelList.setSelectedItem(1);
 		add(cblevelList);//adds combobox JD
-		
-		
-
-
 
 		bmenu.setToolTipText("Return To Main Menu");
 		bnewGame.setToolTipText("New Game");
@@ -100,28 +95,28 @@ public class Game_Panel extends JPanel {
 	}
 	
 	 //Method created to handle display of race and diff 
-	 public void displayRaceDif(int r, int s, int d,String loc){
+	 public void displayRaceDif(String r, String s, int d,String loc){
 		race = r;
 		difficulty = d;
 		sex=s;
 
 
-		if (race==1 && s ==1){
+		if (race.equals("Male") && s.equals("Male")){
 			selectedRace.setIcon(new ImageIcon("images/humanm1-3_opt.png"));
 		}
-		if (race==1 && s ==2){
+		if (race.equals("Male") && s.equals("Female")){
 			selectedRace.setIcon(new ImageIcon("images/humanf1-3_opt.png"));
 		}
-		else if (race == 2 && s ==1){
+		else if (race.equals("Ostrich") && s.equals("Male")){
 			selectedRace.setIcon(new ImageIcon("images/ostrichm1-3_opt.png"));
 		}
-		else if (race == 2 && s ==2){
+		else if (race.equals("Ostrich") && s.equals("Female")){
 			selectedRace.setIcon(new ImageIcon("images/ostrichf1-3_opt.png"));
 		}
-		else if (race == 3 && s ==1){
+		else if (race.equals("Potato") && s.equals("Male")){
 			selectedRace.setIcon(new ImageIcon("images/potatom1-3_opt.png"));
 		}
-		else if (race == 3 && s ==2){
+		else if (race.equals("Potato")&& s.equals("Female")){
 			selectedRace.setIcon(new ImageIcon("images/potatof1-3_opt.png"));
 		}
 		selectedRace.setBounds(400,600,50,50);
@@ -132,7 +127,7 @@ public class Game_Panel extends JPanel {
 		add(selectedRace);
 
 
-		if(race == 3)
+		if(race.equals("Potato"))
 			selecteddiff.setText("Infinite Lifes");
 		else if (d>1)
 			selecteddiff.setText(d+" Lives");
@@ -161,7 +156,7 @@ public class Game_Panel extends JPanel {
 
 	}
 
-	public void paintComponent (Graphics g) //method to set background //JD
+	public void paintComponent (Graphics g) //method to set background 
 	{
 		super.paintComponent(g);
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");

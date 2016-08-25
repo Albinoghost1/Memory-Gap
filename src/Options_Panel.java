@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -12,8 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JSlider;
 
+@SuppressWarnings("serial")
 public class Options_Panel extends JPanel {
 
 	JButton bSave; //makes Save button 
@@ -22,18 +21,9 @@ public class Options_Panel extends JPanel {
 	JButton bOstrich; //makes Ostrich ? button 
 	JButton bPotato; //makes Potato ? button 
 	
-	JSlider SliderSound = new JSlider(JSlider.HORIZONTAL,0,10,5);
-	JSlider SliderMusic = new JSlider(JSlider.HORIZONTAL,0,10,5);
-	
-	
-
 	JLabel Race = new JLabel("Race"); //makes jlabel for Race label
 	JLabel Sex = new JLabel("Sex"); //makes jlabel for Sex 
 	JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for Difficulty 
-	JLabel Bgmusic =new JLabel("BG Music");//makes jlabel for Background music label
-	JLabel Sound = new JLabel("Sound Control");//makes jlabel for Sound Control label
-	JLabel Music = new JLabel("Music Control");//makes jlabel for Music Control label
-
 
 	JLabel otitle = new JLabel("Options"); //text for title 
 
@@ -68,6 +58,7 @@ public class Options_Panel extends JPanel {
 		otitle.setForeground(Color.white);
 
 		setOutline(300,800,500,100,"Options",otitle);
+		
 		bSave= new JButton("Save");
 
 		bHuman = new JButton("Human");
@@ -132,42 +123,11 @@ public class Options_Panel extends JPanel {
 		Easy.setBounds(280,225,70,20);
 		Normal.setBounds(360,225,70,20);
 		Expert.setBounds(440,225,70,20);
- 
-		Bgmusic.setBounds(200, 250, 150, 20);
-		
+ 	
 		bgm1.setBounds(280, 250, 70, 20);
 		bgm2.setBounds(360,250,70,20);
 		bgmoff.setBounds(440,250,70,20);
 		
-		Sound.setBounds(200,285,100,20);
-		Music.setBounds(200,335,100,20);
-
-		
-
-       SliderMusic.setMajorTickSpacing(1);
-       SliderMusic.setPaintTicks(true);
-       SliderMusic.setPaintTrack(true);
-       SliderMusic.setAutoscrolls(true);
-       SliderMusic.setVisible(true);
-       SliderMusic.setOpaque(false);
-       SliderMusic.setForeground(Color.black);
-       SliderMusic.setSize(100,50);
-       SliderMusic.setLocation(280,275);
-       add(SliderMusic);
-       
-
-       SliderSound.setMajorTickSpacing(1);
-       SliderSound.setPaintTicks(true);
-       SliderSound.setPaintTrack(true);
-       SliderSound.setAutoscrolls(true);
-       SliderSound.setVisible(true);
-       SliderSound.setOpaque(false);
-       SliderSound.setForeground(Color.black);
-       SliderSound.setSize(100,50);
-       SliderSound.setLocation(280,325);
-       add(SliderSound);
-
-
 		bSave.setFont(new Font(fontStyle, Font.PLAIN,0));
 		bSave.setForeground(Color.black);
 		bSave.setBounds(300,300,150,50);
@@ -185,29 +145,19 @@ public class Options_Panel extends JPanel {
 		SetButton(Easy);
 		SetButton(Normal);
 		SetButton(Expert);
-		SetButton(bgm1);
-		SetButton(bgm2);
-		SetButton(bgmoff);
-
 
 		Race.setForeground(Color.black);
 		Sex.setForeground(Color.black);
 		Difficulty.setForeground(Color.black);
-		Bgmusic.setForeground(Color.black);
-		Sound.setForeground(Color.black);
-		Music.setForeground(Color.black);
 		
 		add(Race); 
 		add(Sex);
 		add(Difficulty);
-		add(Bgmusic);
 		add(bSave);
 		add(bHuman);
 		add(bOstrich);
 		add(bPotato);
 	
-		add(Sound);
-		add(Music);
 	}
 	
 	
@@ -230,38 +180,37 @@ public class Options_Panel extends JPanel {
 
 	}
 	
-
-	public int getRace()
+	public String getRace()
 	{
-		int race;
+		String race;
 		if(Potato.isSelected()){
-			race = 3;
+			race = "Potato";
 		}
 		else if(Ostrich.isSelected()){
-			race = 2;
+			race = "Ostrich";
 		}
 		else
 		{
-			race = 1;	
+			race = "Human";	
 		}
 		return race;
 
 	}
-	public int getSex() 
+	public String getSex() 
 	{
-		int sex;
+		String sex;
 		if(Male.isSelected()){
-			sex = 1;
+			sex = "Male";
 		}
 		else{
-			sex = 2;	
+			sex = "Female";	
 		}
 		return sex;
 
 	}
 	public int getDifficulty()
 	{
-		int difficulty = 0;
+		int difficulty = 1;
 		
 		if(Easy.isSelected()){
 			difficulty = 1;
@@ -281,28 +230,14 @@ public class Options_Panel extends JPanel {
 	public void setOutline(int x,int y,int xbounds,int ybounds,String text,JLabel labelname){
 		JLabel Outline = new JLabel(text);
 
-		Outline.setBounds(labelname.getBounds().x-3,labelname.getBounds().y-3,xbounds+3,ybounds+3);
-		Outline.setFont(new Font(fontStyle, Font.PLAIN, 51));
+		Outline.setBounds(labelname.getBounds().x-8,labelname.getBounds().y-8,xbounds+8,ybounds+8);
+		Outline.setFont(new Font(fontStyle, Font.PLAIN, 55));
 		Outline.setForeground(Color.black);
 		add(otitle);
 		add(Outline);
 
 	}
 
-	//added bgm method to return bgm option 
-	public int getBGMusic(){
-		int bgm;
-		if(bgm1.isSelected()){
-			bgm = 1;
-		}
-		else if(bgm2.isSelected()){
-			bgm = 2;
-		}
-		else {
-			bgm = 3;
-		}
-		return bgm;
-	}
 
 	public void paintComponent (Graphics g)//
 	{

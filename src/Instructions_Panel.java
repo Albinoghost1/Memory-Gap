@@ -44,8 +44,6 @@ public class Instructions_Panel extends JPanel {
 		bOk.setOpaque(false);
 		bOk.setToolTipText("Return to Main Menu");
 
-		
-		
 		InstructionLabel.setBounds(300,180,250,50); //sets location of instructions
 
 		InstructionLabel.setEditable(false);

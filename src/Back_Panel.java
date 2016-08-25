@@ -1,21 +1,15 @@
 
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.BorderLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Back_Panel extends JPanel {//
 
 	//initialize Variables
@@ -25,10 +19,6 @@ public class Back_Panel extends JPanel {//
 	Game_Panel gp;
 	Level lp; 
 
-
-	AudioClip bgm1 ;
-	AudioClip bgm2 ;
-	AudioClip bgm3 ;
 	//Creates JButton Array 
 	JButton[] bstartLevel = new JButton[11];
 
@@ -51,7 +41,7 @@ public class Back_Panel extends JPanel {//
 		add(wp);
 
 		
-		addKeyListener( new KeyboardInput());
+		addKeyListener(new KeyboardInput());
 		setFocusable(true);
 		requestFocusInWindow();
 		requestFocus();
@@ -91,55 +81,7 @@ public class Back_Panel extends JPanel {//
 		buttonName.addActionListener(new Button_Listener());
 	}
 	
-	//Method to handle bgm 
-	public void bgMusic(){
-		
-		URL sound = null;
-		try {
-			sound = new URL("file:sound/bgm3.wav");
-		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
-		bgm1 = Applet.newAudioClip(sound);
-		
-		
-		URL sound2 = null;
-		try {
-			sound2 = new URL("file:sound/bgm5.wav");
-		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		bgm2= Applet.newAudioClip(sound2);
-		
-		
-		URL sound3 = null;
-		try {
-			sound3 = new URL("file:sound/bgm3.wav");
-		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
-		bgm3 = Applet.newAudioClip(sound3);
-		
-		
-		if (op.getBGMusic() == 1){
-				bgm2.stop();
-				bgm1.loop();
-		}
-		else if(op.getBGMusic() == 2){
-				bgm1.stop();
-				bgm2.loop();
 
-			}
-		else{
-				bgm1.stop();
-				bgm2.stop();
-				bgm3.stop();
-
-		}
-	}
 	//main private class button listener for all buttons 
 
 	private class Button_Listener implements ActionListener {//
@@ -152,8 +94,7 @@ public class Back_Panel extends JPanel {//
 		
 	//it checks how each button is labeled and does things accordingly 
 		public void menuMove(String buttonName) {
-			// Added call to bgm here 
-				bgMusic();
+
 				
 			switch(buttonName){
 			
@@ -175,7 +116,8 @@ public class Back_Panel extends JPanel {//
 				lp.sl.setLives();
 				gp.displayRaceDif(op.getRace(), op.getSex(), op.getDifficulty(), "op");
 				break;	   
-
+				
+				
 				//if button is named Instructions this case happens 
 				//removes welcome panel
 				//adds Instruction panel
@@ -223,6 +165,7 @@ public class Back_Panel extends JPanel {//
 				//remove Level Panel
 				//remove Game Panel
 				//add Welcome Panel
+				
 			case "Main Menu":
 
 				lp.clearLevel();
@@ -238,6 +181,8 @@ public class Back_Panel extends JPanel {//
 				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
 				//calls method in Level Panel that Clears level
 				//checks what level variable equals and goes to next level
+				
+				
 			case "Next Level":
 
 				lp.setLevel(lp.level+1);
@@ -287,33 +232,8 @@ public class Back_Panel extends JPanel {//
 				//if button is named Continue this case happens 
 			case "Continue":
 
-				// Added call to bgm here 
-				if (op.getBGMusic() ==1 || op.getBGMusic() ==2){
-					bgMusic();
-				}
-
 				//checks Level Panel combobox for which level is selected and calls that level method  
-				if (gp.cblevelList.getSelectedItem() == "Level 1")
-					lp.setLevel(1);
-				if (gp.cblevelList.getSelectedItem() == "Level 2")
-					lp.setLevel(2);
-				if (gp.cblevelList.getSelectedItem() == "Level 3")
-					lp.setLevel(3);
-				if (gp.cblevelList.getSelectedItem() == "Level 4")
-					lp.setLevel(4);
-				if (gp.cblevelList.getSelectedItem() == "Level 5")
-					lp.setLevel(5);
-				if (gp.cblevelList.getSelectedItem() == "Level 6")
-					lp.setLevel(6);
-				if (gp.cblevelList.getSelectedItem() == "Level 7")
-					lp.setLevel(7);
-				if (gp.cblevelList.getSelectedItem() == "Level 8")
-					lp.setLevel(8);
-				if (gp.cblevelList.getSelectedItem() == "Level 9")
-					lp.setLevel(9);
-				if (gp.cblevelList.getSelectedItem() == "Level 10")
-					lp.setLevel(10);
-
+				lp.setLevel(Integer.parseInt((String) gp.cblevelList.getSelectedItem()));
 
 				//Added here to handle lives 
 				lp.setSex(op.getSex());
@@ -322,6 +242,7 @@ public class Back_Panel extends JPanel {//
 				lp.cr.setLevel(lp.getLevel());
 
 				lp.createCharacter();  
+				
 				//Added to send race to SL 
 				lp.sl.setRace(op.getRace());
 				lp.sl.addLives();
@@ -390,7 +311,7 @@ public class Back_Panel extends JPanel {//
 				lp.sl.setLevelButton(lp.getLevel());
 				lp.sl.addStartLevel(lp.level);
 
-				//send Race,Sex to Character Class, Edit 
+				//send Race,Sex to lp
 				lp.setSex(op.getSex());
 				lp.setRace(op.getRace());
 				//send Difficulty to Level Class 
@@ -400,14 +321,10 @@ public class Back_Panel extends JPanel {//
 				//added to send race to SL 
 				lp.sl.setRace(op.getRace());
 				lp.sl.addLives();
-
-
-
 				//Remove Game Panel 
 				//Adds Level Panel
 				remove(gp);
 				add(lp);
-
 				//calls Level Panel Level 1 Method 
 				lp.level1(); 
 				break;
@@ -424,7 +341,7 @@ public class Back_Panel extends JPanel {//
 			case "Start Level 9":
 			case "Start Level 10":
 
-				//calls Level Panel setlevelgrid 
+				//calls Level Panel set level grid 
 				lp.setLevelGrid();
 				break;	
 				
@@ -497,23 +414,23 @@ public class Back_Panel extends JPanel {//
 			
 			
 			if( e.getKeyCode() == KeyEvent.VK_DOWN ) {
-				lp.move(lp.findChar(lp.cr.getBounds().x,lp.cr.getBounds().y)+1);
+				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)+1);
 
 
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_UP ) {
-				lp.move(lp.findChar(lp.cr.getBounds().x,lp.cr.getBounds().y)-1);
+				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)-1);
 
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_LEFT) {
-				lp.move(lp.findChar(lp.cr.getBounds().x,lp.cr.getBounds().y)-5);
+				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)-5);
 	
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
-				lp.move(lp.findChar(lp.cr.getBounds().x,lp.cr.getBounds().y)+5);
+				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)+5);
 		
 			}
 			
@@ -526,12 +443,6 @@ public class Back_Panel extends JPanel {//
 				if(lp.beatLvl()==true && lp.isVisible()){
 					menuMove("Next Level");
 				}
-		//	else if (op.isVisible()){
-			//		menuMove("Save");
-			//	}
-		//	else if (ip.isVisible()){
-			//		menuMove("Ok");
-			//	}
 
 			}
 		}

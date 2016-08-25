@@ -1,13 +1,13 @@
 import java.awt.*;
+
 import javax.swing.AbstractButton;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class Welcome_Panel extends JPanel {
 
 	JButton bOption;
@@ -15,30 +15,30 @@ public class Welcome_Panel extends JPanel {
 	JButton bGame;
 	JButton bExit;
 	
+	@SuppressWarnings("rawtypes")
 	JComboBox cbThemeChooser;
 	
 	JLabel wtitle = new JLabel("Memory Gap"); //text for title 
-	
-	
 
 	String buttontile = Back_Panel.getButtonTile();
 	String fontStyle = Back_Panel.getFontStyle();
 	
 	Changelog_Panel cl;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Welcome_Panel(){//constructor
 		super();
 		setLayout(null);
 
 		wtitle.setBounds(220, 80, 470, 100);
-		wtitle.setFont(new Font("Textile", Font.PLAIN, 80 ));
+		wtitle.setFont(new Font("Freestyle Script", Font.PLAIN, 80 ));
 		wtitle.setForeground(Color.GREEN.darker().darker().darker());
-		//wtitle.setBorder(BorderFactory.createLineBorder(Color.black));
+		//wtitle.setBorder(BorderFactory.createLineBorder(Color.white));
 		wtitle.setBackground(Color.black);
 		
 		
 		cl = new Changelog_Panel();
-		cl.setBounds(500,200,200,300);
+		cl.setBounds(500,200,200,400);
 		cl.setOpaque(false);
 		add(cl);
 		

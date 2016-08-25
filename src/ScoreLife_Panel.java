@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class ScoreLife_Panel extends JPanel { //Panel created to display life and score 
 
 	// attributes 
@@ -13,7 +14,8 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	JLabel life5;
 
 	int difficulty= 1;
-	int race = 1;
+	String race = "";
+	String gender ="";
 	int lives;
 	int level;
 	int character = 1;
@@ -30,10 +32,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		super();
 		setLayout(null);
 
-
-
-		//constructor objects, have if's to affect lifes 
-
+		//constructor objects
 
 		life1 = new JLabel();
 		life2 = new JLabel();
@@ -70,7 +69,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		bnextLevel.setForeground(Color.white);
 		bnextLevel.setHorizontalTextPosition(AbstractButton.CENTER);
 
-		for (int i=0;i<11;i++){ //JD
+		for (int i=0;i<11;i++){ 
 			bstartLevel[i] = new JButton("Start Level "+ i);	
 			bstartLevel[i].setBounds(350,10,150,50);
 			bstartLevel[i].setFont(new Font(fontStyle, Font.BOLD,20));
@@ -92,7 +91,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	}
 
-	public void setRace(int r){//
+	public void setRace(String r){//
 		race = r;
 	}
 	public void setLives(){//
@@ -112,36 +111,32 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	// Other Methods 
 
-	public void addLives(){//JD
+	public void addLives(){
 
 
 
 		add(life1);
+		if (difficulty == 2){
+		add(life2);
+		add(life3);
+		}
+		else if (difficulty == 1){
 		add(life2);
 		add(life3);
 		add(life4);
 		add(life5);
-
-		if (difficulty == 2)
-			remove(life4);
-			remove(life5);
-
-		if (difficulty == 3){
-			remove(life2);
-			remove(life3);
-			remove(life4);
-			remove(life5);
 		}
+
 
 
 	}
 	public void removeLife() //
 	{
-		if (lives < 1 && race != 3){
+		if (lives < 1 && !race.equals("Potato")){
 			System.exit(0);
 		}
 
-		if (lives == 1 && race != 3) {
+		if (lives == 1 && !race.equals("Potato")) {
 			  int reply = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
 		        if (reply == JOptionPane.YES_OPTION) {
 		        	bmenu.doClick();
@@ -150,16 +145,16 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		        	System.exit(0);
 		        }
 		}  
-		if (lives == 2 && race != 3) {
+		if (lives == 2 && !race.equals("Potato")) {
 			remove(life2);
 		}  
-		if (lives == 3 && race != 3) {
+		if (lives == 3 && !race.equals("Potato")) {
 			remove(life3);
 		}  
-		if (lives == 4 && race != 3) {
+		if (lives == 4 && !race.equals("Potato")) {
 			remove(life4);
 		}  
-		if (lives == 5 && race != 3) {
+		if (lives == 5 && !race.equals("Potato")) {
 			remove(life5);
 		} 
 
@@ -172,32 +167,32 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 
 
-	public void addMenu() //JD
+	public void addMenu() 
 	{
 		add(bmenu);
 
 	}
 
-	public void addNextLevel()//JD
+	public void addNextLevel()
 	{
 		add(bnextLevel);
 
 	}
 
-	public void removeNextLevel()//JD
+	public void removeNextLevel()
 	{
 		remove(bnextLevel);
 
 	}
 
-	public void setLevelButton(int implevel)//JD
+	public void setLevelButton(int implevel)
 	{
 		level = implevel;
 
 	}
 
 
-	public void removeAll()//JD
+	public void removeAll()
 	{
 		remove(bnextLevel);
 		for (int i=0;i<11;i++){
@@ -206,7 +201,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	}
 
-	public void addStartLevel(int level)//JD
+	public void addStartLevel(int level)
 	{
 		for (int i=0;i<11;i++){
 			remove(bstartLevel[i]);	

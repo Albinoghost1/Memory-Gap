@@ -73,13 +73,13 @@ public class Game_Panel extends JPanel {
 		bcontinue.setToolTipText("Continue");
 		
 		
-		SetButton(bmenu,650,0,"images/ReturnButton.png");
-		SetButton(bnewGame,170,0,"images/PlayButton.png");
-		SetButton(bcontinue,320,0,"images/NextLevelButton.png");
+		setButton(bmenu,650,0,"images/ReturnButton.png");
+		setButton(bnewGame,170,0,"images/PlayButton.png");
+		setButton(bcontinue,320,0,"images/NextLevelButton.png");
 	
 	}
 	
-	public void SetButton(JButton buttonName , int xCoord,int size, String buttonImage){
+	public void setButton(JButton buttonName , int xCoord,int size, String buttonImage){
 
 		buttonName.setFont(new Font("Impact", Font.PLAIN,size));
 		buttonName.setForeground(Color.white);
@@ -101,22 +101,22 @@ public class Game_Panel extends JPanel {
 		sex=s;
 
 
-		if (race.equals("Male") && s.equals("Male")){
+		if ("Human".equals(race) && "Male".equals(s)){
 			selectedRace.setIcon(new ImageIcon("images/humanm1-3_opt.png"));
 		}
-		if (race.equals("Male") && s.equals("Female")){
+		if ("Human".equals(race) && "Female".equals(s)){
 			selectedRace.setIcon(new ImageIcon("images/humanf1-3_opt.png"));
 		}
-		else if (race.equals("Ostrich") && s.equals("Male")){
+		else if ("Ostrich".equals(race) && "Male".equals(s)){
 			selectedRace.setIcon(new ImageIcon("images/ostrichm1-3_opt.png"));
 		}
-		else if (race.equals("Ostrich") && s.equals("Female")){
+		else if ("Ostrich".equals(race) && "Female".equals(s)){
 			selectedRace.setIcon(new ImageIcon("images/ostrichf1-3_opt.png"));
 		}
-		else if (race.equals("Potato") && s.equals("Male")){
+		else if ("Ostrich".equals(race) && "Male".equals(s)){
 			selectedRace.setIcon(new ImageIcon("images/potatom1-3_opt.png"));
 		}
-		else if (race.equals("Potato")&& s.equals("Female")){
+		else if ("Ostrich".equals(race)&& "Female".equals(s)){
 			selectedRace.setIcon(new ImageIcon("images/potatof1-3_opt.png"));
 		}
 		selectedRace.setBounds(400,600,50,50);
@@ -127,7 +127,7 @@ public class Game_Panel extends JPanel {
 		add(selectedRace);
 
 
-		if(race.equals("Potato"))
+		if("Potato".equals(race))
 			selecteddiff.setText("Infinite Lifes");
 		else if (d>1)
 			selecteddiff.setText(d+" Lives");

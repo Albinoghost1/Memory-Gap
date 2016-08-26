@@ -6,16 +6,15 @@ import javax.swing.*;
 public class Character extends JButton{ //entire class by 
 
 	// create attributes for gender and race 
-	String race;
-	String gender;
-	int direction;
-	int level;
-	int xPos;
-	int yPos;
-	int width = 100;
-	int height = 100;
-	int movement = 100;
-	int charImage;
+	private String race;
+	private String gender;
+	private int direction;
+	private int level;
+	private int xPos;
+	private int yPos;
+	private int width = 100;
+	private int height = 100;
+	private int charImage;
 
 	// character constructor 
 	public Character(String g, String r, int l)
@@ -56,18 +55,68 @@ public class Character extends JButton{ //entire class by
 		switch(gender){
 			case "Male":racegend=racegend+"M";break;
 			case "Female":racegend=racegend+"F";break;
+			default:break;
 		}
 
 		switch (level){
 			case 1:case 2:case 3:racegend=racegend+"1-3.png";break;
 			case 4:case 5:case 6:racegend=racegend+"4-6.png";break;
 			case 7:case 8:case 9:racegend=racegend+"7-9.png";break;
+			default:break;
 		}		
 
 		image = new ImageIcon ("images/"+racegend);
 		setIcon(image);// commit the image change
 		validate();
 		repaint();
+	}
+
+	public int getDirection() {
+		return direction;
+	}
+
+	public void setDirection(int direction) {
+		this.direction = direction;
+	}
+
+	public int getxPos() {
+		return xPos;
+	}
+
+	public void setxPos(int xPos) {
+		this.xPos = xPos;
+	}
+
+	public int getyPos() {
+		return yPos;
+	}
+
+	public void setyPos(int yPos) {
+		this.yPos = yPos;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getCharImage() {
+		return charImage;
+	}
+
+	public void setCharImage(int charImage) {
+		this.charImage = charImage;
 	}
 
 }

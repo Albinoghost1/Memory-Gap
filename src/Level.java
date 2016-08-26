@@ -14,29 +14,30 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Level extends JPanel {
 
-	int level = 1;
-	String sex="Male";
-	String race="Ostrich";
-	int difficulty=1;
+	private int level = 1;
+	private String sex="Male";
+	private String race="Ostrich";
+	private int difficulty=1;
 	
-	int doorLoc;
-	int keyLoc;
-	int charLoc;
-	int[] goodtiles;
+	private int doorLoc;
+	private int keyLoc;
+	private int charLoc;
+	private int[] goodtiles;
 
-	JButton[] grid = new JButton[36];
-	JButton[] tile = new JButton[75];
+	private JButton[] grid = new JButton[36];
+	private JButton[] tile = new JButton[75];
 
-	boolean gotKey = false;
+	
+	private boolean gotKey = false;
 
-	JButton Key;
-	JButton Door;
-	Character cr;
+	private JButton Key;
+	private JButton Door;
+	private Character cr;
 
 	ScoreLife_Panel sl;
 
-	String buttontile = Back_Panel.getButtonTile();
-	String fontStyle = Back_Panel.getFontStyle();
+	private String buttontile = Back_Panel.getButtonTile();
+	private String fontStyle = Back_Panel.getFontStyle();
 
 	public Level() {
 		super();
@@ -66,19 +67,23 @@ public class Level extends JPanel {
 
 	}
 	public void level1() {
-		setTile10(6,11,16,21,26,22,23,99,99,99,5,25);
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};//goodtiles
+		setTiles(goodtiles,5,25);//send good tiles,key,door locations
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level2() {
-		setTile10(6,17,7,12,28,18,23,5,24,99,10,27);
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};
+		setTiles(goodtiles,10,27);
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level3() {
-		setTile10(8,13,14,19,29,28,33,32,31,99,7,30);
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};
+		setTiles(goodtiles,7,30);
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level4() {
-		setTile10(3,6,7,8,11,16,17,18,19,22,27,4);
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};
+		setTiles(goodtiles,27,4);
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level5() {
@@ -86,55 +91,51 @@ public class Level extends JPanel {
 		JOptionPane.showMessageDialog(null, coordConvert(Key.getBounds().x,Key.getBounds().y));
 		setDoorLoc(100,300);
 		JOptionPane.showMessageDialog(null, coordConvert(Door.getBounds().x,Door.getBounds().y));
-		setTile20(6,7,11,15,16,20,25,26,27,28,29,99,99,99,99,99,99,99,99,99,12,12);
+		//setTile20(6,7,11,15,16,20,25,26,27,28,29,99,99,99,99,99,99,99,99,99,12,12);
 	}
 	public void level6() {
 		setKeyLoc(100,100);
 		JOptionPane.showMessageDialog(null, coordConvert(Key.getBounds().x,Key.getBounds().y));
 		setDoorLoc(600,100);
 		JOptionPane.showMessageDialog(null, coordConvert(Door.getBounds().x,Door.getBounds().y));
-		setTile20(5,6,7,8,12,13,14,18,22,23,26,27,28,31,33,99,99,99,99,99,12,12);
+		//setTile20(5,6,7,8,12,13,14,18,22,23,26,27,28,31,33,99,99,99,99,99,12,12);
 	}
 	public void level7() {
 		setKeyLoc(200,500);
 		JOptionPane.showMessageDialog(null, coordConvert(Key.getBounds().x,Key.getBounds().y));
 		setDoorLoc(600,400);
 		JOptionPane.showMessageDialog(null, coordConvert(Door.getBounds().x,Door.getBounds().y));
-		setTile20(2,3,4,7,12,16,17,18,21,23,26,27,99,99,99,99,99,99,99,99,12,12);
+		//setTile20(2,3,4,7,12,16,17,18,21,23,26,27,99,99,99,99,99,99,99,99,12,12);
 	}
 	public void level8() {
 		setKeyLoc(600,100);
 		JOptionPane.showMessageDialog(null, coordConvert(Key.getBounds().x,Key.getBounds().y));
 		setDoorLoc(100,200);
 		JOptionPane.showMessageDialog(null, coordConvert(Door.getBounds().x,Door.getBounds().y));
-		setTile20(6,11,12,13,18,19,20,21,22,27,28,29,34,99,99,99,99,99,99,99,12,12);
+		//setTile20(6,11,12,13,18,19,20,21,22,27,28,29,34,99,99,99,99,99,99,99,12,12);
 	}
 	public void level9() {
 		setKeyLoc(300,100);
 		JOptionPane.showMessageDialog(null, coordConvert(Key.getBounds().x,Key.getBounds().y));
 		setDoorLoc(500,200);
 		JOptionPane.showMessageDialog(null, coordConvert(Door.getBounds().x,Door.getBounds().y));
-		setTile20(1,2,3,5,6,8,12,13,14,15,18,19,26,27,28,29,99,99,99,99,12,12);
+		//setTile20(1,2,3,5,6,8,12,13,14,15,18,19,26,27,28,29,99,99,99,99,12,12);
 	}
 	public void level10() {
 		setKeyLoc(700,100);
 		JOptionPane.showMessageDialog(null, coordConvert(Key.getBounds().x,Key.getBounds().y));
 		setDoorLoc(200,100);
 		JOptionPane.showMessageDialog(null, coordConvert(Door.getBounds().x,Door.getBounds().y));
-		setTile20(0,1,2,3,4,8,9,13,15,16,18,19,20,21,22,25,27,28,29,99,12,12);
+		//setTile20(0,1,2,3,4,8,9,13,15,16,18,19,20,21,22,25,27,28,29,99,12,12);
 	}
-	public void setTile10(int tile1,int tile2,int tile3,int tile4,int tile5,int tile6,int tile7,int tile8, int tile9, int tile10,int newkey,int newdoor){
-		int tile11 = 99;int tile12 = 99;int tile13 = 99;int tile14 = 99;int tile15 = 99;int tile16 = 99;int tile17 = 99;int tile18 = 99;int tile19 = 99;int tile20 = 99;
-		setTile20(tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20,newkey,newdoor);
-	}
+
 	
-	public void setTile20(int tile1,int tile2,int tile3,int tile4,int tile5,int tile6,int tile7,int tile8, int tile9, int tile10,int tile11,int tile12,int tile13,int tile14,int tile15,int tile16,int tile17,int tile18,int tile19,int tile20,int newkey,int newdoor) {
+	private void setTiles(int[] goodtiles,int newkey,int newdoor) {
 		
 		clearLevel();
-		goodtiles=new int[]{tile1,tile2,tile3,tile4,tile5,tile6,tile7,tile8,tile9,tile10,tile11,tile12,tile13,tile14,tile15,tile16,tile17,tile18,tile19,tile20};
 		Key.setBorder(null);
 		Door.setBorder(null);
-		cr.setBorder(null);
+		getCr().setBorder(null);
 	
 		setKeyLoc(newkey);
 		setDoorLoc(newdoor);
@@ -142,7 +143,7 @@ public class Level extends JPanel {
 		
 		add(Key);
 		add(Door);
-		add(cr);
+		add(getCr());
 
 		for(int i=0;i<20;i++){
 			if(level==1||level==2||level==3){
@@ -167,7 +168,7 @@ public class Level extends JPanel {
 		}
 	}
 
-	public void setLevelGrid() { // makes level grid***
+	public void setLevelGrid() { // makes level grid that hides where good and bad tiles are
 
 		int x = 1;
 		int y = 1;
@@ -206,7 +207,7 @@ public class Level extends JPanel {
 		
 		add(Key);
 		add(Door);
-		add(cr);
+		add(getCr());
 
 	}
 
@@ -280,7 +281,7 @@ public class Level extends JPanel {
 		}
 	}
 
-	public void goodMove(int newPos,String keydoor) { 
+	private void goodMove(int newPos,String keydoor) { 
 
 		int tilex;
 		int tiley;
@@ -293,7 +294,7 @@ public class Level extends JPanel {
 			}
 		}
 		// this if statement happens when you step on the key JD
-		if (keydoor.equals("Key")) {
+		if ("Key".equals(keydoor)) {
 			tilex = posConvert(getKeyLoc(),"x");
 			tiley = posConvert(getKeyLoc(),"y");
 			Key.setVisible(false);
@@ -303,7 +304,7 @@ public class Level extends JPanel {
 			
 		}
 		// this if statement happens when you step on the door JD
-		else if (keydoor.equals("Door")) {
+		else if ("Door".equals(keydoor)) {
 			tilex = posConvert(getDoorLoc(),"x");
 			tiley = posConvert(getDoorLoc(),"y");
 			Door.setVisible(false);
@@ -335,7 +336,7 @@ public class Level extends JPanel {
 	
 
 	
-	public void badMove(int tile) {
+	private void badMove(int tile) {
 		
 		sl.removeLife();
 		if (tile < 35) {
@@ -353,12 +354,12 @@ public class Level extends JPanel {
 
 	//******************** GETS & SETS ETC.
 	public void createCharacter() {
-		cr = new Character(sex, race, level); // add character 11-19
+		setCr(new Character(sex, race, level)); // add character 11-19
 		setLayout(null);
-		cr.setBounds(500, 500, 100, 100);
+		getCr().setBounds(500, 500, 100, 100);
 
 	}
-	public void setBorder(){
+	private void setBorder(){
 
 		if (getCharLoc() - 1 > 0&& getCharLoc() - 1 < 35){
 			grid[getCharLoc() - 5].setBorder(BorderFactory.createCompoundBorder(
@@ -404,7 +405,7 @@ public class Level extends JPanel {
 	{
 		this.difficulty = dif;
 	}
-	//********************************************GETS & SETS CHAR
+
 	//********************************************GETS & SETS CHAR	
 	public int getCharLoc(){
 		return charLoc;
@@ -412,38 +413,37 @@ public class Level extends JPanel {
 	
 	public void setCharLoc(int newCharLoc){
 		this.charLoc=newCharLoc;
-		cr.setBounds(posConvert(newCharLoc,"x") ,posConvert(newCharLoc,"y"), 100, 100);
+		getCr().setBounds(posConvert(newCharLoc,"x") ,posConvert(newCharLoc,"y"), 100, 100);
 	}
 	
 	public void setCharLoc(int newCharLoc,Boolean vis){
 		this.charLoc=newCharLoc;
-		cr.setBounds(posConvert(newCharLoc,"x") ,posConvert(newCharLoc,"y"), 100, 100);
-		cr.setVisible(vis);	
+		getCr().setBounds(posConvert(newCharLoc,"x") ,posConvert(newCharLoc,"y"), 100, 100);
+		getCr().setVisible(vis);	
 
 	}
 	
 	public void setCharLoc(int newCharLocX,int newCharLocY){
 		this.charLoc=coordConvert(newCharLocX,newCharLocY);
-		cr.setBounds(newCharLocX, newCharLocY, 100, 100);
+		getCr().setBounds(newCharLocX, newCharLocY, 100, 100);
 	}
 	
 	public void setCharLoc(int newCharLocX,int newCharLocY,Boolean vis){
 		this.charLoc=coordConvert(newCharLocX,newCharLocY);
-		cr.setBounds(newCharLocX, newCharLocY, 100, 100);
-		cr.setVisible(vis);
+		getCr().setBounds(newCharLocX, newCharLocY, 100, 100);
+		getCr().setVisible(vis);
 	}
 	
 	public void setCharLoc(int newCharLocX,int newCharLocY,int newCharLocSX,int newCharLocSY){
 		this.charLoc=coordConvert(newCharLocX,newCharLocY);
-		cr.setBounds(newCharLocX, newCharLocY, newCharLocSX, newCharLocSY);
+		getCr().setBounds(newCharLocX, newCharLocY, newCharLocSX, newCharLocSY);
 	}
 	
 	public void setCharLoc(int newCharLocX,int newCharLocY,int newCharLocSX,int newCharLocSY,Boolean vis){
 		this.charLoc=coordConvert(newCharLocX,newCharLocY);
-		cr.setBounds(newCharLocX, newCharLocY, newCharLocSX, newCharLocSY);
-		cr.setVisible(vis);
+		getCr().setBounds(newCharLocX, newCharLocY, newCharLocSX, newCharLocSY);
+		getCr().setVisible(vis);
 	}
-	//********************************************GETS & SETS KEY
 	
 //********************************************GETS & SETS KEY	
 	public int getKeyLoc(){
@@ -678,6 +678,12 @@ private class grid_Listener implements ActionListener {
 		g.drawImage(myImage, 0, 0, this);
 		validate();
 		repaint();
+	}
+	public Character getCr() {
+		return cr;
+	}
+	public void setCr(Character cr) {
+		this.cr = cr;
 	}
 
 }

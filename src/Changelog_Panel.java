@@ -11,11 +11,11 @@ import javax.swing.ScrollPaneConstants;
 @SuppressWarnings("serial")
 public class Changelog_Panel extends JPanel {
 
-	JTextArea changelog = new JTextArea();
+	private JTextArea changelog = new JTextArea();
 
 	
 	
-	public Changelog_Panel(){
+	private Changelog_Panel(){
 		
 		setLayout(null);
 		

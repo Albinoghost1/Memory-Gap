@@ -156,7 +156,7 @@ public class Back_Panel extends JPanel {//
 				add(wp);
 
 				lp.sl.setDiff(op.getDifficulty());
-				lp.cr.setChar(op.getSex(),op.getRace());
+				lp.getCr().setChar(op.getSex(),op.getRace());
 				break;
 
 				//if button is named Main Menu this case happens 
@@ -185,10 +185,10 @@ public class Back_Panel extends JPanel {//
 				
 			case "Next Level":
 
-				lp.setLevel(lp.level+1);
+				lp.setLevel(lp.getLevel()+1);
 				lp.sl.setLevelButton(lp.getLevel()+1);
-				lp.sl.addStartLevel(lp.level);
-				lp.cr.setAvatar();
+				lp.sl.addStartLevel(lp.getLevel());
+				lp.getCr().setAvatar();
 				lp.clearLevel();
 
 				if (lp.getLevel() == 1)
@@ -239,14 +239,14 @@ public class Back_Panel extends JPanel {//
 				lp.setSex(op.getSex());
 				lp.setRace(op.getRace());
 				lp.setDifficulty(op.getDifficulty());
-				lp.cr.setLevel(lp.getLevel());
+				lp.getCr().setLevel(lp.getLevel());
 
 				lp.createCharacter();  
 				
 				//Added to send race to SL 
 				lp.sl.setRace(op.getRace());
 				lp.sl.addLives();
-				lp.cr.setAvatar();
+				lp.getCr().setAvatar();
 
 				//removes Game Panel 
 				//Adds Level Panel
@@ -309,14 +309,14 @@ public class Back_Panel extends JPanel {//
 				//gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X" 
 				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
 				lp.sl.setLevelButton(lp.getLevel());
-				lp.sl.addStartLevel(lp.level);
+				lp.sl.addStartLevel(lp.getLevel());
 
 				//send Race,Sex to lp
 				lp.setSex(op.getSex());
 				lp.setRace(op.getRace());
 				//send Difficulty to Level Class 
 				lp.setDifficulty(op.getDifficulty());
-				lp.cr.setAvatar();
+				lp.getCr().setAvatar();
 				lp.createCharacter(); 
 				//added to send race to SL 
 				lp.sl.setRace(op.getRace());
@@ -354,7 +354,7 @@ public class Back_Panel extends JPanel {//
 
 
 
-	public void ResetGame(){
+	public void resetGame(){
 		lp.clearLevel();
 		remove(lp.sl);
 		remove(lp);
@@ -414,28 +414,28 @@ public class Back_Panel extends JPanel {//
 			
 			
 			if( e.getKeyCode() == KeyEvent.VK_DOWN ) {
-				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)+1);
+				lp.move(lp.coordConvert(lp.getCr().getBounds().x,lp.getCr().getBounds().y)+1);
 
 
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_UP ) {
-				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)-1);
+				lp.move(lp.coordConvert(lp.getCr().getBounds().x,lp.getCr().getBounds().y)-1);
 
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_LEFT) {
-				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)-5);
+				lp.move(lp.coordConvert(lp.getCr().getBounds().x,lp.getCr().getBounds().y)-5);
 	
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
-				lp.move(lp.coordConvert(lp.cr.getBounds().x,lp.cr.getBounds().y)+5);
+				lp.move(lp.coordConvert(lp.getCr().getBounds().x,lp.getCr().getBounds().y)+5);
 		
 			}
 			
 			if( e.getKeyCode() == KeyEvent.VK_ESCAPE ) {
-				ResetGame();
+				resetGame();
 				menuMove("OK");
 			}
 			

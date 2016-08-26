@@ -7,26 +7,26 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	// attributes 
 
-	JLabel life1;
-	JLabel life2;
-	JLabel life3;
-	JLabel life4;
-	JLabel life5;
+	private JLabel life1;
+	private JLabel life2;
+	private JLabel life3;
+	private JLabel life4;
+	private JLabel life5;
 
-	int difficulty= 1;
-	String race = "";
-	String gender ="";
-	int lives;
-	int level;
-	int character = 1;
+	private int difficulty= 1;
+	private String race = "";
+	private String gender ="";
+	private int lives;
+	private int level;
+	private int character = 1;
 
-	JButton bmenu;
-	JButton bnextLevel;
+	private JButton bmenu;
+	private JButton bnextLevel;
 
-	JButton[] bstartLevel = new JButton[11];
+	private JButton[] bstartLevel = new JButton[11];
 
-	String buttontile = Back_Panel.getButtonTile();
-	String fontStyle = Back_Panel.getFontStyle();
+	private String buttontile = Back_Panel.getButtonTile();
+	private String fontStyle = Back_Panel.getFontStyle();
 
 	public ScoreLife_Panel() { 
 		super();
@@ -132,34 +132,27 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	}
 	public void removeLife() //
 	{
-		if (lives < 1 && !race.equals("Potato")){
-			System.exit(0);
+				
+		if (!"Potato".equals(race)){
+			switch (lives){
+				case 1:
+					  int reply = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
+				        if (reply == JOptionPane.YES_OPTION) {
+				        	bmenu.doClick();
+				        }
+				        else {
+				        	System.exit(0);
+				        }
+				case 2:remove(life2);break;
+				case 3:remove(life3);break;
+				case 4:remove(life4);break;
+				case 5:remove(life5);break;
+				default:System.exit(0);break;
+			
+			
+			}
 		}
-
-		if (lives == 1 && !race.equals("Potato")) {
-			  int reply = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
-		        if (reply == JOptionPane.YES_OPTION) {
-		        	bmenu.doClick();
-		        }
-		        else {
-		        	System.exit(0);
-		        }
-		}  
-		if (lives == 2 && !race.equals("Potato")) {
-			remove(life2);
-		}  
-		if (lives == 3 && !race.equals("Potato")) {
-			remove(life3);
-		}  
-		if (lives == 4 && !race.equals("Potato")) {
-			remove(life4);
-		}  
-		if (lives == 5 && !race.equals("Potato")) {
-			remove(life5);
-		} 
-
 		lives -= 1;
-
 
 		validate();
 		repaint();

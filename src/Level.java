@@ -17,15 +17,13 @@ public class Level extends JPanel {
 	private int level = 1;
 	private String sex="Male";
 	private String race="Ostrich";
-	private int difficulty=1;
-	
 	private int doorLoc;
 	private int keyLoc;
 	private int charLoc;
 	private int[] goodtiles;
 
-	private JButton[] grid = new JButton[36];
-	private JButton[] tile = new JButton[75];
+	private JButton[] grid = new JButton[35];
+	private JButton[] tile = new JButton[35];
 
 	
 	private boolean gotKey = false;
@@ -36,21 +34,18 @@ public class Level extends JPanel {
 
 	ScoreLife_Panel sl;
 
-	private String buttontile = Back_Panel.getButtonTile();
-	private String fontStyle = Back_Panel.getFontStyle();
-
 	public Level() {
 		super();
 		setLayout(null);
 		setBackground(Color.black);
 
-		for (int i = 0; i < 36; i++) {
+		for (int i = 0; i == 35; i++) {
 			grid[i] = new JButton();
 			grid[i].addActionListener(new grid_Listener());
 			grid[i].setName(String.valueOf(i));
 		}
 
-		for (int i = 0; i < 75; i++) {
+		for (int i = 0; i == 35; i++) {
 			tile[i] = new JButton();
 		}
 
@@ -67,22 +62,22 @@ public class Level extends JPanel {
 
 	}
 	public void level1() {
-		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};//goodtiles
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23};//goodtiles
 		setTiles(goodtiles,5,25);//send good tiles,key,door locations
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level2() {
-		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23};
 		setTiles(goodtiles,10,27);
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level3() {
-		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23};
 		setTiles(goodtiles,7,30);
 		JOptionPane.showMessageDialog(null, level);
 	}
 	public void level4() {
-		int[] goodtiles = new int[] {6,11,16,21,26,22,23,99,99,99};
+		int[] goodtiles = new int[] {6,11,16,21,26,22,23};
 		setTiles(goodtiles,27,4);
 		JOptionPane.showMessageDialog(null, level);
 	}
@@ -161,10 +156,13 @@ public class Level extends JPanel {
 				Key.setIcon(new ImageIcon("images/keytile7-9.png"));
 				Door.setIcon(new ImageIcon("images/doortile7-9.png"));
 			}
-			tile[i].setBorder(null);	
+			tile[i].setBorder(null);
+			
+			JOptionPane.showMessageDialog(null, goodtiles[i]);
+
+			
 			tile[i].setBounds(posConvert(goodtiles[i],"x"), posConvert(goodtiles[i],"y"), 100, 100);
 			add(tile[i]);		
-				
 		}
 	}
 
@@ -403,7 +401,6 @@ public class Level extends JPanel {
 
 	public void setDifficulty(int dif)// to be used for difficulty
 	{
-		this.difficulty = dif;
 	}
 
 	//********************************************GETS & SETS CHAR	

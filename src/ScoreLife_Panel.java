@@ -15,17 +15,15 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	private int difficulty= 1;
 	private String race = "";
-	private String gender ="";
+	
 	private int lives;
 	private int level;
-	private int character = 1;
 
 	private JButton bmenu;
 	private JButton bnextLevel;
 
 	private JButton[] bstartLevel = new JButton[11];
 
-	private String buttontile = Back_Panel.getButtonTile();
 	private String fontStyle = Back_Panel.getFontStyle();
 
 	public ScoreLife_Panel() { 
@@ -55,30 +53,30 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		life5.setBounds(250,10,50,50);
 
 
-		bmenu = new JButton("Main Menu");
-		bmenu.setBounds(650,10,150,50);
-		bmenu.setFont(new Font(fontStyle, Font.BOLD,20));
-		bmenu.setIcon(new ImageIcon("images/buttontile.png"));
-		bmenu.setForeground(Color.white);
-		bmenu.setHorizontalTextPosition(AbstractButton.CENTER);
+		setBmenu(new JButton("Main Menu"));
+		getBmenu().setBounds(650,10,150,50);
+		getBmenu().setFont(new Font(fontStyle, Font.BOLD,20));
+		getBmenu().setIcon(new ImageIcon("images/buttontile.png"));
+		getBmenu().setForeground(Color.white);
+		getBmenu().setHorizontalTextPosition(AbstractButton.CENTER);
 
-		bnextLevel = new JButton("Next Level");
-		bnextLevel.setBounds(500,10,150,50);
-		bnextLevel.setFont(new Font(fontStyle, Font.BOLD,20));
-		bnextLevel.setIcon(new ImageIcon("images/buttontile.png"));
-		bnextLevel.setForeground(Color.white);
-		bnextLevel.setHorizontalTextPosition(AbstractButton.CENTER);
+		setBnextLevel(new JButton("Next Level"));
+		getBnextLevel().setBounds(500,10,150,50);
+		getBnextLevel().setFont(new Font(fontStyle, Font.BOLD,20));
+		getBnextLevel().setIcon(new ImageIcon("images/buttontile.png"));
+		getBnextLevel().setForeground(Color.white);
+		getBnextLevel().setHorizontalTextPosition(AbstractButton.CENTER);
 
 		for (int i=0;i<11;i++){ 
-			bstartLevel[i] = new JButton("Start Level "+ i);	
-			bstartLevel[i].setBounds(350,10,150,50);
-			bstartLevel[i].setFont(new Font(fontStyle, Font.BOLD,20));
-			bstartLevel[i].setIcon(new ImageIcon("images/buttontile.png"));
-			bstartLevel[i].setForeground(Color.white);
-			bstartLevel[i].setHorizontalTextPosition(AbstractButton.CENTER);
+			getBstartLevel()[i] = new JButton("Start Level "+ i);	
+			getBstartLevel()[i].setBounds(350,10,150,50);
+			getBstartLevel()[i].setFont(new Font(fontStyle, Font.BOLD,20));
+			getBstartLevel()[i].setIcon(new ImageIcon("images/buttontile.png"));
+			getBstartLevel()[i].setForeground(Color.white);
+			getBstartLevel()[i].setHorizontalTextPosition(AbstractButton.CENTER);
 		}
-		add(bstartLevel[level]);
-		add(bmenu);
+		add(getBstartLevel()[level]);
+		add(getBmenu());
 	}
 	
 	
@@ -138,7 +136,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 				case 1:
 					  int reply = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
 				        if (reply == JOptionPane.YES_OPTION) {
-				        	bmenu.doClick();
+				        	getBmenu().doClick();
 				        }
 				        else {
 				        	System.exit(0);
@@ -162,19 +160,19 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	public void addMenu() 
 	{
-		add(bmenu);
+		add(getBmenu());
 
 	}
 
 	public void addNextLevel()
 	{
-		add(bnextLevel);
+		add(getBnextLevel());
 
 	}
 
 	public void removeNextLevel()
 	{
-		remove(bnextLevel);
+		remove(getBnextLevel());
 
 	}
 
@@ -187,9 +185,9 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	public void removeAll()
 	{
-		remove(bnextLevel);
+		remove(getBnextLevel());
 		for (int i=0;i<11;i++){
-			remove(bstartLevel[i]);	
+			remove(getBstartLevel()[i]);	
 		}
 
 	}
@@ -197,11 +195,47 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	public void addStartLevel(int level)
 	{
 		for (int i=0;i<11;i++){
-			remove(bstartLevel[i]);	
+			remove(getBstartLevel()[i]);	
 		}
 		
-		add (bstartLevel[level]);
+		add (getBstartLevel()[level]);
 
+	}
+
+
+
+	public JButton getBnextLevel() {
+		return bnextLevel;
+	}
+
+
+
+	public void setBnextLevel(JButton bnextLevel) {
+		this.bnextLevel = bnextLevel;
+	}
+
+
+
+	public JButton getBmenu() {
+		return bmenu;
+	}
+
+
+
+	public void setBmenu(JButton bmenu) {
+		this.bmenu = bmenu;
+	}
+
+
+
+	public JButton[] getBstartLevel() {
+		return bstartLevel;
+	}
+
+
+
+	public void setBstartLevel(JButton[] bstartLevel) {
+		this.bstartLevel = bstartLevel;
 	}
 
 }

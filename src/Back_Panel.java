@@ -23,8 +23,8 @@ public class Back_Panel extends JPanel {//
 	JButton[] bstartLevel = new JButton[11];
 
 	//Sets Strings for FontStyle and buttontile(button background) 
-	static String fontStyle = "Impact"; //font for entire program 
-	static String buttontile = "images/buttontile.png"; //button location for entire program 
+	private static String fontStyle = "Impact"; //font for entire program 
+	private static String buttontile = "images/buttontile.png"; //button location for entire program 
 
 	public Back_Panel() {//
 		super();	
@@ -56,22 +56,18 @@ public class Back_Panel extends JPanel {//
 		 buttonListener(gp.bnewGame);
 		 buttonListener(gp.bcontinue);
 
-		 buttonListener(lp.sl.bnextLevel);
-		 buttonListener(lp.sl.bmenu);
+		 buttonListener(lp.sl.getBnextLevel());
+		 buttonListener(lp.sl.getBmenu());
 		
 		 buttonListener(ip.bOk);
 
 		buttonListener(op.bSave);
-		
-		op.bHuman.addActionListener(new HumanListener());
-		op.bOstrich.addActionListener(new OstrichListener());
-		op.bPotato.addActionListener(new PotatoListener());
-		
+
 		
 		//sets bstartLevel array = bstartlevel array in scorelife panel 
 		//adds button listeners to bstartlevel array 
 		for (int i=0;i<11;i++){
-			bstartLevel[i] = lp.sl.bstartLevel[i];
+			bstartLevel[i] = lp.sl.getBstartLevel()[i];
 			bstartLevel[i].addActionListener(new Button_Listener());
 		}
 
@@ -381,26 +377,6 @@ public class Back_Panel extends JPanel {//
 
 
 	
-	//Button listeners for race buttons Human,Ostrich,Potato in Option Panel 
-	private class HumanListener implements ActionListener {//
-		public void actionPerformed(ActionEvent event) {
-			JOptionPane.showMessageDialog(null, "Human\n *Can jump higher than the Potato\n ");
-
-		}
-	}
-	private class OstrichListener implements ActionListener {//
-		public void actionPerformed(ActionEvent event) {
-			JOptionPane.showMessageDialog(null, "Ostrich\n *Has more feathers than a Human\n *Immune to Smallpox");
-
-
-		}
-	}
-	private class PotatoListener implements ActionListener {//
-		public void actionPerformed(ActionEvent event) {
-			JOptionPane.showMessageDialog(null, "Potato\n *Has infinite lives\n *Flame resistant up to 375 degrees\n *Likes long walks on the beach");
-
-		}
-	}
 	
 	public class KeyboardInput implements KeyListener {
 

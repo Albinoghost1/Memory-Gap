@@ -10,30 +10,29 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game_Panel extends JPanel {
 	//added to display picks 
-	String race= "Human";
-	int difficulty;
-	String sex;
+	private String race= "Human";
+	@SuppressWarnings("unused")
+	private int difficulty;
+	@SuppressWarnings("unused")
+	private String sex;
 
 	JButton bmenu; //menu button JD
 	JButton bnewGame; // new game button JD
 	JButton bcontinue; // continue button JD
 
-	JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
+	private JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
 
 	// JLabels to display race and difficulty//
-	JLabel grace = new JLabel("Race: ");
+	private JLabel grace = new JLabel("Race: ");
+	private JLabel gdiff = new JLabel("Difficulty: ");
+	private JLabel selecteddiff = new JLabel("");
+	private JButton selectedRace = new JButton("");
 
-	JLabel gdiff = new JLabel("Difficulty: ");
-	
-	JLabel selecteddiff = new JLabel("");
-	JButton selectedRace = new JButton("");
+	private String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
 
-	String buttontile = Back_Panel.getButtonTile(); //gets button background from Back Panel JD
-	String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
+	private static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-	static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked", "rawtypes" }) 
 	JComboBox cblevelList = new JComboBox(ComboboxStrings);
 
 	public Game_Panel() { //Constructor
@@ -96,9 +95,9 @@ public class Game_Panel extends JPanel {
 	
 	 //Method created to handle display of race and diff 
 	 public void displayRaceDif(String r, String s, int d,String loc){
-		race = r;
-		difficulty = d;
-		sex=s;
+		this.race = r;
+		this.difficulty = d;
+		this.sex=s;
 
 
 		if ("Human".equals(race) && "Male".equals(s)){

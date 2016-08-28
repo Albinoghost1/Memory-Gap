@@ -15,7 +15,7 @@ public class Changelog_Panel extends JPanel {
 
 	
 	
-	private Changelog_Panel(){
+	Changelog_Panel(){
 		
 		setLayout(null);
 		

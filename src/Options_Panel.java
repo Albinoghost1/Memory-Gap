@@ -17,37 +17,36 @@ public class Options_Panel extends JPanel {
 
 	JButton bSave; //makes Save button 
 
-	JButton bHuman; //makes Human ? button 
-	JButton bOstrich; //makes Ostrich ? button 
-	JButton bPotato; //makes Potato ? button 
+	private JButton bHuman; //makes Human ? button 
+	private JButton bOstrich; //makes Ostrich ? button 
+	private JButton bPotato; //makes Potato ? button 
 	
-	JLabel Race = new JLabel("Race"); //makes jlabel for Race label
-	JLabel Sex = new JLabel("Sex"); //makes jlabel for Sex 
-	JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for Difficulty 
+	private JLabel Race = new JLabel("Race"); //makes jlabel for Race label
+	private JLabel Sex = new JLabel("Sex"); //makes jlabel for Sex 
+	private JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for Difficulty 
 
-	JLabel otitle = new JLabel("Options"); //text for title 
+	private JLabel otitle = new JLabel("Options"); //text for title 
 
-	 JRadioButton Human; //jradio Human button 
-	 JRadioButton Ostrich; //jradio Ostrich button 
-	 JRadioButton Potato; //jradio Potato button 
-	 ButtonGroup bgRace; //jradio Race buttongroup 
+	private  JRadioButton Human; //jradio Human button 
+	private JRadioButton Ostrich; //jradio Ostrich button 
+	private JRadioButton Potato; //jradio Potato button 
+	private  ButtonGroup bgRace; //jradio Race buttongroup 
 
-	 JRadioButton Male; //jradio Male button 
-	 JRadioButton Female; //jradio Female button 
-	 ButtonGroup bgSex; //jradio Sex buttongroup 
+	private JRadioButton Male; //jradio Male button 
+	private JRadioButton Female; //jradio Female button 
+	private  ButtonGroup bgSex; //jradio Sex buttongroup 
 
-	 JRadioButton Easy; //jradio Easy button 
-	 JRadioButton Normal; //jradio Normal button 
-	 JRadioButton Expert; //jradio Expert button 
-	 ButtonGroup bgDifficulty; //jradio Difficulty buttongroup 
+	private JRadioButton Easy; //jradio Easy button 
+	private JRadioButton Normal; //jradio Normal button 
+	private JRadioButton Expert; //jradio Expert button 
+	private ButtonGroup bgDifficulty; //jradio Difficulty buttongroup 
 
-	 JRadioButton bgm1; // jradion bg1 
-	 JRadioButton bgm2; // jradio bg2 
-	 JRadioButton bgmoff; // jradio bg2 
-	 ButtonGroup bgMusic;// bg for bgm 
+	private JRadioButton bgm1; // jradion bg1 
+	private JRadioButton bgm2; // jradio bg2 
+	private JRadioButton bgmoff; // jradio bg2 
+	private ButtonGroup bgMusic;// bg for bgm 
 
-	String buttontile = Back_Panel.getButtonTile();
-	String fontStyle = Back_Panel.getFontStyle();
+	private String fontStyle = Back_Panel.getFontStyle();
 
 	public Options_Panel() { //Constructor//
 

@@ -3,7 +3,6 @@ import java.awt.*;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,17 +14,10 @@ public class Welcome_Panel extends JPanel {
 	JButton bGame;
 	JButton bExit;
 	
-	@SuppressWarnings("rawtypes")
-	JComboBox cbThemeChooser;
+	private JLabel wtitle = new JLabel("Memory Gap"); //text for title 
 	
-	JLabel wtitle = new JLabel("Memory Gap"); //text for title 
+	private Changelog_Panel cl;
 
-	String buttontile = Back_Panel.getButtonTile();
-	String fontStyle = Back_Panel.getFontStyle();
-	
-	Changelog_Panel cl;
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Welcome_Panel(){//constructor
 		super();
 		setLayout(null);
@@ -36,23 +28,17 @@ public class Welcome_Panel extends JPanel {
 		//wtitle.setBorder(BorderFactory.createLineBorder(Color.white));
 		wtitle.setBackground(Color.black);
 		
-		
 		cl = new Changelog_Panel();
 		cl.setBounds(500,200,200,400);
 		cl.setOpaque(false);
 		add(cl);
 		
 		add(wtitle);
-		
-		
-		
+
 		bOption = new JButton("Options");	
 		bInstruction = new JButton("Instructions");
 		bGame = new JButton("Play");
 		bExit = new JButton("Exit");
-		String[] ThemesArray = { "Indiana Jones","Rabbit Fields","Mouse","Medieval"};
-		cbThemeChooser = new JComboBox(ThemesArray);
-
 
 		SetButton(bGame,500,0,"images/playButton.png");
 		bGame.setToolTipText("Play");
@@ -64,12 +50,7 @@ public class Welcome_Panel extends JPanel {
 		SetButton(bExit,650,0,"images/ExitButton.png");
 		bExit.setToolTipText("Exit");
 		
-
-
 	}	
-	
-
-	
 	
 	public void SetButton(JButton buttonName , int xCoord,int size, String buttonImage){
 

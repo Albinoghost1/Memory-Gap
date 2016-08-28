@@ -2,6 +2,8 @@ import javax.swing.JFrame;
 
 
 public class MyJFrame extends JFrame {//JD
+	private static final long serialVersionUID = 1L;
+
 	public MyJFrame(){
 
 		super();

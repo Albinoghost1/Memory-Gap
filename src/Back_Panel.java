@@ -23,8 +23,8 @@ public class Back_Panel extends JPanel {//
 	JButton[] bstartLevel = new JButton[11];
 
 	//Sets Strings for FontStyle and buttontile(button background) 
-	private static String fontStyle = "Impact"; //font for entire program 
-	private static String buttontile = "images/buttontile.png"; //button location for entire program 
+	static String fontStyle = "Impact"; //font for entire program 
+	static String buttontile = "images/buttontile.png"; //button location for entire program 
 
 	public Back_Panel() {//
 		super();	
@@ -382,7 +382,7 @@ public class Back_Panel extends JPanel {//
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			
+			//required for method
 		}
 
 		@Override
@@ -415,11 +415,8 @@ public class Back_Panel extends JPanel {//
 				menuMove("OK");
 			}
 			
-			if( e.getKeyCode() == KeyEvent.VK_ENTER ) {
-				if(lp.beatLvl()==true && lp.isVisible()){
+			if( e.getKeyCode() == KeyEvent.VK_ENTER && lp.beatLvl()&& lp.isVisible()) {
 					menuMove("Next Level");
-				}
-
 			}
 		}
 

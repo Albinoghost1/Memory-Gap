@@ -14,23 +14,23 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Level extends JPanel {
 
-	private int level = 1;
-	private String sex="Male";
-	private String race="Ostrich";
-	private int doorLoc;
-	private int keyLoc;
-	private int charLoc;
-	private int[] goodtiles;
+	int level = 1;
+	String sex="Male";
+	String race="Ostrich";
+	int doorLoc;
+	int keyLoc;
+	int charLoc;
+	int[] goodtiles;
 
-	private JButton[] grid = new JButton[35];
-	private JButton[] tile = new JButton[35];
+	 JButton[] grid = new JButton[35];
+	 JButton[] tile = new JButton[35];
 
 	
-	private boolean gotKey = false;
+	 boolean gotKey = false;
 
-	private JButton Key;
-	private JButton Door;
-	private Character cr;
+	 JButton Key;
+	 JButton Door;
+	 Character cr;
 
 	ScoreLife_Panel sl;
 
@@ -287,7 +287,7 @@ public class Level extends JPanel {
 		for (int i = 0; i < 35; i++) {
 			grid[i].setBorder(null);
 			
-			if  ((i!=coordConvert(Key.getBounds().x,Key.getBounds().y)||gotKey==true) && (i!=coordConvert(Door.getBounds().x,Door.getBounds().y))) {
+			if  ((i!=coordConvert(Key.getBounds().x,Key.getBounds().y)||gotKey) && (i!=coordConvert(Door.getBounds().x,Door.getBounds().y))) {
 				grid[i].setVisible(true);
 			}
 		}
@@ -306,7 +306,7 @@ public class Level extends JPanel {
 			tilex = posConvert(getDoorLoc(),"x");
 			tiley = posConvert(getDoorLoc(),"y");
 			Door.setVisible(false);
-			if (gotKey==true){
+			if (gotKey){
 				sl.addNextLevel();
 			}
 		}
@@ -399,8 +399,8 @@ public class Level extends JPanel {
 		this.race = race;
 	}
 
-	public void setDifficulty(int dif)// to be used for difficulty
-	{
+	public void setDifficulty(int dif){
+		sl.setDiff(dif);
 	}
 
 	//********************************************GETS & SETS CHAR	

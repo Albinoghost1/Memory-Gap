@@ -14,9 +14,9 @@ public class Welcome_Panel extends JPanel {
 	JButton bGame;
 	JButton bExit;
 	
-	private JLabel wtitle = new JLabel("Memory Gap"); //text for title 
+	JLabel wtitle = new JLabel("Memory Gap"); //text for title 
 	
-	private Changelog_Panel cl;
+	Changelog_Panel cl;
 
 	public Welcome_Panel(){//constructor
 		super();

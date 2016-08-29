@@ -7,24 +7,24 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	// attributes 
 
-	private JLabel life1;
-	private JLabel life2;
-	private JLabel life3;
-	private JLabel life4;
-	private JLabel life5;
+	 JLabel life1;
+	 JLabel life2;
+	 JLabel life3;
+	 JLabel life4;
+	 JLabel life5;
 
-	private int difficulty= 1;
-	private String race = "";
+	 int difficulty= 1;
+	 String race = "";
 	
-	private int lives;
-	private int level;
+	 int lives;
+	 int level;
 
-	private JButton bmenu;
-	private JButton bnextLevel;
+	 JButton bmenu;
+	 JButton bnextLevel;
 
-	private JButton[] bstartLevel = new JButton[11];
+	 JButton[] bstartLevel = new JButton[11];
 
-	private String fontStyle = Back_Panel.getFontStyle();
+	 String fontStyle = Back_Panel.getFontStyle();
 
 	public ScoreLife_Panel() { 
 		super();

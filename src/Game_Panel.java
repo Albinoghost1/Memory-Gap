@@ -10,27 +10,25 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game_Panel extends JPanel {
 	//added to display picks 
-	private String race= "Human";
-	@SuppressWarnings("unused")
-	private int difficulty;
-	@SuppressWarnings("unused")
-	private String sex;
+	String race= "Human";
+	int difficulty;
+	String sex;
 
 	JButton bmenu; //menu button JD
 	JButton bnewGame; // new game button JD
 	JButton bcontinue; // continue button JD
 
-	private JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
+	JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
 
 	// JLabels to display race and difficulty//
-	private JLabel grace = new JLabel("Race: ");
-	private JLabel gdiff = new JLabel("Difficulty: ");
-	private JLabel selecteddiff = new JLabel("");
-	private JButton selectedRace = new JButton("");
+	JLabel grace = new JLabel("Race: ");
+	JLabel gdiff = new JLabel("Difficulty: ");
+	JLabel selecteddiff = new JLabel("");
+	JButton selectedRace = new JButton("");
 
-	private String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
+	String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
 
-	private static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+	static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
 	@SuppressWarnings({ "unchecked", "rawtypes" }) 
 	JComboBox cblevelList = new JComboBox(ComboboxStrings);

@@ -9,14 +9,14 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Welcome_Panel extends JPanel {
 
-	JButton bOption;
-	JButton bInstruction;
-	JButton bGame;
-	JButton bExit;
+	private JButton bOption;
+	private JButton bInstruction;
+	private JButton bGame;
+	private JButton bExit;
 	
-	JLabel wtitle = new JLabel("Memory Gap"); //text for title 
+	private JLabel wtitle = new JLabel("Memory Gap"); //text for title 
 	
-	Changelog_Panel cl;
+	private Changelog_Panel cl;
 
 	public Welcome_Panel(){//constructor
 		super();
@@ -35,24 +35,24 @@ public class Welcome_Panel extends JPanel {
 		
 		add(wtitle);
 
-		bOption = new JButton("Options");	
-		bInstruction = new JButton("Instructions");
-		bGame = new JButton("Play");
-		bExit = new JButton("Exit");
+		setbOption(new JButton("Options"));	
+		setbInstruction(new JButton("Instructions"));
+		setbGame(new JButton("Play"));
+		setbExit(new JButton("Exit"));
 
-		SetButton(bGame,500,0,"images/playButton.png");
-		bGame.setToolTipText("Play");
+		setButton(getbGame(),500,0,"images/playButton.png");
+		getbGame().setToolTipText("Play");
 		
-		SetButton(bInstruction,550,0,"images/InstructionsButton.png");
-		bInstruction.setToolTipText("Instructions");
-		SetButton(bOption,600,0,"images/OptionButton.png");
-		bOption.setToolTipText("Options");
-		SetButton(bExit,650,0,"images/ExitButton.png");
-		bExit.setToolTipText("Exit");
+		setButton(getbInstruction(),550,0,"images/InstructionsButton.png");
+		getbInstruction().setToolTipText("Instructions");
+		setButton(getbOption(),600,0,"images/OptionButton.png");
+		getbOption().setToolTipText("Options");
+		setButton(getbExit(),650,0,"images/ExitButton.png");
+		getbExit().setToolTipText("Exit");
 		
 	}	
 	
-	public void SetButton(JButton buttonName , int xCoord,int size, String buttonImage){
+	public void setButton(JButton buttonName , int xCoord,int size, String buttonImage){
 
 		buttonName.setFont(new Font("Impact", Font.PLAIN,size));
 		buttonName.setForeground(Color.white);
@@ -73,6 +73,38 @@ public class Welcome_Panel extends JPanel {
 		g.drawImage(myImage, 0, 0, this);
 		validate();
 		repaint();
+	}
+
+	public JButton getbGame() {
+		return bGame;
+	}
+
+	public void setbGame(JButton bGame) {
+		this.bGame = bGame;
+	}
+
+	public JButton getbInstruction() {
+		return bInstruction;
+	}
+
+	public void setbInstruction(JButton bInstruction) {
+		this.bInstruction = bInstruction;
+	}
+
+	public JButton getbOption() {
+		return bOption;
+	}
+
+	public void setbOption(JButton bOption) {
+		this.bOption = bOption;
+	}
+
+	public JButton getbExit() {
+		return bExit;
+	}
+
+	public void setbExit(JButton bExit) {
+		this.bExit = bExit;
 	}
 
 }

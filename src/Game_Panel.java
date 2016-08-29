@@ -10,28 +10,28 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game_Panel extends JPanel {
 	//added to display picks 
-	String race= "Human";
-	int difficulty;
-	String sex;
+	private String race= "Human";
+	private int difficulty;
+	private String sex;
 
-	JButton bmenu; //menu button JD
-	JButton bnewGame; // new game button JD
-	JButton bcontinue; // continue button JD
+	private JButton bmenu; //menu button JD
+	private JButton bnewGame; // new game button JD
+	private JButton bcontinue; // continue button JD
 
-	JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
+	private JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
 
 	// JLabels to display race and difficulty//
-	JLabel grace = new JLabel("Race: ");
-	JLabel gdiff = new JLabel("Difficulty: ");
-	JLabel selecteddiff = new JLabel("");
-	JButton selectedRace = new JButton("");
+	private JLabel grace = new JLabel("Race: ");
+	private JLabel gdiff = new JLabel("Difficulty: ");
+	private JLabel selecteddiff = new JLabel("");
+	private JButton selectedRace = new JButton("");
 
-	String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
+	private String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
 
-	static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+	private static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
 	@SuppressWarnings({ "unchecked", "rawtypes" }) 
-	JComboBox cblevelList = new JComboBox(ComboboxStrings);
+	private JComboBox cblevelList = new JComboBox(ComboboxStrings);
 
 	public Game_Panel() { //Constructor
 
@@ -48,31 +48,31 @@ public class Game_Panel extends JPanel {
 		gdiff.setFont(new Font(fontStyle, Font.BOLD, 30));
 		gdiff.setForeground(Color.WHITE);
 
-		bmenu = new JButton("Main Menu");
-		bnewGame = new JButton("New Game");
-		bcontinue = new JButton("Continue");
+		setBmenu(new JButton("Main Menu"));
+		setBnewGame(new JButton("New Game"));
+		setBcontinue(new JButton("Continue"));
 
-		bmenu.setBounds(200,350,150,50); //sets location of menu button JD
-		bnewGame.setBounds(200, 400, 150, 50); //sets location of new game button JD
-		bcontinue.setBounds(200, 450, 150, 50); //sets location of continue button JD
+		getBmenu().setBounds(200,350,150,50); //sets location of menu button JD
+		getBnewGame().setBounds(200, 400, 150, 50); //sets location of new game button JD
+		getBcontinue().setBounds(200, 450, 150, 50); //sets location of continue button JD
 		
 		//add(gtitle); //adds title JD
-		add(bmenu); //adds menu button JD
-		add(bnewGame); //adds new game button JD
-		add(bcontinue); //adds continue button JD
+		add(getBmenu()); //adds menu button JD
+		add(getBnewGame()); //adds new game button JD
+		add(getBcontinue()); //adds continue button JD
 
-		cblevelList.setBounds(220, 615, 100, 25); //sets location of levellist combobox JD
-		cblevelList.setSelectedItem(1);
-		add(cblevelList);//adds combobox JD
+		getCblevelList().setBounds(220, 615, 100, 25); //sets location of levellist combobox JD
+		getCblevelList().setSelectedItem(1);
+		add(getCblevelList());//adds combobox JD
 
-		bmenu.setToolTipText("Return To Main Menu");
-		bnewGame.setToolTipText("New Game");
-		bcontinue.setToolTipText("Continue");
+		getBmenu().setToolTipText("Return To Main Menu");
+		getBnewGame().setToolTipText("New Game");
+		getBcontinue().setToolTipText("Continue");
 		
 		
-		setButton(bmenu,650,0,"images/ReturnButton.png");
-		setButton(bnewGame,170,0,"images/PlayButton.png");
-		setButton(bcontinue,320,0,"images/NextLevelButton.png");
+		setButton(getBmenu(),650,0,"images/ReturnButton.png");
+		setButton(getBnewGame(),170,0,"images/PlayButton.png");
+		setButton(getBcontinue(),320,0,"images/NextLevelButton.png");
 	
 	}
 	
@@ -139,6 +139,7 @@ public class Game_Panel extends JPanel {
 		case "op":
 			selecteddiff.setBounds(470,600,250,50);
 			break;
+		default:break;
 			
 		}
 
@@ -159,6 +160,38 @@ public class Game_Panel extends JPanel {
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");
 		g.drawImage(myImage, 0, 0, this);
 
+	}
+
+	public JButton getBmenu() {
+		return bmenu;
+	}
+
+	public void setBmenu(JButton bmenu) {
+		this.bmenu = bmenu;
+	}
+
+	public JButton getBnewGame() {
+		return bnewGame;
+	}
+
+	public void setBnewGame(JButton bnewGame) {
+		this.bnewGame = bnewGame;
+	}
+
+	public JButton getBcontinue() {
+		return bcontinue;
+	}
+
+	public void setBcontinue(JButton bcontinue) {
+		this.bcontinue = bcontinue;
+	}
+
+	public JComboBox getCblevelList() {
+		return cblevelList;
+	}
+
+	public void setCblevelList(JComboBox cblevelList) {
+		this.cblevelList = cblevelList;
 	}
 }
 

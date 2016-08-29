@@ -6,15 +6,15 @@ import javax.swing.*;
 public class Character extends JButton{ //entire class by 
 
 	// create attributes for gender and race 
-	 String race;
-	 String gender;
-	 int direction;
-	 int level;
-	 int xPos;
-	 int yPos;
-	 int width = 100;
-	 int height = 100;
-	 int charImage;
+	 private String race;
+	 private String gender;
+	 private int direction;
+	 private int level;
+	 private int xPos;
+	 private int yPos;
+	 private int width = 100;
+	 private int height = 100;
+	 private int charImage;
 
 	// character constructor 
 	public Character(String g, String r, int l)

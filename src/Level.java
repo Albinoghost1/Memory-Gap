@@ -14,25 +14,25 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Level extends JPanel {
 
-	int level = 1;
-	String sex="Male";
-	String race="Ostrich";
-	int doorLoc;
-	int keyLoc;
-	int charLoc;
-	int[] goodtiles;
+	private int level = 1;
+	private String sex="Male";
+	private String race="Ostrich";
+	private int doorLoc;
+	private int keyLoc;
+	private int charLoc;
+	private int[] goodtiles;
 
-	 JButton[] grid = new JButton[35];
-	 JButton[] tile = new JButton[35];
+	private JButton[] grid = new JButton[35];
+	private JButton[] tile = new JButton[35];
 
 	
-	 boolean gotKey = false;
+	private boolean gotKey = false;
 
-	 JButton Key;
-	 JButton Door;
-	 Character cr;
+	private JButton Key;
+	private  JButton Door;
+	private Character cr;
 
-	ScoreLife_Panel sl;
+	private ScoreLife_Panel sl;
 
 	public Level() {
 		super();
@@ -54,10 +54,10 @@ public class Level extends JPanel {
 		Key.addActionListener(new grid_Listener());
 		Door.addActionListener(new grid_Listener());
 		createCharacter();
-		sl = new ScoreLife_Panel();
-		sl.setBounds(0, 25, 870, 70);
-		sl.setOpaque(false);
-		add(sl);
+		setSl(new ScoreLife_Panel());
+		getSl().setBounds(0, 25, 870, 70);
+		getSl().setOpaque(false);
+		add(getSl());
 		
 
 	}
@@ -196,7 +196,7 @@ public class Level extends JPanel {
 			remove(tile[i]);
 		}
 		
-		sl.removeAll();
+		getSl().removeAll();
 		grid[keyLoc].setVisible(false);// hide key grid square
 		grid[doorLoc].setVisible(false);// hide door grid square
 		Door.setVisible(true);	//hide door icon
@@ -226,7 +226,7 @@ public class Level extends JPanel {
 		setDoorLoc(0,0,0,0,true);
 		setCharLoc(0,0,0,0,true);
 		
-		sl.removeNextLevel();
+		getSl().removeNextLevel();
 		
 		gotKey = false;
 		
@@ -307,7 +307,7 @@ public class Level extends JPanel {
 			tiley = posConvert(getDoorLoc(),"y");
 			Door.setVisible(false);
 			if (gotKey){
-				sl.addNextLevel();
+				getSl().addNextLevel();
 			}
 		}
 
@@ -317,7 +317,7 @@ public class Level extends JPanel {
 			tiley = grid[newPos].getBounds().y;
 			grid[newPos].setVisible(false);
 
-			if (gotKey == true) {
+			if (gotKey) {
 				Door.setVisible(true);
 			}
 			else{
@@ -336,7 +336,7 @@ public class Level extends JPanel {
 	
 	private void badMove(int tile) {
 		
-		sl.removeLife();
+		getSl().removeLife();
 		if (tile < 35) {
 			if (level<=3) {
 				grid[tile].setIcon(new ImageIcon("images/floortile1-3x.png"));
@@ -400,7 +400,7 @@ public class Level extends JPanel {
 	}
 
 	public void setDifficulty(int dif){
-		sl.setDiff(dif);
+		getSl().setDiff(dif);
 	}
 
 	//********************************************GETS & SETS CHAR	
@@ -578,10 +578,10 @@ private class grid_Listener implements ActionListener {
 	case 33:x=700;y=400;break;
 	case 34:x=700;y=500;break;
 	}
-	if (xy=="x"){
+	if ("x".equals(xy)){
 		coord=x;
 	}
-	else if (xy=="y"){
+	else if ("y".equals(xy)){
 		coord=y;
 	}
 	return coord;
@@ -598,6 +598,7 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 2;break;
 			case 400:chartile = 3;break;
 			case 500:chartile = 4;break;
+			default:break;
 			}
 			break;
 		case 200:
@@ -607,6 +608,7 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 7;break;
 			case 400:chartile = 8;break;
 			case 500:chartile = 9;break;
+			default:break;
 			}
 			break;
 		case 300:
@@ -616,6 +618,7 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 12;break;
 			case 400:chartile = 13;break;
 			case 500:chartile = 14;break;
+			default:break;
 			}
 			break;
 		case 400:
@@ -625,6 +628,7 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 17;break;
 			case 400:chartile = 18;break;
 			case 500:chartile = 19;break;
+			default:break;
 			}
 			break;
 		case 500:
@@ -634,6 +638,7 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 22;break;
 			case 400:chartile = 23;break;
 			case 500:chartile = 24;break;
+			default:break;
 			}
 			break;
 		case 600:
@@ -643,6 +648,7 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 27;break;
 			case 400:chartile = 28;break;
 			case 500:chartile = 29;break;
+			default:break;
 			}
 			break;
 		case 700:
@@ -652,8 +658,10 @@ private class grid_Listener implements ActionListener {
 			case 300:chartile = 32;break;
 			case 400:chartile = 33;break;
 			case 500:chartile = 34;break;
+			default:break;
 			}
 			break;
+		default:break;
 		}
 		return chartile;
 		
@@ -681,6 +689,12 @@ private class grid_Listener implements ActionListener {
 	}
 	public void setCr(Character cr) {
 		this.cr = cr;
+	}
+	public ScoreLife_Panel getSl() {
+		return sl;
+	}
+	public void setSl(ScoreLife_Panel sl) {
+		this.sl = sl;
 	}
 
 }

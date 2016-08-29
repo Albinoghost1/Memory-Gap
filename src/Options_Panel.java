@@ -15,33 +15,33 @@ import javax.swing.JRadioButton;
 @SuppressWarnings("serial")
 public class Options_Panel extends JPanel {
 
-	JButton bSave; //makes Save button 
+	private JButton bSave; //makes Save button 
 
-	 JButton bHuman; //makes Human ? button 
-	 JButton bOstrich; //makes Ostrich ? button 
-	 JButton bPotato; //makes Potato ? button 
+	private JButton bHuman; //makes Human ? button 
+	private JButton bOstrich; //makes Ostrich ? button 
+	private JButton bPotato; //makes Potato ? button 
 	
-	 JLabel Race = new JLabel("Race"); //makes jlabel for Race label
-	 JLabel Sex = new JLabel("Sex"); //makes jlabel for Sex 
-	 JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for Difficulty 
+	private JLabel Race = new JLabel("Race"); //makes jlabel for Race label
+	private JLabel Sex = new JLabel("Sex"); //makes jlabel for Sex 
+	private JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for Difficulty 
 
-	 JLabel otitle = new JLabel("Options"); //text for title 
+	private JLabel otitle = new JLabel("Options"); //text for title 
 
-	  JRadioButton Human; //jradio Human button 
-	 JRadioButton Ostrich; //jradio Ostrich button 
-	 JRadioButton Potato; //jradio Potato button 
-	  ButtonGroup bgRace; //jradio Race buttongroup 
+	private JRadioButton Human; //jradio Human button 
+	private JRadioButton Ostrich; //jradio Ostrich button 
+	private JRadioButton Potato; //jradio Potato button 
+	private ButtonGroup bgRace; //jradio Race buttongroup 
 
-	 JRadioButton Male; //jradio Male button 
-	 JRadioButton Female; //jradio Female button 
-	  ButtonGroup bgSex; //jradio Sex buttongroup 
+	private JRadioButton Male; //jradio Male button 
+	private JRadioButton Female; //jradio Female button 
+	private ButtonGroup bgSex; //jradio Sex buttongroup 
 
-	 JRadioButton Easy; //jradio Easy button 
-	 JRadioButton Normal; //jradio Normal button 
-	 JRadioButton Expert; //jradio Expert button 
-	 ButtonGroup bgDifficulty; //jradio Difficulty buttongroup 
+	private JRadioButton Easy; //jradio Easy button 
+	private JRadioButton Normal; //jradio Normal button 
+	private JRadioButton Expert; //jradio Expert button 
+	private ButtonGroup bgDifficulty; //jradio Difficulty buttongroup 
 
-	 String fontStyle = Back_Panel.getFontStyle();
+	private String fontStyle = Back_Panel.getFontStyle();
 
 	public Options_Panel() { //Constructor//
 
@@ -53,7 +53,7 @@ public class Options_Panel extends JPanel {
 
 		setOutline(300,800,500,100,"Options",otitle);
 		
-		bSave= new JButton("Save");
+		setbSave(new JButton("Save"));
 
 		bHuman = new JButton("Human");
 		bOstrich = new JButton("Ostrich");
@@ -109,14 +109,14 @@ public class Options_Panel extends JPanel {
 		Normal.setBounds(360,225,70,20);
 		Expert.setBounds(440,225,70,20);
 		
-		bSave.setFont(new Font(fontStyle, Font.PLAIN,0));
-		bSave.setForeground(Color.black);
-		bSave.setBounds(300,300,150,50);
-		bSave.setIcon(new ImageIcon("images/ReturnButton.png"));
-		bSave.setHorizontalTextPosition(AbstractButton.CENTER);
-		bSave.setToolTipText("Return to Main Menu");
-		setButton(bSave);
-		bSave.setBounds(600,600,150,50);
+		getbSave().setFont(new Font(fontStyle, Font.PLAIN,0));
+		getbSave().setForeground(Color.black);
+		getbSave().setBounds(300,300,150,50);
+		getbSave().setIcon(new ImageIcon("images/ReturnButton.png"));
+		getbSave().setHorizontalTextPosition(AbstractButton.CENTER);
+		getbSave().setToolTipText("Return to Main Menu");
+		setButton(getbSave());
+		getbSave().setBounds(600,600,150,50);
 		
 		setButton(Human);
 		setButton(Ostrich);
@@ -134,7 +134,7 @@ public class Options_Panel extends JPanel {
 		add(Race); 
 		add(Sex);
 		add(Difficulty);
-		add(bSave);
+		add(getbSave());
 		add(bHuman);
 		add(bOstrich);
 		add(bPotato);
@@ -227,6 +227,16 @@ public class Options_Panel extends JPanel {
 		g.drawImage(myImage, 0, 0, this);
 
 
+	}
+
+
+	public JButton getbSave() {
+		return bSave;
+	}
+
+
+	public void setbSave(JButton bSave) {
+		this.bSave = bSave;
 	}
 
 

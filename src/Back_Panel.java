@@ -13,18 +13,18 @@ import javax.swing.JPanel;
 public class Back_Panel extends JPanel {//
 
 	//initialize Variables
-	Welcome_Panel wp;
-	Options_Panel op;
-	Instructions_Panel ip;
-	Game_Panel gp;
-	Level lp; 
+	 private Welcome_Panel wp;
+	 private Options_Panel op;
+	 private Instructions_Panel ip;
+	 private Game_Panel gp;
+	 private Level lp; 
 
 	//Creates JButton Array 
-	JButton[] bstartLevel = new JButton[11];
+	 private JButton[] bstartLevel = new JButton[11];
 
 	//Sets Strings for FontStyle and buttontile(button background) 
-	static String fontStyle = "Impact"; //font for entire program 
-	static String buttontile = "images/buttontile.png"; //button location for entire program 
+	 private static String fontStyle = "Impact"; //font for entire program 
+	 private static String buttontile = "images/buttontile.png"; //button location for entire program 
 
 	public Back_Panel() {//
 		super();	
@@ -47,27 +47,27 @@ public class Back_Panel extends JPanel {//
 		requestFocus();
 		
 		//adds button listeners to JButtons throughout the classes 
-		 buttonListener(wp.bGame);
-		 buttonListener(wp.bInstruction);
-		 buttonListener(wp.bOption);
-		 buttonListener(wp.bExit);
+		 buttonListener(wp.getbGame());
+		 buttonListener(wp.getbInstruction());
+		 buttonListener(wp.getbOption());
+		 buttonListener(wp.getbExit());
 
-		 buttonListener(gp.bmenu);
-		 buttonListener(gp.bnewGame);
-		 buttonListener(gp.bcontinue);
+		 buttonListener(gp.getBmenu());
+		 buttonListener(gp.getBnewGame());
+		 buttonListener(gp.getBcontinue());
 
-		 buttonListener(lp.sl.getBnextLevel());
-		 buttonListener(lp.sl.getBmenu());
+		 buttonListener(lp.getSl().getBnextLevel());
+		 buttonListener(lp.getSl().getBmenu());
 		
-		 buttonListener(ip.bOk);
+		 buttonListener(ip.getbOk());
 
-		buttonListener(op.bSave);
+		buttonListener(op.getbSave());
 
 		
 		//sets bstartLevel array = bstartlevel array in scorelife panel 
 		//adds button listeners to bstartlevel array 
 		for (int i=0;i<11;i++){
-			bstartLevel[i] = lp.sl.getBstartLevel()[i];
+			bstartLevel[i] = lp.getSl().getBstartLevel()[i];
 			bstartLevel[i].addActionListener(new Button_Listener());
 		}
 
@@ -109,7 +109,7 @@ public class Back_Panel extends JPanel {//
 
 				remove(wp);
 				add(gp);
-				lp.sl.setLives();
+				lp.getSl().setLives();
 				gp.displayRaceDif(op.getRace(), op.getSex(), op.getDifficulty(), "op");
 				break;	   
 				
@@ -131,8 +131,7 @@ public class Back_Panel extends JPanel {//
 			          System.exit(0);
 			        }
 			        else {
-
-			          
+			        return;
 			        }
 				break;
 
@@ -146,12 +145,12 @@ public class Back_Panel extends JPanel {//
 				
 			case "Save":
 				remove(op);
-				remove(lp.sl);
+				remove(lp.getSl());
 				remove(lp);
 				remove(gp);
 				add(wp);
 
-				lp.sl.setDiff(op.getDifficulty());
+				lp.getSl().setDiff(op.getDifficulty());
 				lp.getCr().setChar(op.getSex(),op.getRace());
 				break;
 
@@ -165,7 +164,7 @@ public class Back_Panel extends JPanel {//
 			case "Main Menu":
 
 				lp.clearLevel();
-				remove(lp.sl);
+				remove(lp.getSl());
 				remove(lp);
 				remove(gp);
 				add(wp);
@@ -182,8 +181,8 @@ public class Back_Panel extends JPanel {//
 			case "Next Level":
 
 				lp.setLevel(lp.getLevel()+1);
-				lp.sl.setLevelButton(lp.getLevel()+1);
-				lp.sl.addStartLevel(lp.getLevel());
+				lp.getSl().setLevelButton(lp.getLevel()+1);
+				lp.getSl().addStartLevel(lp.getLevel());
 				lp.getCr().setAvatar();
 				lp.clearLevel();
 
@@ -229,7 +228,7 @@ public class Back_Panel extends JPanel {//
 			case "Continue":
 
 				//checks Level Panel combobox for which level is selected and calls that level method  
-				lp.setLevel(Integer.parseInt((String) gp.cblevelList.getSelectedItem()));
+				lp.setLevel(Integer.parseInt((String) gp.getCblevelList().getSelectedItem()));
 
 				//Added here to handle lives 
 				lp.setSex(op.getSex());
@@ -240,8 +239,8 @@ public class Back_Panel extends JPanel {//
 				lp.createCharacter();  
 				
 				//Added to send race to SL 
-				lp.sl.setRace(op.getRace());
-				lp.sl.addLives();
+				lp.getSl().setRace(op.getRace());
+				lp.getSl().addLives();
 				lp.getCr().setAvatar();
 
 				//removes Game Panel 
@@ -251,8 +250,8 @@ public class Back_Panel extends JPanel {//
 
 				//gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X" 
 				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
-				lp.sl.setLevelButton(lp.getLevel());
-				lp.sl.addStartLevel(lp.getLevel());
+				lp.getSl().setLevelButton(lp.getLevel());
+				lp.getSl().addStartLevel(lp.getLevel());
 
 				//checks Level Panel level variable and calls that level method 
 				if (lp.getLevel() == 1)
@@ -304,8 +303,8 @@ public class Back_Panel extends JPanel {//
 
 				//gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X" 
 				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
-				lp.sl.setLevelButton(lp.getLevel());
-				lp.sl.addStartLevel(lp.getLevel());
+				lp.getSl().setLevelButton(lp.getLevel());
+				lp.getSl().addStartLevel(lp.getLevel());
 
 				//send Race,Sex to lp
 				lp.setSex(op.getSex());
@@ -315,8 +314,8 @@ public class Back_Panel extends JPanel {//
 				lp.getCr().setAvatar();
 				lp.createCharacter(); 
 				//added to send race to SL 
-				lp.sl.setRace(op.getRace());
-				lp.sl.addLives();
+				lp.getSl().setRace(op.getRace());
+				lp.getSl().addLives();
 				//Remove Game Panel 
 				//Adds Level Panel
 				remove(gp);
@@ -341,6 +340,8 @@ public class Back_Panel extends JPanel {//
 				lp.setLevelGrid();
 				break;	
 				
+			default:break;//added for errors
+				
 
 			}
 			validate();
@@ -352,7 +353,7 @@ public class Back_Panel extends JPanel {//
 
 	public void resetGame(){
 		lp.clearLevel();
-		remove(lp.sl);
+		remove(lp.getSl());
 		remove(lp);
 		remove(gp);
 		add(wp);

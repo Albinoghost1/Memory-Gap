@@ -10,16 +10,16 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class Instructions_Panel extends JPanel { 
-
-	JButton bOk; //makes ok button
-	JTextArea InstructionLabel = new JTextArea(
+	private static final long serialVersionUID = 1L;
+	
+	private JButton bOk; //makes ok button
+	private JTextArea InstructionLabel = new JTextArea(
 			"1. Look at the map and memorize the path " +
 			"\n2.Use arrow keys to move around the map "); //instructions in a jTextArea
 
-	JLabel ititle = new JLabel("Instructions"); //text for title
+	private JLabel ititle = new JLabel("Instructions"); //text for title
 
 
 
@@ -31,18 +31,18 @@ public class Instructions_Panel extends JPanel {
 		ititle.setFont(new Font(Back_Panel.getFontStyle(), Font.ITALIC, 50)); //changes font of title
 		ititle.setForeground(Color.WHITE);
 		
-		bOk= new JButton("Ok"); //creates ok button
+		setbOk(new JButton("Ok")); //creates ok button
 
-		bOk.setFont(new Font(Back_Panel.getFontStyle(), Font.PLAIN,0));
-		bOk.setForeground(Color.white);
-		bOk.setBounds(600,600,150,50); //sets location of ok button
-		bOk.setIcon(new ImageIcon("images/ReturnButton.png")); //set icon image
-		bOk.setHorizontalTextPosition(AbstractButton.CENTER); //set text location
-		bOk.setFocusPainted(false);
-		bOk.setContentAreaFilled(false);
-		bOk.setBorderPainted(false);
-		bOk.setOpaque(false);
-		bOk.setToolTipText("Return to Main Menu");
+		getbOk().setFont(new Font(Back_Panel.getFontStyle(), Font.PLAIN,0));
+		getbOk().setForeground(Color.white);
+		getbOk().setBounds(600,600,150,50); //sets location of ok button
+		getbOk().setIcon(new ImageIcon("images/ReturnButton.png")); //set icon image
+		getbOk().setHorizontalTextPosition(AbstractButton.CENTER); //set text location
+		getbOk().setFocusPainted(false);
+		getbOk().setContentAreaFilled(false);
+		getbOk().setBorderPainted(false);
+		getbOk().setOpaque(false);
+		getbOk().setToolTipText("Return to Main Menu");
 
 		InstructionLabel.setBounds(300,180,250,50); //sets location of instructions
 
@@ -51,7 +51,7 @@ public class Instructions_Panel extends JPanel {
 		InstructionLabel.setBackground(Color.WHITE);
 		
 		add(InstructionLabel); //adds instruction label
-		add(bOk); //adds ok button
+		add(getbOk()); //adds ok button
 		add(ititle); //adds title button
 
 	}
@@ -61,5 +61,13 @@ public class Instructions_Panel extends JPanel {
 		super.paintComponent(g);
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");
 		g.drawImage(myImage, 0, 0, this);
+	}
+
+	public JButton getbOk() {
+		return bOk;
+	}
+
+	public void setbOk(JButton bOk) {
+		this.bOk = bOk;
 	}
 }

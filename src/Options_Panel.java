@@ -15,35 +15,56 @@ import javax.swing.JRadioButton;
 @SuppressWarnings("serial")
 public class Options_Panel extends JPanel {
 
-	private JButton bSave; //makes Save button 
+	private JButton bSave;
+ //makes Save button
 
-	private JButton bHuman; //makes Human ? button 
-	private JButton bOstrich; //makes Ostrich ? button 
-	private JButton bPotato; //makes Potato ? button 
+	private JButton bHuman;
+ //makes Human ? button
+	private JButton bOstrich;
+ //makes Ostrich ? button
+	private JButton bPotato;
+ //makes Potato ? button
 	
-	private JLabel Race = new JLabel("Race"); //makes jlabel for Race label
-	private JLabel Sex = new JLabel("Sex"); //makes jlabel for Sex 
-	private JLabel Difficulty = new JLabel("Difficulty"); //makes jlabel for Difficulty 
+	private JLabel Race = new JLabel("Race");
+ //makes jlabel for Race label
+	private JLabel Sex = new JLabel("Sex");
+ //makes jlabel for Sex
+	private JLabel Difficulty = new JLabel("Difficulty");
+ //makes jlabel for Difficulty
 
-	private JLabel otitle = new JLabel("Options"); //text for title 
+	private JLabel otitle = new JLabel("Options");
+ //text for title
 
-	private JRadioButton Human; //jradio Human button 
-	private JRadioButton Ostrich; //jradio Ostrich button 
-	private JRadioButton Potato; //jradio Potato button 
-	private ButtonGroup bgRace; //jradio Race buttongroup 
+	private JRadioButton Human;
+ //jradio Human button
+	private JRadioButton Ostrich;
+ //jradio Ostrich button
+	private JRadioButton Potato;
+ //jradio Potato button
+	private ButtonGroup bgRace;
+ //jradio Race buttongroup
 
-	private JRadioButton Male; //jradio Male button 
-	private JRadioButton Female; //jradio Female button 
-	private ButtonGroup bgSex; //jradio Sex buttongroup 
+	private JRadioButton Male;
+ //jradio Male button
+	private JRadioButton Female;
+ //jradio Female button
+	private ButtonGroup bgSex;
+ //jradio Sex buttongroup
 
-	private JRadioButton Easy; //jradio Easy button 
-	private JRadioButton Normal; //jradio Normal button 
-	private JRadioButton Expert; //jradio Expert button 
-	private ButtonGroup bgDifficulty; //jradio Difficulty buttongroup 
+	private JRadioButton Easy;
+ //jradio Easy button
+	private JRadioButton Normal;
+ //jradio Normal button
+	private JRadioButton Expert;
+ //jradio Expert button
+	private ButtonGroup bgDifficulty;
+ //jradio Difficulty buttongroup
 
 	private String fontStyle = Back_Panel.getFontStyle();
 
-	public Options_Panel() { //Constructor//
+	public Options_Panel() {
+ //Constructor
+ //
 
 		setLayout(null);
 
@@ -131,7 +152,7 @@ public class Options_Panel extends JPanel {
 		Sex.setForeground(Color.black);
 		Difficulty.setForeground(Color.black);
 		
-		add(Race); 
+		add(Race);
 		add(Sex);
 		add(Difficulty);
 		add(getbSave());
@@ -172,19 +193,19 @@ public class Options_Panel extends JPanel {
 		}
 		else
 		{
-			race = "Human";	
+			race = "Human";
 		}
 		return race;
 
 	}
-	public String getSex() 
+	public String getSex()
 	{
 		String sex;
 		if(Male.isSelected()){
 			sex = "Male";
 		}
 		else{
-			sex = "Female";	
+			sex = "Female";
 		}
 		return sex;
 
@@ -201,7 +222,7 @@ public class Options_Panel extends JPanel {
 		}
 		else
 		{
-			difficulty = 3;	
+			difficulty = 3;
 		}
 		return difficulty;
 
@@ -220,7 +241,8 @@ public class Options_Panel extends JPanel {
 	}
 
 
-	public void paintComponent (Graphics g)//
+	public void paintComponent (Graphics g)
+ //
 	{
 		super.paintComponent(g);
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");
@@ -241,4 +263,3 @@ public class Options_Panel extends JPanel {
 
 
 }
-

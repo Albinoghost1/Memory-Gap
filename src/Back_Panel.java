@@ -10,34 +10,44 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class Back_Panel extends JPanel {//
+public class Back_Panel extends JPanel {
+ //
 
-	//initialize Variables
+	
+ //initialize Variables
 	 private Welcome_Panel wp;
 	 private Options_Panel op;
 	 private Instructions_Panel ip;
 	 private Game_Panel gp;
-	 private Level lp; 
+	 private Level lp;
 
-	//Creates JButton Array 
+	
+ //Creates JButton Array
 	 private JButton[] bstartLevel = new JButton[11];
 
-	//Sets Strings for FontStyle and buttontile(button background) 
-	 private static String fontStyle = "Impact"; //font for entire program 
-	 private static String buttontile = "images/buttontile.png"; //button location for entire program 
+	
+ //Sets Strings for FontStyle and buttontile(button background)
+	 private static String fontStyle = "Impact";
+ //font for entire program
+	 private static String buttontile = "images/buttontile.png";
+ //button location for entire program
 
-	public Back_Panel() {//
-		super();	
-		//sets layout to border 
+	public Back_Panel() {
+ //
+		super();
+		
+ //sets layout to border
 		setLayout(new BorderLayout());
-		//creates new instance of classes
+		
+ //creates new instance of classes
 		wp = new Welcome_Panel();
 		op = new Options_Panel();
 		ip = new Instructions_Panel();
 		gp = new Game_Panel();
 		lp = new Level();
 
-		//adds Welcome Panel to the screen 
+		
+ //adds Welcome Panel to the screen
 		add(wp);
 
 		
@@ -46,7 +56,8 @@ public class Back_Panel extends JPanel {//
 		requestFocusInWindow();
 		requestFocus();
 		
-		//adds button listeners to JButtons throughout the classes 
+		
+ //adds button listeners to JButtons throughout the classes
 		 buttonListener(wp.getbGame());
 		 buttonListener(wp.getbInstruction());
 		 buttonListener(wp.getbOption());
@@ -64,23 +75,28 @@ public class Back_Panel extends JPanel {//
 		buttonListener(op.getbSave());
 
 		
-		//sets bstartLevel array = bstartlevel array in scorelife panel 
-		//adds button listeners to bstartlevel array 
+		
+ //sets bstartLevel array = bstartlevel array in scorelife panel
+		
+ //adds button listeners to bstartlevel array
 		for (int i=0;i<11;i++){
 			bstartLevel[i] = lp.getSl().getBstartLevel()[i];
 			bstartLevel[i].addActionListener(new Button_Listener());
 		}
 
 	}
-	//add generic button listener to jbutton
+	
+ //add generic button listener to jbutton
 	public void buttonListener(JButton buttonName){
 		buttonName.addActionListener(new Button_Listener());
 	}
 	
 
-	//main private class button listener for all buttons 
+	
+ //main private class button listener for all buttons
 
-	private class Button_Listener implements ActionListener {//
+	private class Button_Listener implements ActionListener {
+ //
 		public void actionPerformed(ActionEvent event) {
 			requestFocusInWindow();
 			requestFocus();
@@ -88,42 +104,54 @@ public class Back_Panel extends JPanel {//
 			}
 	}
 		
-	//it checks how each button is labeled and does things accordingly 
+	
+ //it checks how each button is labeled and does things accordingly
 		public void menuMove(String buttonName) {
 
 				
 			switch(buttonName){
 			
-			//if button is named Options this case happens 
-			//removes welcome panel
-			//adds option panel
+			
+ //if button is named Options this case happens
+			
+ //removes welcome panel
+			
+ //adds option panel
 			case "Options":
 				remove(wp);
 				add(op);
 				break;
 
-				//if button is named Play this case happens 
-				//removes welcome panel
-				//adds game panel
+				
+ //if button is named Play this case happens
+				
+ //removes welcome panel
+				
+ //adds game panel
 			case "Play":
 
 				remove(wp);
 				add(gp);
 				lp.getSl().setLives();
 				gp.displayRaceDif(op.getRace(), op.getSex(), op.getDifficulty(), "op");
-				break;	   
+				break;
 				
 				
-				//if button is named Instructions this case happens 
-				//removes welcome panel
-				//adds Instruction panel
+				
+ //if button is named Instructions this case happens
+				
+ //removes welcome panel
+				
+ //adds Instruction panel
 			case "Instructions":
 				remove(wp);
 				add(ip);
 				break;
 
-				//if button is named Exit this case happens 
-				//Exits game
+				
+ //if button is named Exit this case happens
+				
+ //Exits game
 			case "Exit":
 
 				  int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
@@ -135,10 +163,14 @@ public class Back_Panel extends JPanel {//
 			        }
 				break;
 
-				//if button is named Ok this case happens 
-				//Remove Instruction Panel
-				//Remove Game Panel
-				//Add Welcome Panel
+				
+ //if button is named Ok this case happens
+				
+ //Remove Instruction Panel
+				
+ //Remove Game Panel
+				
+ //Add Welcome Panel
 			case "Ok":
 
 				remove(ip);
@@ -154,12 +186,18 @@ public class Back_Panel extends JPanel {//
 				lp.getCr().setChar(op.getSex(),op.getRace());
 				break;
 
-				//if button is named Main Menu this case happens 
-				//calls method in Level Panel that Clears level
-				//remove Scorelife Panel
-				//remove Level Panel
-				//remove Game Panel
-				//add Welcome Panel
+				
+ //if button is named Main Menu this case happens
+				
+ //calls method in Level Panel that Clears level
+				
+ //remove Scorelife Panel
+				
+ //remove Level Panel
+				
+ //remove Game Panel
+				
+ //add Welcome Panel
 				
 			case "Main Menu":
 
@@ -170,12 +208,18 @@ public class Back_Panel extends JPanel {//
 				add(wp);
 				break;
 
-				//if button is named Next Level this case happens 
-				//gets level from Level Panel and calls level set level method which sets level variable
-				//gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X"
-				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
-				//calls method in Level Panel that Clears level
-				//checks what level variable equals and goes to next level
+				
+ //if button is named Next Level this case happens
+				
+ //gets level from Level Panel and calls level set level method which sets level variable
+				
+ //gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X"
+				
+ //gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
+				
+ //calls method in Level Panel that Clears level
+				
+ //checks what level variable equals and goes to next level
 				
 				
 			case "Next Level":
@@ -224,36 +268,45 @@ public class Back_Panel extends JPanel {//
 				}
 				break;
 
-				//if button is named Continue this case happens 
+				
+ //if button is named Continue this case happens
 			case "Continue":
 
-				//checks Level Panel combobox for which level is selected and calls that level method  
+				
+ //checks Level Panel combobox for which level is selected and calls that level method
 				lp.setLevel(Integer.parseInt((String) gp.getCblevelList().getSelectedItem()));
 
-				//Added here to handle lives 
+				
+ //Added here to handle lives
 				lp.setSex(op.getSex());
 				lp.setRace(op.getRace());
 				lp.setDifficulty(op.getDifficulty());
 				lp.getCr().setLevel(lp.getLevel());
 
-				lp.createCharacter();  
+				lp.createCharacter();
 				
-				//Added to send race to SL 
+				
+ //Added to send race to SL
 				lp.getSl().setRace(op.getRace());
 				lp.getSl().addLives();
 				lp.getCr().setAvatar();
 
-				//removes Game Panel 
-				//Adds Level Panel
+				
+ //removes Game Panel
+				
+ //Adds Level Panel
 				remove(gp);
 				add(lp);
 
-				//gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X" 
-				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
+				
+ //gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X"
+				
+ //gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
 				lp.getSl().setLevelButton(lp.getLevel());
 				lp.getSl().addStartLevel(lp.getLevel());
 
-				//checks Level Panel level variable and calls that level method 
+				
+ //checks Level Panel level variable and calls that level method
 				if (lp.getLevel() == 1)
 				{
 					lp.level1();
@@ -290,41 +343,52 @@ public class Back_Panel extends JPanel {//
 				{
 					lp.level9();
 				}
-				else {	
+				else {
 					lp.level10();
 				}
 				break;
 
-				//if button is named New Game this case happens 
+				
+ //if button is named New Game this case happens
 			case "New Game":
 
-				//calls Level Panel setlevel method and sets level to 1 
+				
+ //calls Level Panel setlevel method and sets level to 1
 				lp.setLevel(1);
 
-				//gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X" 
-				//gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
+				
+ //gets level from Level Panel and calls Scorelife Panel set LevelButton method which sets the "X" in JButton "Start Level X"
+				
+ //gets level from Level Panel and calls add start level method which places "Start Level X" (X=current level) on the screen
 				lp.getSl().setLevelButton(lp.getLevel());
 				lp.getSl().addStartLevel(lp.getLevel());
 
-				//send Race,Sex to lp
+				
+ //send Race,Sex to lp
 				lp.setSex(op.getSex());
 				lp.setRace(op.getRace());
-				//send Difficulty to Level Class 
+				
+ //send Difficulty to Level Class
 				lp.setDifficulty(op.getDifficulty());
 				lp.getCr().setAvatar();
-				lp.createCharacter(); 
-				//added to send race to SL 
+				lp.createCharacter();
+				
+ //added to send race to SL
 				lp.getSl().setRace(op.getRace());
 				lp.getSl().addLives();
-				//Remove Game Panel 
-				//Adds Level Panel
+				
+ //Remove Game Panel
+				
+ //Adds Level Panel
 				remove(gp);
 				add(lp);
-				//calls Level Panel Level 1 Method 
-				lp.level1(); 
+				
+ //calls Level Panel Level 1 Method
+				lp.level1();
 				break;
 
-				//  if button is named  Start Level 1 or Start Level 2 or Start Level 3 or Start Level 4 or Start Level 5 or ... 
+				
+ //  if button is named  Start Level 1 or Start Level 2 or Start Level 3 or Start Level 4 or Start Level 5 or ...
 			case "Start Level 1":
 			case "Start Level 2":
 			case "Start Level 3":
@@ -336,11 +400,13 @@ public class Back_Panel extends JPanel {//
 			case "Start Level 9":
 			case "Start Level 10":
 
-				//calls Level Panel set level grid 
-				lp.setLevelGrid();
-				break;	
 				
-			default:break;//added for errors
+ //calls Level Panel set level grid
+				lp.setLevelGrid();
+				break;
+				
+			default:break;
+ //added for errors
 				
 
 			}
@@ -364,13 +430,15 @@ public class Back_Panel extends JPanel {//
 
 
 
-	//used to get fontstyle 
-	public static String getFontStyle() 
+	
+ //used to get fontstyle
+	public static String getFontStyle()
 	{
 		return fontStyle;
 	}
 
-	//used get buttontile background 
+	
+ //used get buttontile background
 	public static String getButtonTile()
 	{
 		return buttontile;
@@ -383,7 +451,8 @@ public class Back_Panel extends JPanel {//
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			//required for method
+			
+ //required for method
 		}
 
 		@Override
@@ -423,7 +492,8 @@ public class Back_Panel extends JPanel {//
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
-			// TODO Auto-generated method stub
+			
+ // TODO Auto-generated method stub
 			
 		}
 	}
@@ -431,12 +501,3 @@ public class Back_Panel extends JPanel {//
 
 
 }
-
-
-
-
-
-
-
-
-

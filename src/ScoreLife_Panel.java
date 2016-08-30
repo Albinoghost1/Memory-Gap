@@ -3,9 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 
 @SuppressWarnings("serial")
-public class ScoreLife_Panel extends JPanel { //Panel created to display life and score 
+public class ScoreLife_Panel extends JPanel {
+ //Panel created to display life and score
 
-	// attributes 
+	
+ // attributes
 
 	 private JLabel life1;
 	 private JLabel life2;
@@ -26,11 +28,12 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 	 private String fontStyle = Back_Panel.getFontStyle();
 
-	public ScoreLife_Panel() { 
+	public ScoreLife_Panel() {
 		super();
 		setLayout(null);
 
-		//constructor objects
+		
+ //constructor objects
 
 		life1 = new JLabel();
 		life2 = new JLabel();
@@ -67,8 +70,8 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 		getBnextLevel().setForeground(Color.white);
 		getBnextLevel().setHorizontalTextPosition(AbstractButton.CENTER);
 
-		for (int i=0;i<11;i++){ 
-			getBstartLevel()[i] = new JButton("Start Level "+ i);	
+		for (int i=0;i<11;i++){
+			getBstartLevel()[i] = new JButton("Start Level "+ i);
 			getBstartLevel()[i].setBounds(350,10,150,50);
 			getBstartLevel()[i].setFont(new Font(fontStyle, Font.BOLD,20));
 			getBstartLevel()[i].setIcon(new ImageIcon("images/buttontile.png"));
@@ -81,18 +84,23 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	
 	
 	
-	//accessors and mutators
+	
+ //accessors and mutators
 
-	public void setDiff(int d){ //accessor to set difficulty for timer//
+	public void setDiff(int d){
+ //accessor to set difficulty for timer
+ //
 
 		difficulty = d;
 
 	}
 
-	public void setRace(String r){//
+	public void setRace(String r){
+ //
 		race = r;
 	}
-	public void setLives(){//
+	public void setLives(){
+ //
 
 		if (difficulty ==3){
 			lives=1;
@@ -107,7 +115,8 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	}
 
 
-	// Other Methods 
+	
+ // Other Methods
 
 	public void addLives(){
 
@@ -128,7 +137,8 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 
 	}
-	public void removeLife() //
+	public void removeLife()
+ //
 	{
 				
 		if (!"Potato".equals(race)){
@@ -159,7 +169,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 
 
 
-	public void addMenu() 
+	public void addMenu()
 	{
 		add(getBmenu());
 
@@ -188,7 +198,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	{
 		remove(getBnextLevel());
 		for (int i=0;i<11;i++){
-			remove(getBstartLevel()[i]);	
+			remove(getBstartLevel()[i]);
 		}
 
 	}
@@ -196,7 +206,7 @@ public class ScoreLife_Panel extends JPanel { //Panel created to display life an
 	public void addStartLevel(int level)
 	{
 		for (int i=0;i<11;i++){
-			remove(getBstartLevel()[i]);	
+			remove(getBstartLevel()[i]);
 		}
 		
 		add (getBstartLevel()[level]);

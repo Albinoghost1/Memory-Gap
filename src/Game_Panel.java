@@ -9,37 +9,48 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Game_Panel extends JPanel {
-	//added to display picks 
+	
+ //added to display picks
 	private String race= "Human";
 	private int difficulty;
 	private String sex;
 
-	private JButton bmenu; //menu button JD
-	private JButton bnewGame; // new game button JD
-	private JButton bcontinue; // continue button JD
+	private JButton bmenu;
+ //menu button JD
+	private JButton bnewGame;
+ // new game button JD
+	private JButton bcontinue;
+ // continue button JD
 
-	private JLabel gtitle = new JLabel("Memory Gap"); //text for title JD
+	private JLabel gtitle = new JLabel("Memory Gap");
+ //text for title JD
 
-	// JLabels to display race and difficulty//
+	
+ // JLabels to display race and difficulty
+ //
 	private JLabel grace = new JLabel("Race: ");
 	private JLabel gdiff = new JLabel("Difficulty: ");
 	private JLabel selecteddiff = new JLabel("");
 	private JButton selectedRace = new JButton("");
 
-	private String fontStyle = Back_Panel.getFontStyle(); //gets fontstyle from Back Panel JD
+	private String fontStyle = Back_Panel.getFontStyle();
+ //gets fontstyle from Back Panel JD
 
 	private static String[] ComboboxStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-	@SuppressWarnings({ "unchecked", "rawtypes" }) 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private JComboBox cblevelList = new JComboBox(ComboboxStrings);
 
-	public Game_Panel() { //Constructor
+	public Game_Panel() {
+ //Constructor
 
 		super();
 		setLayout(null);
 
-		gtitle.setBounds(245, 70, 400, 100); //sets location of title JD
-		gtitle.setFont(new Font(fontStyle, Font.BOLD, 50)); //sets font of title JD
+		gtitle.setBounds(245, 70, 400, 100);
+ //sets location of title JD
+		gtitle.setFont(new Font(fontStyle, Font.BOLD, 50));
+ //sets font of title JD
 
 		grace.setBounds(330, 600, 50, 50);
 		grace.setFont(new Font(fontStyle, Font.BOLD, 30));
@@ -52,18 +63,28 @@ public class Game_Panel extends JPanel {
 		setBnewGame(new JButton("New Game"));
 		setBcontinue(new JButton("Continue"));
 
-		getBmenu().setBounds(200,350,150,50); //sets location of menu button JD
-		getBnewGame().setBounds(200, 400, 150, 50); //sets location of new game button JD
-		getBcontinue().setBounds(200, 450, 150, 50); //sets location of continue button JD
+		getBmenu().setBounds(200,350,150,50);
+ //sets location of menu button JD
+		getBnewGame().setBounds(200, 400, 150, 50);
+ //sets location of new game button JD
+		getBcontinue().setBounds(200, 450, 150, 50);
+ //sets location of continue button JD
 		
-		//add(gtitle); //adds title JD
-		add(getBmenu()); //adds menu button JD
-		add(getBnewGame()); //adds new game button JD
-		add(getBcontinue()); //adds continue button JD
+		
+ //add(gtitle);
+ //adds title JD
+		add(getBmenu());
+ //adds menu button JD
+		add(getBnewGame());
+ //adds new game button JD
+		add(getBcontinue());
+ //adds continue button JD
 
-		getCblevelList().setBounds(220, 615, 100, 25); //sets location of levellist combobox JD
+		getCblevelList().setBounds(220, 615, 100, 25);
+ //sets location of levellist combobox JD
 		getCblevelList().setSelectedItem(1);
-		add(getCblevelList());//adds combobox JD
+		add(getCblevelList());
+ //adds combobox JD
 
 		getBmenu().setToolTipText("Return To Main Menu");
 		getBnewGame().setToolTipText("New Game");
@@ -91,7 +112,8 @@ public class Game_Panel extends JPanel {
 		add(buttonName);
 	}
 	
-	 //Method created to handle display of race and diff 
+	 
+ //Method created to handle display of race and diff
 	 public void displayRaceDif(String r, String s, int d,String loc){
 		this.race = r;
 		this.difficulty = d;
@@ -154,7 +176,8 @@ public class Game_Panel extends JPanel {
 
 	}
 
-	public void paintComponent (Graphics g) //method to set background 
+	public void paintComponent (Graphics g)
+ //method to set background
 	{
 		super.paintComponent(g);
 		Image myImage = Toolkit.getDefaultToolkit().getImage("images/background.jpg");
@@ -194,4 +217,3 @@ public class Game_Panel extends JPanel {
 		this.cblevelList = cblevelList;
 	}
 }
-
